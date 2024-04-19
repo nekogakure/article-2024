@@ -1,9 +1,9 @@
 {
   "info":[
     {
-      "name":"test",
+      "name":"First test",
       "thumbnail":"/data/test/thumbnail.png",
-      "title":"test...test...",
+      "title":"First test!",
       "html":"/data/test/index.html"
     }
   ]
