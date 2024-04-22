@@ -5,4 +5,5 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - run: ls /home/runner/work/The-Infinitys/BLOG/
+      - run: cat /home/runner/work/The-Infinitys/BLOG/list/1.json
