@@ -5,6 +5,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: ls /home/runner/work/BLOG/data/
+      - run: ls /home/runner/work/BLOG/
       - run: echo "start checking repos..."
       - run:  echo "途中です"
