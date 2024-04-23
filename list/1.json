@@ -1,6 +1,12 @@
 {
   "info": [
     {
+      "name":"SEO-1",
+      "thumbnail":"/data/SEO_1/thumbnail.png",
+      "title":"SEO対策やってみた その一",
+      "html":"/data/SEO_1/index.html"
+    },
+    {
       "name": "I think about Scratch",
       "thumbnail": "/data/i_think_about_scratch/thumbnail.png",
       "title": "Scratchについて思うこと",
