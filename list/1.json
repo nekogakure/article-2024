@@ -1,10 +1,16 @@
 {
-  "info":[
+  "info": [
     {
-      "name":"First test",
-      "thumbnail":"/data/test/thumbnail.png",
-      "title":"First test!",
-      "html":"/data/test/index.html"
+      "name": "I think about Scratch",
+      "thumbnail": "/data/i_think_about_scratch/thumbnail.png",
+      "title": "Scratchについて思うこと",
+      "html": "/data/i_think_about_scratch/index.html"
+    },
+    {
+      "name": "First test",
+      "thumbnail": "/data/test/thumbnail.png",
+      "title": "First test!",
+      "html": "/data/test/index.html"
     }
   ]
 }
