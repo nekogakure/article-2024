@@ -2,19 +2,19 @@
   "info": [
     {
       "name":"SEO-1",
-      "thumbnail":"/BLOG/data/SEO_1/thumbnail.png",
+      "thumbnail":"/blog-data/data/SEO_1/thumbnail.png",
       "title":"SEO対策やってみた その一",
       "html":"/BLOG/data/SEO_1/index.html"
     },
     {
       "name": "I think about Scratch",
-      "thumbnail": "/BLOG/data/i_think_about_scratch/thumbnail.png",
+      "thumbnail": "/blog-data/data/i_think_about_scratch/thumbnail.png",
       "title": "Scratchについて思うこと",
       "html": "/BLOG/data/i_think_about_scratch/index.html"
     },
     {
       "name": "First test",
-      "thumbnail": "/BLOG/data/test/thumbnail.png",
+      "thumbnail": "/blog-data/data/test/thumbnail.png",
       "title": "First test!",
       "html": "/BLOG/data/test/index.html"
     }
