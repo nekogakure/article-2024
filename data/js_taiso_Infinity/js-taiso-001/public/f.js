@@ -5,5 +5,5 @@
  * @return {number}
  */
 export default function f(x) {
-  return 0;
+  return (x%0.2);
 }
