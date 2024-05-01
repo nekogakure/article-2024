@@ -1,6 +1,12 @@
 {
   "info": [
     {
+      "name":"js-taiso-infinity",
+      "thumbnail":"/blog-data/data/js_taiso_Infinity/thumbnail.jpeg",
+      "title":"JavaScriptで頭の体操！",
+      "html":"/blog-data/data/js_taiso_Infinity/index.html"
+    },
+    {
       "name":"SEO-1",
       "thumbnail":"/blog-data/data/SEO_1/thumbnail.png",
       "title":"SEO対策やってみた その一",
