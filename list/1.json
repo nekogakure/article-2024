@@ -17,12 +17,6 @@
       "thumbnail": "/blog-data/data/i_think_about_scratch/thumbnail.png",
       "title": "Scratchについて思うこと",
       "html": "/blog-data/data/i_think_about_scratch/index.html"
-    },
-    {
-      "name": "First test",
-      "thumbnail": "/blog-data/data/test/thumbnail.png",
-      "title": "First test!",
-      "html": "/blog-data/data/test/index.html"
     }
   ]
 }
