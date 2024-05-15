@@ -301,7 +301,6 @@ class Animation {
         ghost: afterdata.effects.ghost - beforedata.effects.ghost,
       };
       let x = (t - keys[index]) / (keys[index + 1] - keys[index]);
-      console.log(x)
       if (easingInfo.type == "linear") {
         x = this.#easing.linear(x);
       } else if (easingInfo.type == "in") {
@@ -394,21 +393,24 @@ class Animation {
   }
 }
 const animation = new Animation();
-animation.addAnimation(0.5, {
-  pos: { x: 100, y: 100, },
+animation.addAnimation(0.5, data = {
+  pos: { x: 100, y: 100 },
   direction: 0,
   size: 200,
   effects: { color: 0, ghost: 0 }
-}, { type: "inout", args: { level: 0.5 } }
+},
+  easing = { type: "inout", args: { level: 0.1 } }
 )
 const canvas = document.querySelector("canvas");
 const graphics = canvas.getContext("2d");
 let i = 0;
 setInterval(() => {
   graphics.clearRect(0, 0, canvas.width, canvas.height);
+  i=(i+1/100)%1;
   const animation_info = animation.getPos(i);
   const x = animation_info.pos.x;
   const y = animation_info.pos.y;
   const size = animation_info.size;
-  graphics.rect(x, y, size, size);
-},100);
+  graphics.fill="#ff0000";
+  graphics.rect(0, 0, 100, 100);
+}, 100);
