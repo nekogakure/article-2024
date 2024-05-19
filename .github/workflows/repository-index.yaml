@@ -1,0 +1,9 @@
+name: The-Infinitys_Blog-API
+run-name: Blog-API is renewing...
+on: push
+jobs:
+  add_text:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python ./.github/workflows/repository-index.py
