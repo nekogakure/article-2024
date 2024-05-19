@@ -26,7 +26,6 @@ def end():
   print(json.dumps(result_obj,indent=2))
   f.close()
 def renew():
-  os.system("rm -R blog-data")
   os.system("git config user.name github-actions")
   os.system("git config user.email github-actions@github.com")
   os.system("git add .")
