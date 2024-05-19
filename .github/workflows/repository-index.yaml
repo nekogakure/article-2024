@@ -1,8 +1,10 @@
 name: The-Infinitys_Blog-index
 run-name: making repository-index...
 on: push
+permissions:
+  repository-projects: write
 jobs:
-  add_text:
+  repository_index:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
