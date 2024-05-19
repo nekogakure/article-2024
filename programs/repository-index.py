@@ -30,6 +30,6 @@ def renew():
   os.system("git config user.email github-actions@github.com")
   os.system("git add .")
   os.system("git commit -m \"update blog-data repository-index\"")
-  os.system("git push")
+  os.system("git push origin main")
 end()
 renew()
