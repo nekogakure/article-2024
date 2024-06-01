@@ -179,9 +179,17 @@
         "Scratch-messages-count-tool": {
           "files": [
             "thumbnail.png",
+            "messagescount.js",
             "index.html"
           ],
-          "folders": {}
+          "folders": {
+            "img": {
+              "files": [
+                "messagescount.js.png"
+              ],
+              "folders": {}
+            }
+          }
         }
       }
     },
@@ -302,12 +310,6 @@
               ],
               "folders": {}
             },
-            "9c": {
-              "files": [
-                "704b0318d46309dd3fa30c42e3970dc6c08e04"
-              ],
-              "folders": {}
-            },
             "fa": {
               "files": [
                 "50cbe6d7ce23994045a9ce8e2ff69820a059ba"
@@ -356,12 +358,6 @@
               ],
               "folders": {}
             },
-            "5a": {
-              "files": [
-                "9fbf725eff47651380d93c734cfdc5e4550e0d"
-              ],
-              "folders": {}
-            },
             "08": {
               "files": [
                 "647554b9a9916be57d43602fe3e33296e1818e"
@@ -386,21 +382,27 @@
               ],
               "folders": {}
             },
-            "ca": {
-              "files": [
-                "ed9d0b31832c379c6cf6de12a1e4e099930c22"
-              ],
-              "folders": {}
-            },
             "a2": {
               "files": [
                 "8cdde665b0422bd336bab6287cbe61d86be153"
               ],
               "folders": {}
             },
+            "41": {
+              "files": [
+                "71439ce07e84163ca484d051554e4cc8a4bc7b"
+              ],
+              "folders": {}
+            },
             "c6": {
               "files": [
                 "c4dd93e8b8685fcdef5f900a8bcf449a8778be"
+              ],
+              "folders": {}
+            },
+            "28": {
+              "files": [
+                "b10000198a98a79aa60bab7919261c2101f139"
               ],
               "folders": {}
             },
@@ -418,6 +420,7 @@
             },
             "e0": {
               "files": [
+                "bdab642f1f9e8e0e4f36e9e347e43d576136d4",
                 "1434d6993d27f715448c7a4b57337ba6dc478d"
               ],
               "folders": {}
@@ -439,6 +442,12 @@
                 "c495ebfab9f5d593ae9447563a2437b21a9c3e",
                 "0583208b205aba63ed223d2384050c43f9e13d",
                 "06c1093b86fd349f397937b86a7c62d305df48"
+              ],
+              "folders": {}
+            },
+            "df": {
+              "files": [
+                "06c79e42b6cea52681ac7b71ea97a8613a7187"
               ],
               "folders": {}
             },
@@ -480,6 +489,7 @@
             },
             "8d": {
               "files": [
+                "948d1dd376bea0f805985f5a0b8734e9a98c75",
                 "57f897d1c7e9b35e5f049e2471be49fc96095b"
               ],
               "folders": {}
@@ -583,6 +593,12 @@
               ],
               "folders": {}
             },
+            "88": {
+              "files": [
+                "59684f857cbbe6f31fba53c3c8d1c14b28d064"
+              ],
+              "folders": {}
+            },
             "d9": {
               "files": [
                 "e8c640d97baee05d830c7dae7ea7875ea0978c"
@@ -602,6 +618,12 @@
             "89": {
               "files": [
                 "9a3489c28336e6df09b65fcc9a841fb3af6b1f"
+              ],
+              "folders": {}
+            },
+            "12": {
+              "files": [
+                "8b706a61511cbd7c9e2bf0e96f32436d1312fc"
               ],
               "folders": {}
             },
@@ -630,9 +652,9 @@
               ],
               "folders": {}
             },
-            "56": {
+            "14": {
               "files": [
-                "4474c8369a6cfdf1495eb1ccb9d30d924e4d18"
+                "54f96bba918f4f2de3e013694d148b09835bde"
               ],
               "folders": {}
             },
@@ -698,14 +720,7 @@
             },
             "cf": {
               "files": [
-                "8f783622a1107c589c507fd937d0307c6eb604",
-                "6cb2ef235409545a9ba07ac8ad516ff5515027"
-              ],
-              "folders": {}
-            },
-            "02": {
-              "files": [
-                "1b8e467c03bae849f3afe354946a9d961f4608"
+                "8f783622a1107c589c507fd937d0307c6eb604"
               ],
               "folders": {}
             },
@@ -722,6 +737,12 @@
             "e1": {
               "files": [
                 "2f3ba46ecb7e2bac8bdbf1b998cdda0b30de5e"
+              ],
+              "folders": {}
+            },
+            "ae": {
+              "files": [
+                "60496344aa0758a300c829be44069e0b228534"
               ],
               "folders": {}
             },
