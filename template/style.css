@@ -24,8 +24,8 @@ body {
 }
 
 #article-title {
-  margin-left:10vw;
-  margin-top:15vh;
+  margin-left: 10vw;
+  margin-top: 15vh;
   color: var(--article-text);
 }
 
@@ -39,11 +39,13 @@ body {
   overflow: hidden;
   overflow-wrap: break-word;
 }
-#article-index{
+
+#article-index {
   position: fixed;
-  width:30%;
-  height:80%;
-  top:15%;
-  left:65%;
-  background-color: #fff;
+  width: 30%;
+  height: 80%;
+  top: 15%;
+  left: 65%;
+  color: var(--article-text);
+  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
 }
