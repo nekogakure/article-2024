@@ -9,6 +9,7 @@
 }
 
 body{
+  margin:10vw 10vw;
   background-color: var(--background);
   color:var(--text);
 }
