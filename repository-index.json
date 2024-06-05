@@ -74,6 +74,15 @@
         }
       }
     },
+    "template": {
+      "files": [
+        "script.js",
+        "style.css",
+        "index.html",
+        "codeswing.json"
+      ],
+      "folders": {}
+    },
     "2024-5": {
       "files": [],
       "folders": {
@@ -337,9 +346,9 @@
             },
             "pack": {
               "files": [
-                "pack-3d473a1d755ef5ae2638b868681b0fa50e296075.pack",
-                "pack-3d473a1d755ef5ae2638b868681b0fa50e296075.rev",
-                "pack-3d473a1d755ef5ae2638b868681b0fa50e296075.idx"
+                "pack-9cf101aae71346fd27d6c378ca3b713074df6de1.pack",
+                "pack-9cf101aae71346fd27d6c378ca3b713074df6de1.idx",
+                "pack-9cf101aae71346fd27d6c378ca3b713074df6de1.rev"
               ],
               "folders": {}
             }
