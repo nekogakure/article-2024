@@ -219,6 +219,13 @@
           ],
           "folders": {}
         },
+        "to-use-site-generator": {
+          "files": [
+            "thumbnail.png",
+            "index.html"
+          ],
+          "folders": {}
+        },
         "Scratch-messages-count-tool": {
           "files": [
             "thumbnail.png",
@@ -323,9 +330,9 @@
             },
             "pack": {
               "files": [
-                "pack-301adfe50884b0af15f7567ebd51bc00d2b95064.pack",
-                "pack-301adfe50884b0af15f7567ebd51bc00d2b95064.idx",
-                "pack-301adfe50884b0af15f7567ebd51bc00d2b95064.rev"
+                "pack-279022002f5fc87e895659c0289a7a8d24bfcb4f.idx",
+                "pack-279022002f5fc87e895659c0289a7a8d24bfcb4f.pack",
+                "pack-279022002f5fc87e895659c0289a7a8d24bfcb4f.rev"
               ],
               "folders": {}
             }
