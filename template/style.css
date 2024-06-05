@@ -46,6 +46,7 @@ body {
   height: 80%;
   top: 15%;
   left: 65%;
+  overflow: scroll;
   color: var(--article-text);
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
 }
