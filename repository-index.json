@@ -1,7 +1,6 @@
 {
   "files": [
     "repository-index.json",
-    "templete.html",
     "main.css"
   ],
   "folders": {
@@ -346,9 +345,9 @@
             },
             "pack": {
               "files": [
-                "pack-ad5dc878cd8415a2e4fd0415f0087c82a3b2e6fb.rev",
-                "pack-ad5dc878cd8415a2e4fd0415f0087c82a3b2e6fb.idx",
-                "pack-ad5dc878cd8415a2e4fd0415f0087c82a3b2e6fb.pack"
+                "pack-66b5b74c1ff3398e48eb327a3efc2398e350dab2.idx",
+                "pack-66b5b74c1ff3398e48eb327a3efc2398e350dab2.rev",
+                "pack-66b5b74c1ff3398e48eb327a3efc2398e350dab2.pack"
               ],
               "folders": {}
             }
