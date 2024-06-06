@@ -225,6 +225,20 @@
           ],
           "folders": {}
         },
+        "update-blog-to-article": {
+          "files": [
+            "thumbnail.png",
+            "index.html"
+          ],
+          "folders": {
+            "img": {
+              "files": [
+                "demo.jpeg"
+              ],
+              "folders": {}
+            }
+          }
+        },
         "to-use-site-generator": {
           "files": [
             "thumbnail.png",
@@ -345,9 +359,9 @@
             },
             "pack": {
               "files": [
-                "pack-5b8e7b417f50a88bda9eb6605653438b9c8db179.pack",
-                "pack-5b8e7b417f50a88bda9eb6605653438b9c8db179.rev",
-                "pack-5b8e7b417f50a88bda9eb6605653438b9c8db179.idx"
+                "pack-f87f6c71502e90564b0dc15a3575aaa591c8f1ca.pack",
+                "pack-f87f6c71502e90564b0dc15a3575aaa591c8f1ca.idx",
+                "pack-f87f6c71502e90564b0dc15a3575aaa591c8f1ca.rev"
               ],
               "folders": {}
             }
