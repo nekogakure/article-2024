@@ -33,11 +33,13 @@ for (let i = 0; i < article_box.children.length; ++i) {
   }
 }
 //add style
-let The_Infinitys_js = document.createElement("script");
-The_Infinitys_js.src = "https://"+new URL(window.location.href).hostname+"/The-Infinitys-Infinity/The-Infinitys.js";
-document.body.append(The_Infinitys_js);
 fetch("https://"+new URL(window.location.href).hostname+"/The-Infinitys-Infinity/The-Infinitys.css").then(res => res.text()).then(style => {
   const The_Infinitys_css = document.createElement("style");
   The_Infinitys_css.innerHTML = style;
   document.body.append(The_Infinitys_css);
+}).catch(err => alert(err));
+fetch("https://"+new URL(window.location.href).hostname+"/The-Infinitys-Infinity/The-Infinitys.js").then(res => res.text()).then(style => {
+  const The_Infinitys_js = document.createElement("script");
+  The_Infinitys_js.innerHTML = style;
+  document.body.append(The_Infinitys_js);
 }).catch(err => alert(err));
