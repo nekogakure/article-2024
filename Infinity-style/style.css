@@ -46,7 +46,6 @@ body {
   position: fixed;
   width: 30%;
   height: 80%;
-  top: 15%;
   left: 65%;
   overflow: scroll;
   color: var(--article-text);
