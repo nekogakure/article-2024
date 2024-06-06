@@ -7,14 +7,13 @@ article_box.innerHTML = article_text;
 document.body.append(article_box);
 //add title
 const title_elem = document.querySelector("title");
-const article_title = document.createElement("h1");
+const article_title = document.createElement("div");
 article_title.id = "article-title";
-article_title.innerHTML = title_elem.innerHTML;
+article_title.innerHTML = "<h1>" + title_elem.innerHTML + "</h1>";
 document.body.prepend(article_title);
 //add index
 const article_index = document.createElement("div");
 article_index.id = "article-index";
-article_index.innerHTML = "<h1>" + article_title.innerHTML + "</h1>";
 document.body.append(article_index);
 for (let i = 0; i < article_box.children.length; ++i) {
   const article_box_child = article_box.children[i];

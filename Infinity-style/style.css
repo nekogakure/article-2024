@@ -26,6 +26,9 @@ body {
 #article-title {
   margin-left: 10vw;
   margin-top: 15vh;
+  width:50%;
+  height:auto;
+  text-wrap: wrap;
   color: var(--article-text);
 }
 
