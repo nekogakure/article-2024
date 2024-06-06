@@ -43,16 +43,3 @@ fetch("https://" + new URL(window.location.href).hostname + "/The-Infinitys-Infi
   The_Infinitys_js.innerHTML = style;
   document.body.append(The_Infinitys_js);
 }).catch(err => alert(err));
-
-const move_index = () => {
-  const article_index = document.querySelector("#article-index");
-  let article_index_top = document.body.scrollTop + window.innerHeight * 0.25;
-  const footer = document.querySelector("footer");
-  if (footer != null) {
-    article_index_top = Math.min(article_index_top, document.body.scrollHeight - footer.clientHeight - 0.85 * window.innerHeight);
-  }
-  article_index.top = article_index_top;
-}
-document.body.onscroll = () => {
-  move_index();
-}
