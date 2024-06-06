@@ -33,7 +33,6 @@ body {
   margin-top: 5vh;
   margin-left: 10vw;
   margin-bottom:5vh;
-  
   width: 50%;
   height: auto;
   color: var(--article-text);
@@ -43,13 +42,11 @@ body {
 }
 
 #article-index {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   width: 30%;
-  height: 80%;
+  height: 60%;
+  top:30%;
   left: 65%;
-  top:25%;
-  bottom:50%;
   overflow: scroll;
   color: var(--article-text);
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
