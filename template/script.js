@@ -22,16 +22,14 @@ for (let i = 0; i < article_box.children.length; ++i) {
   if (article_box_child.tagName in tags) {
     const index_text = document.createElement(article_box_child.tagName);
     index_text.innerHTML = article_box_child.innerHTML;
-    const index_button = document.createElement("button");
-    index_button.innerHTML = index_text.outerHTML;
-    index_button.onclick = () => {
+    index_text.onclick = () => {
       article_box_child.scrollIntoView({
         behavior: 'smooth',
         block: 'end',
         inline: 'center'
       });
     }
-    document.querySelector("#article-index").append(index_button);
+    document.querySelector("#article-index").append(index_text);
   }
 }
 //add style
