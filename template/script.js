@@ -22,15 +22,24 @@ for (let i = 0; i < article_box.children.length; ++i) {
   if (article_box_child.tagName in tags) {
     const index_text = document.createElement(article_box_child.tagName);
     index_text.innerHTML = article_box_child.innerHTML;
-    document.querySelector("#article-index").append(index_text);
+    const index_button = document.createElement("button");
+    index_button.innerHTML = index_text.outerHTML;
+    index_button.onclick = () => {
+      article_box_child.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'center'
+      });
+    }
+    document.querySelector("#article-index").append(index_button);
   }
 }
 //add style
 let The_Infinitys_js = document.createElement("script");
 The_Infinitys_js.src = "/The-Infinitys-Infinity/The-Infinitys.js";
 document.body.append(The_Infinitys_js);
-fetch("/The-Infinitys-Infinity/The-Infinitys.css").then(res => res.text()).then(style => { 
-  const The_Infinitys_css =document.createElement("style");
-  The_Infinitys_css.innerHTML=style;
+fetch("/The-Infinitys-Infinity/The-Infinitys.css").then(res => res.text()).then(style => {
+  const The_Infinitys_css = document.createElement("style");
+  The_Infinitys_css.innerHTML = style;
   document.body.append(The_Infinitys_css);
-}).catch(err=>alert(err));
+}).catch(err => alert(err));
