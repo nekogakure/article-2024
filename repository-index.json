@@ -175,6 +175,12 @@
     "2024-6": {
       "files": [],
       "folders": {
+        "markdown-test2": {
+          "files": [
+            "article.md"
+          ],
+          "folders": {}
+        },
         "AI_technology_with_The-Infinitys": {
           "files": [
             "index.html",
@@ -360,9 +366,9 @@
             },
             "pack": {
               "files": [
-                "pack-0475753103cf5a73f40cc511956ac0da59e69352.rev",
-                "pack-0475753103cf5a73f40cc511956ac0da59e69352.idx",
-                "pack-0475753103cf5a73f40cc511956ac0da59e69352.pack"
+                "pack-ccf4154480049d9e7da7b3797300f423ea63f179.idx",
+                "pack-ccf4154480049d9e7da7b3797300f423ea63f179.rev",
+                "pack-ccf4154480049d9e7da7b3797300f423ea63f179.pack"
               ],
               "folders": {}
             }
