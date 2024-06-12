@@ -62,3 +62,4 @@ for article_dir in listfolders(root_dir):
     with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
       f.write(article_temp_head+markdown_text+article_temp_foot)
       f.close()
+renew()
