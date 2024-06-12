@@ -2,7 +2,6 @@ import datetime
 import os;os.system("pip install markdown")
 import markdown
 from sys import exit
-import json
 article_temp_head='''
 <!DOCTYPE html>
 <html lang="Ja">
@@ -47,13 +46,10 @@ for article_dir in listfolders(root_dir):
   path = root_dir+"/"+article_dir
   file_names = listfiles(path)
   index_path = None
-  thumbnail_path = None
   article_path=None
   for file_name in file_names:
     if file_name.startswith("index"):
       index_path=file_name
-    elif file_name.startswith("thumbnail"):
-      thumbnail_path = file_name
     elif file_name==("article.md"):
       article_path=file_name
   if article_path!=None:
