@@ -67,7 +67,7 @@ for article_dir in listfolders(root_dir):
     html_text=markdown.markdown(markdown_result)
     html_result=""
     for html_line in html_text.split("\n"):
-      html_result+=" "*4+html_text+"\n"
+      html_result+=" "*4+html_line+"\n"
     if index_path!=None:
       os.system("rm "+root_dir+"/"+article_dir+"/"+index_path)
     with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
