@@ -66,9 +66,10 @@ for article_dir in listfolders(root_dir):
             markdown_title=markdown_line[8:]
           elif markdown_line.startswith("```"):
             if code_mode:
-              markdown_result+="</pre\n"
+              markdown_result+="</pre>\n"
             else:
               markdown_result+="<pre>\n"
+            code_mode = not code_mode
           elif code_mode:
             markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")+"</code>"
       return markdown.markdown(markdown_result)
