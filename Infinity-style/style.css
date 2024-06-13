@@ -70,3 +70,16 @@ body {
     width: 90%;
   }
 }
+
+pre {
+  position:relative;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  background-color: #888;
+  color: var(--article-text);
+  border-left: 2px #004c25 solid;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
