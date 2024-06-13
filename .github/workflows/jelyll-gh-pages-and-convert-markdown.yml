@@ -22,6 +22,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # convert markdown
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull
+      - run: pip install markdown
+      - run: python ./programs/markdown-converter.py
   # Build job
   build:
     runs-on: ubuntu-latest
