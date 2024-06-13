@@ -79,9 +79,8 @@ for article_dir in listfolders(root_dir):
     html_result=""
     for html_line in html_text.split("\n"):
       html_result+=" "*4+html_line+"\n"
-    if index_path!=None:
-      os.system("rm "+root_dir+"/"+article_dir+"/"+index_path)
-    with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
-      f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
-      f.close()
+    if index_path==None:
+      with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
+        f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
+        f.close()
 renew()
