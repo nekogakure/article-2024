@@ -177,6 +177,7 @@
       "folders": {
         "markdown-test2": {
           "files": [
+            "thumbnail.png",
             "article.md",
             "index.html"
           ],
@@ -368,9 +369,9 @@
             },
             "pack": {
               "files": [
-                "pack-aa45b14b059ef664b64a142f13a79871ad531f80.rev",
-                "pack-aa45b14b059ef664b64a142f13a79871ad531f80.idx",
-                "pack-aa45b14b059ef664b64a142f13a79871ad531f80.pack"
+                "pack-1008107d4ebd4d8972c318f8be3425df1479e72b.idx",
+                "pack-1008107d4ebd4d8972c318f8be3425df1479e72b.rev",
+                "pack-1008107d4ebd4d8972c318f8be3425df1479e72b.pack"
               ],
               "folders": {}
             }
