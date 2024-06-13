@@ -8,9 +8,9 @@ article_temp_head='''
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script defer src="./script.js"></script>
+    <title>HERE TO THE TITLE</title>
+    <link rel="stylesheet" href="../../Infinity-style/style.css" />
+    <script defer src="../../Infinity-style/script.js"></script>
   </head>
   <body>
 '''
@@ -54,14 +54,23 @@ for article_dir in listfolders(root_dir):
       article_path=file_name
   if article_path!=None:
     markdown_text = ""
+    markdown_title = ""
     with open(root_dir+"/"+article_dir+"/"+article_path,mode="r") as f:
       markdown_text = f.read()
       f.close()
-    print(markdown_text)
-    html_result=markdown.markdown(markdown_text)
+    markdown_result = ""
+    for markdown_line in markdown_text.split("\n"):
+      if markdown_line.startswith("#title: "):
+        markdown_title=markdown_line[8:]
+      else:
+        markdown_result+=markdown_line+"\n"
+    html_text=markdown.markdown(markdown_result)
+    html_result=""
+    for html_line in html_text.split("\n"):
+      html_result+=" "*4+html_text+"\n"
     if index_path!=None:
       os.system("rm "+root_dir+"/"+article_dir+"/"+index_path)
     with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
-      f.write(article_temp_head+html_result+article_temp_foot)
+      f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
       f.close()
 renew()
