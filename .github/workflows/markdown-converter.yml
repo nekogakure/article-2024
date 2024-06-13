@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: git pull
-      - run: pip install bottle markdown
+      - run: pip install markdown
       - run: python ./programs/markdown-converter.py
