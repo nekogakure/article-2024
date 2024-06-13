@@ -1,0 +1,14 @@
+name: The-Infinitys_Blog-markdown
+run-name: converting markdown
+on: push
+jobs:
+  repository_index:
+    permissions:
+      repository-projects: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull
+      - run: pip install markdown
+      - run: python ./programs/markdown-converter.py
