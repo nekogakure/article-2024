@@ -56,13 +56,23 @@ for article_dir in listfolders(root_dir):
     with open(root_dir+"/"+article_dir+"/"+article_path,mode="r") as f:
       markdown_text = f.read()
       f.close()
-    markdown_result = ""
-    for markdown_line in markdown_text.split("\n"):
-      if markdown_line.startswith("#title: "):
-        markdown_title=markdown_line[8:]
-      else:
-        markdown_result+=markdown_line+"\n"
-    html_text=markdown.markdown(markdown_result)
+          
+    def convertmarkdown(markdown_text):
+      global markdown_title
+      markdown_result=""
+      code_mode=False
+      for markdown_line in markdown_text.split("\n"):
+          if markdown_line.startswith("#title: "):
+            markdown_title=markdown_line[8:]
+          elif markdown_line.startswith("```"):
+            if code_mode:
+              markdown_result+="</pre\n"
+            else:
+              markdown_result+="<pre>\n"
+          elif code_mode:
+            markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")"</code>"
+      return markdown.markdown(markdown_result)
+    html_text = convertmarkdown(markdown_text)
     html_result=""
     for html_line in html_text.split("\n"):
       html_result+=" "*4+html_line+"\n"
