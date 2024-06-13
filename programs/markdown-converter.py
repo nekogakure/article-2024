@@ -1,6 +1,5 @@
 import datetime
-import os;os.system("pip install bottle markdown")
-from bottle import route, run
+import os
 import markdown
 from sys import exit
 article_temp_head='''
