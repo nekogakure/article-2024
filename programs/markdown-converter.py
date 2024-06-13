@@ -71,7 +71,7 @@ for article_dir in listfolders(root_dir):
               markdown_result+="<pre>\n"
             code_mode = not code_mode
           elif code_mode:
-            markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")+"</code>"
+            markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")+"</code><br />"
           else:
             markdown_result+=markdown_line+"\n"
       return markdown.markdown(markdown_result)
