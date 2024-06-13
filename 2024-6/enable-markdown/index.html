@@ -22,12 +22,101 @@
     markdownで書くうえで一切htmlを経由せずに書けるように、プログラムで自動化しました。まずは、pythonでスクリプトを書きます。</p>
     <h4>markdown-converter.pyのソースコード</h4>
     <pre>
-    <code>import datetime</code><br /><code>import os</code><br /><code>import markdown</code><br /><code>from sys import exit</code><br /><code>article_temp_head='''</code><br /><code>&lt;!DOCTYPE html&gt;</code><br /><code>&lt;html lang="Ja"&gt;</code><br /><code>  &lt;head&gt;</code><br /><code>    &lt;meta charset="UTF-8" /&gt;</code><br /><code>    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</code><br /><code>    &lt;title&gt;HERE TO THE TITLE&lt;/title&gt;</code><br /><code>    &lt;link rel="stylesheet" href="../../Infinity-style/style.css" /&gt;</code><br /><code>    &lt;script defer src="../../Infinity-style/script.js"&gt;&lt;/script&gt;</code><br /><code>  &lt;/head&gt;</code><br /><code>  &lt;body&gt;</code><br /><code>'''</code><br /><code>article_temp_foot='''</code><br /><code>  &lt;/body&gt;</code><br /><code>&lt;/html&gt;</code><br /><code>'''</code><br /><code>def listfolders(dir_path):</code><br /><code>  result = [</code><br /><code>      f for f in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, f))</code><br /><code>  ]</code><br /><code>  return result</code><br /><code>def listfiles(dir_path):</code><br /><code>  result = [</code><br /><code>      f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))</code><br /><code>  ]</code><br /><code>  return result</code><br /><code>now=datetime.datetime.now()</code><br /><code>now=str(now.year)+"-"+str(now.month)</code><br /><code>root_dir="./"+now</code><br /><code>def renew():</code><br /><code>  os.system("git config user.name github-actions")</code><br /><code>  os.system("git config user.email github-actions@github.com")</code><br /><code>  os.system("git add .")</code><br /><code>  os.system("git commit -m \"convert markdown\"")</code><br /><code>  os.system("git push")</code><br /><code>if not os.path.isdir(root_dir):</code><br /><code>  print("No datas")</code><br /><code>  exit()</code><br /><code>for article_dir in listfolders(root_dir):</code><br /><code>  path = root_dir+"/"+article_dir</code><br /><code>  file_names = listfiles(path)</code><br /><code>  index_path = None</code><br /><code>  article_path=None</code><br /><code>  for file_name in file_names:</code><br /><code>    if file_name.startswith("index"):</code><br /><code>      index_path=file_name</code><br /><code>    elif file_name==("article.md"):</code><br /><code>      article_path=file_name</code><br /><code>  if article_path!=None:</code><br /><code>    markdown_text = ""</code><br /><code>    markdown_title = ""</code><br /><code>    with open(root_dir+"/"+article_dir+"/"+article_path,mode="r") as f:</code><br /><code>      markdown_text = f.read()</code><br /><code>      f.close()</code><br /><code>    markdown_result = ""</code><br /><code>    for markdown_line in markdown_text.split("\n"):</code><br /><code>      if markdown_line.startswith("#title: "):</code><br /><code>        markdown_title=markdown_line[8:]</code><br /><code>      else:</code><br /><code>        markdown_result+=markdown_line+"\n"</code><br /><code>    html_text=markdown.markdown(markdown_result)</code><br /><code>    html_result=""</code><br /><code>    for html_line in html_text.split("\n"):</code><br /><code>      html_result+=" "*4+html_line+"\n"</code><br /><code>    if index_path!=None:</code><br /><code>      os.system("rm "+root_dir+"/"+article_dir+"/"+index_path)</code><br /><code>    with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:</code><br /><code>      f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)</code><br /><code>      f.close()</code><br /><code>renew()</code><br /><code></code><br /></pre>
+    <code>import datetime</code>
+    <code>import os</code>
+    <code>import markdown</code>
+    <code>from sys import exit</code>
+    <code>article_temp_head='''</code>
+    <code>&lt;!DOCTYPE html&gt;</code>
+    <code>&lt;html lang="Ja"&gt;</code>
+    <code>  &lt;head&gt;</code>
+    <code>    &lt;meta charset="UTF-8" /&gt;</code>
+    <code>    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</code>
+    <code>    &lt;title&gt;HERE TO THE TITLE&lt;/title&gt;</code>
+    <code>    &lt;link rel="stylesheet" href="../../Infinity-style/style.css" /&gt;</code>
+    <code>    &lt;script defer src="../../Infinity-style/script.js"&gt;&lt;/script&gt;</code>
+    <code>  &lt;/head&gt;</code>
+    <code>  &lt;body&gt;</code>
+    <code>'''</code>
+    <code>article_temp_foot='''</code>
+    <code>  &lt;/body&gt;</code>
+    <code>&lt;/html&gt;</code>
+    <code>'''</code>
+    <code>def listfolders(dir_path):</code>
+    <code>  result = [</code>
+    <code>      f for f in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, f))</code>
+    <code>  ]</code>
+    <code>  return result</code>
+    <code>def listfiles(dir_path):</code>
+    <code>  result = [</code>
+    <code>      f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))</code>
+    <code>  ]</code>
+    <code>  return result</code>
+    <code>now=datetime.datetime.now()</code>
+    <code>now=str(now.year)+"-"+str(now.month)</code>
+    <code>root_dir="./"+now</code>
+    <code>def renew():</code>
+    <code>  os.system("git config user.name github-actions")</code>
+    <code>  os.system("git config user.email github-actions@github.com")</code>
+    <code>  os.system("git add .")</code>
+    <code>  os.system("git commit -m \"convert markdown\"")</code>
+    <code>  os.system("git push")</code>
+    <code>if not os.path.isdir(root_dir):</code>
+    <code>  print("No datas")</code>
+    <code>  exit()</code>
+    <code>for article_dir in listfolders(root_dir):</code>
+    <code>  path = root_dir+"/"+article_dir</code>
+    <code>  file_names = listfiles(path)</code>
+    <code>  index_path = None</code>
+    <code>  article_path=None</code>
+    <code>  for file_name in file_names:</code>
+    <code>    if file_name.startswith("index"):</code>
+    <code>      index_path=file_name</code>
+    <code>    elif file_name==("article.md"):</code>
+    <code>      article_path=file_name</code>
+    <code>  if article_path!=None:</code>
+    <code>    markdown_text = ""</code>
+    <code>    markdown_title = ""</code>
+    <code>    with open(root_dir+"/"+article_dir+"/"+article_path,mode="r") as f:</code>
+    <code>      markdown_text = f.read()</code>
+    <code>      f.close()</code>
+    <code>    markdown_result = ""</code>
+    <code>    for markdown_line in markdown_text.split("\n"):</code>
+    <code>      if markdown_line.startswith("#title: "):</code>
+    <code>        markdown_title=markdown_line[8:]</code>
+    <code>      else:</code>
+    <code>        markdown_result+=markdown_line+"\n"</code>
+    <code>    html_text=markdown.markdown(markdown_result)</code>
+    <code>    html_result=""</code>
+    <code>    for html_line in html_text.split("\n"):</code>
+    <code>      html_result+=" "*4+html_line+"\n"</code>
+    <code>    if index_path!=None:</code>
+    <code>      os.system("rm "+root_dir+"/"+article_dir+"/"+index_path)</code>
+    <code>    with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:</code>
+    <code>      f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)</code>
+    <code>      f.close()</code>
+    <code>renew()</code>
+    <code></code>
+    </pre>
     <p>これだけのプログラムを自力で書きました...(´・ω・)ある程度(リポジトリの更新とファイル・フォルダ構造の解析)はapiのプログラムから流用が効いたのですが...こんなことをするのは恐らく私が初めてみたいで、参考になるような情報は一切合切手に入りませんでした。
     そして次に、github actionsのyamlファイルを書きました。</p>
     <h4>yamlファイルの方</h4>
     <pre>
-    <code>name: The-Infinitys_Blog-markdown</code><br /><code>run-name: converting markdown</code><br /><code>on: push</code><br /><code>jobs:</code><br /><code>  markdown-convert:</code><br /><code>    permissions:</code><br /><code>      repository-projects: write</code><br /><code>      contents: write</code><br /><code>    runs-on: ubuntu-latest</code><br /><code>    steps:</code><br /><code>      - uses: actions/checkout@v4</code><br /><code>      - run: git pull</code><br /><code>      - run: pip install markdown</code><br /><code>      - run: python ./programs/markdown-converter.py</code><br /></pre>
+    <code>name: The-Infinitys_Blog-markdown</code>
+    <code>run-name: converting markdown</code>
+    <code>on: push</code>
+    <code>jobs:</code>
+    <code>  markdown-convert:</code>
+    <code>    permissions:</code>
+    <code>      repository-projects: write</code>
+    <code>      contents: write</code>
+    <code>    runs-on: ubuntu-latest</code>
+    <code>    steps:</code>
+    <code>      - uses: actions/checkout@v4</code>
+    <code>      - run: git pull</code>
+    <code>      - run: pip install markdown</code>
+    <code>      - run: python ./programs/markdown-converter.py</code>
+    </pre>
     <p>こっちのyamlファイルはがっつりapiから流用できたので苦でもありませんでした。</p>
     <h2>やってみた感想</h2>
     <p>激ムズすぎて二度とやりたくないです(´・ω・)
