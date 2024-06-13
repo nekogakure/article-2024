@@ -37,7 +37,7 @@ body {
   margin-left: 10vw;
   margin-bottom: 5vh;
   width: 50%;
-  height: auto;
+  height: max(auto, 80%);
   color: var(--article-text);
   background-color: color-mix(in srgb, var(--article-back), #888 20%);
   overflow: hidden;
@@ -47,7 +47,7 @@ body {
 #article-index {
   position: fixed;
   width: 30%;
-  height: 80%;
+  height: min(auto, 80%);
   top: 15%;
   left: 65%;
   overflow: scroll;
