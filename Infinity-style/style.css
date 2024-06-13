@@ -37,7 +37,7 @@ body {
   margin-left: 10vw;
   margin-bottom: 5vh;
   width: 50%;
-  height: max(auto, 80%);
+  height: max(auto, 80vh);
   color: var(--article-text);
   background-color: color-mix(in srgb, var(--article-back), #888 20%);
   overflow: hidden;
