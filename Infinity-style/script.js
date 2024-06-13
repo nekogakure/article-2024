@@ -43,7 +43,9 @@ fetch("https://" + new URL(window.location.href).hostname + "/The-Infinitys-Infi
   document.body.append(The_Infinitys_js);
 }).catch(err => alert(err));
 //add code highlight.js
-document.body.append(`
+
+const highlight = document.createElement("div");
+hightlight.innerHTML = `
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
@@ -51,4 +53,5 @@ document.body.append(`
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
 <script>hljs.highlightAll();</script>
-`);
+`;
+document.body.append(highlight);
