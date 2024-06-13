@@ -53,6 +53,7 @@ for article_dir in listfolders(root_dir):
     elif file_name==("article.md"):
       article_path=file_name
   if article_path!=None:
+    markdown_text = ""
     with open(root_dir+"/"+article_dir+"/"+article_path,mode="r") as f:
       markdown_text = f.read()
       f.close()
