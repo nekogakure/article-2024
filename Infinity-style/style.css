@@ -76,9 +76,8 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow: auto;
-  background-color: #888;
+  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);;
   color: var(--article-text);
-  border-left: 2px #004c25 solid;
   padding: 10px;
   border-radius: 4px;
   font-size: 15px;
