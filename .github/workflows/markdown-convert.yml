@@ -2,7 +2,7 @@ name: The-Infinitys_Blog-markdown
 run-name: converting markdown
 on: push
 jobs:
-  repository_index:
+  markdown-convert:
     permissions:
       repository-projects: write
       contents: write
