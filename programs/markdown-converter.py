@@ -70,7 +70,7 @@ for article_dir in listfolders(root_dir):
             else:
               markdown_result+="<pre>\n"
           elif code_mode:
-            markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")"</code>"
+            markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")+"</code>"
       return markdown.markdown(markdown_result)
     html_text = convertmarkdown(markdown_text)
     html_result=""
