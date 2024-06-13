@@ -18,7 +18,6 @@ article_temp_foot='''
   </body>
 </html>
 '''
-#関数の定義
 def listfolders(dir_path):
   result = [
       f for f in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, f))
@@ -38,7 +37,6 @@ def renew():
   os.system("git add .")
   os.system("git commit -m \"convert markdown\"")
   os.system("git push")
-#プログラムの実行
 if not os.path.isdir(root_dir):
   print("No datas")
   exit()
