@@ -293,7 +293,8 @@
         "workflows": {
           "files": [
             "repository-index.yaml",
-            "jelyll-gh-pages.yml"
+            "jelyll-gh-pages.yml",
+            "markdown-convert.yml"
           ],
           "folders": {}
         }
@@ -368,9 +369,9 @@
             },
             "pack": {
               "files": [
-                "pack-5ccd4f84058f5086a865102bf61831414cffaac8.pack",
-                "pack-5ccd4f84058f5086a865102bf61831414cffaac8.rev",
-                "pack-5ccd4f84058f5086a865102bf61831414cffaac8.idx"
+                "pack-bfda64b6f5d551b39b2aeb57994f01e49937a8c0.pack",
+                "pack-bfda64b6f5d551b39b2aeb57994f01e49937a8c0.rev",
+                "pack-bfda64b6f5d551b39b2aeb57994f01e49937a8c0.idx"
               ],
               "folders": {}
             }
