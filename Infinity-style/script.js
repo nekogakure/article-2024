@@ -5,7 +5,7 @@ const main = () => {//add article
   article_box.id = "article-content";
   article_box.innerHTML = article_text;
   const article_inner = document.createElement("div");
-  article_inner.innerHTML = article_box.outerHTML;
+  article_inner.append(article_box);
   document.body.append(article_inner);
   //add title
   const title_elem = document.querySelector("title");
