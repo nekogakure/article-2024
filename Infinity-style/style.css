@@ -34,7 +34,7 @@ body {
 #article-content {
   margin-top: 5vh;
   margin-left: 10vw;
-  margin-bottom: 5vh;
+  margin-bottom: -75vh;
   padding: 2%;
   width: 50%;
   height: max(auto, 80vh);
