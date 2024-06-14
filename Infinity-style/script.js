@@ -36,9 +36,9 @@ const main = () => {//add article
   document.body.innerHTML = "";
   article_inner.innerHTML = body_html;
   document.body.append(article_inner);
-  // const other_articles = document.createElement("div");
-  // other_articles.id = "other-articles";
-  // article_inner.append(other_articles);
+  const other_articles = document.createElement("div");
+  other_articles.id = "other-articles";
+  article_inner.append(other_articles);
   //add style
   fetch("https://" + new URL(window.location.href).hostname + "/The-Infinitys-Infinity/style.css").then(res => res.text()).then(style => {
     const The_Infinitys_css = document.createElement("style");

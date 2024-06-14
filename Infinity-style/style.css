@@ -34,7 +34,7 @@ body {
 #article-content {
   margin-top: 5vh;
   margin-left: 10vw;
-  margin-bottom: -75vh;
+  margin-bottom: 5vh;
   padding: 2%;
   width: 50%;
   height: max(auto, 80vh);
@@ -56,8 +56,9 @@ body {
 }
 
 #other-articles {
-  margin-top:-70vh;
+  margin-top: -70vh;
   margin-left: 10vw;
+  padding-bottom: -60vh;
   width: calc(50vw + 2 * 2vw);
   height: 50vh;
   background-color: color-mix(in srgb, var(--article-back), #888 20%);
