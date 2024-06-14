@@ -35,7 +35,7 @@ body {
   margin-top: 5vh;
   margin-left: 10vw;
   margin-bottom: 5vh;
-  padding:2%;
+  padding: 2%;
   width: 50%;
   height: max(auto, 80vh);
   color: var(--article-text);
@@ -55,6 +55,14 @@ body {
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
 }
 
+#other-articles {
+  margin-top:-70vh;
+  margin-left: 10vw;
+  width: calc(50vw + 2 * 2vw);
+  height: 50vh;
+  background-color: color-mix(in srgb, var(--article-back), #888 20%);
+}
+
 @media (max-aspect-ratio: 1) {
   #article-index {
     visibility: hidden;
@@ -66,6 +74,11 @@ body {
   }
 
   #article-content {
+    margin-left: 5vw;
+    width: 90%;
+  }
+
+  #other-articles {
     margin-left: 5vw;
     width: 90%;
   }
