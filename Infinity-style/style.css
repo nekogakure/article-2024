@@ -25,7 +25,6 @@ body {
 
 #article-title {
   margin-left: 10vw;
-  margin-top: 15vh;
   width: 50%;
   height: auto;
   text-wrap: wrap;
@@ -45,10 +44,10 @@ body {
 }
 
 #article-index {
-  position: fixed;
+  position: sticky;
   width: 30%;
-  height: min(auto, 80%);
-  top: 15%;
+  height: 80vh;
+  bottom: 10vh;
   left: 65%;
   overflow: scroll;
   color: var(--article-text);
@@ -72,11 +71,12 @@ body {
 }
 
 pre {
-  position:relative;
+  position: relative;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow: auto;
-  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);;
+  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);
+  ;
   color: var(--article-text);
   padding: 10px;
   border-radius: 4px;
