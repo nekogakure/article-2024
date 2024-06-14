@@ -12,7 +12,7 @@ const main = () => {//add article
   const article_title = document.createElement("div");
   article_title.id = "article-title";
   article_title.innerHTML = "<h1>" + title_elem.innerHTML + "</h1>";
-  document.body.prepend(article_title);
+  article_inner.append(article_title);
   //add index
   const article_index = document.createElement("div");
   article_index.id = "article-index";
