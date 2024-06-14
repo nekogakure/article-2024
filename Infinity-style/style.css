@@ -46,8 +46,8 @@ body {
 #article-index {
   position: sticky;
   width: 30%;
-  height: 80vh;
-  bottom: 10vh;
+  height: 70vh;
+  top: 20vh;
   left: 65%;
   overflow: scroll;
   color: var(--article-text);
