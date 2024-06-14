@@ -37,7 +37,6 @@ const main = () => {//add article
   article_inner.innerHTML = body_html;
   article_inner.style.overflow = "visible";
   document.body.append(article_inner);
-  article_inner.offsetHeight=document.querySelector("#article-content").offsetHeight+window.innerHeight;
   const other_articles = document.createElement("div");
   other_articles.id = "other-articles";
   article_inner.append(other_articles);

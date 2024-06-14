@@ -48,7 +48,7 @@ body {
   position: sticky;
   width: 30%;
   height: 70vh;
-  bottom: 10vh;
+  bottom: 15vh;
   left: 65%;
   overflow: scroll;
   color: var(--article-text);
