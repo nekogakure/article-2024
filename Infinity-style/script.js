@@ -4,7 +4,9 @@ const main = () => {//add article
   const article_box = document.createElement("div");
   article_box.id = "article-content";
   article_box.innerHTML = article_text;
-  document.body.append(article_box);
+  const article_inner = document.createElement("div");
+  article_inner.innerHTML = article_text.outerHTML;
+  document.body.append(article_inner);
   //add title
   const title_elem = document.querySelector("title");
   const article_title = document.createElement("div");
@@ -14,7 +16,7 @@ const main = () => {//add article
   //add index
   const article_index = document.createElement("div");
   article_index.id = "article-index";
-  document.body.append(article_index);
+  article_inner.append(article_index);
   for (let i = 0; i < article_box.children.length; ++i) {
     const article_box_child = article_box.children[i];
     const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
@@ -28,14 +30,9 @@ const main = () => {//add article
           inline: 'center'
         });
       }
-      document.querySelector("#article-index").append(index_text);
+      article_index.append(index_text);
     }
   }
-  const article_inner = document.createElement("div");
-  const body_html = document.body.innerHTML;
-  document.body.innerHTML = "";
-  article_inner.innerHTML = body_html;
-  document.body.append(article_inner);
   const other_articles = document.createElement("div");
   other_articles.id = "other-articles";
   article_inner.append(other_articles);
