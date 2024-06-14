@@ -58,7 +58,7 @@ body {
 #other-articles {
   margin-top: -70vh;
   margin-left: 10vw;
-  margin-bottom: 80vh;
+  margin-bottom: 30vh;
   width: calc(50vw + 2 * 2vw);
   height: 50vh;
   background-color: color-mix(in srgb, var(--article-back), #888 20%);
