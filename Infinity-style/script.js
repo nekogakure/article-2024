@@ -16,7 +16,7 @@ const main = () => {//add article
   //add index
   const article_index = document.createElement("div");
   article_index.id = "article-index";
-  article_inner.append(article_index);
+  article_inner.prepend(article_index);
   for (let i = 0; i < article_box.children.length; ++i) {
     const article_box_child = article_box.children[i];
     const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
