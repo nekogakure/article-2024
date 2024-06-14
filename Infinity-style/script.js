@@ -37,8 +37,8 @@ const main = () => {//add article
   article_inner.innerHTML = body_html;
   article_inner.style.overflow = "visible";
   document.body.append(article_inner);
-  const other_articles=document.createElement("div");
-  other_articles.id="other-articles";
+  const other_articles = document.createElement("div");
+  otherarticles.id = "other-articles";
   article_inner.append(other_articles);
   //add style
   fetch("https://" + new URL(window.location.href).hostname + "/The-Infinitys-Infinity/style.css").then(res => res.text()).then(style => {
