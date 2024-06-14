@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: git pull
       - run: pip install markdown
-      - run: python ./programs/markdown-converter.py
+      - run: python ./python/markdown-converter.py
