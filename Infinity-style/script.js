@@ -80,8 +80,7 @@ const main = () => {//add article
             let counter = 0;
             for (let i = 0; i < infos.length; ++i) {
               const info = infos[i];
-              alert(1 / (info.length - i));
-              if (Math.random() < 1 / (info.length - i)) {
+              if (Math.random() < 1 / (infos.length - i)) {
                 if (counter < 2) {
                   append_blog_button(info);
                   counter++;
