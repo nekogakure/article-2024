@@ -77,13 +77,13 @@ const main = () => {//add article
         .then((res) => res.json()).then(
           data => {
             const infos = data.info;
-            let counter = 0;
+            let counter = 3;
             for (let i = 0; i < infos.length; ++i) {
               const info = infos[i];
-              if (Math.random() < 1 / (infos.length - i)) {
-                if (counter < 2) {
+              if (Math.random() < 1 / (infos.length - i - counter)) {
+                if (counter > 0) {
                   append_blog_button(info);
-                  counter++;
+                  counter--;
                 }
               }
             }
