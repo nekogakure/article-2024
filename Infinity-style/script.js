@@ -77,14 +77,22 @@ const main = () => {//add article
         .then((res) => res.json()).then(
           data => {
             const infos = data.info;
+            let counter = 0;
             for (let i = 0; i < infos.length; ++i) {
               const info = infos[i];
-              append_blog_button(info);
+              if (Math.random() < 1 / (info.length - 1)) {
+                append_blog_button(info);
+                counter++;
+              }
+              if (counter >= 2) {
+                return 0;
+              }
             }
+            return 1;//エラーが発生した。
           }
         ).catch((err) => console.log(`データが取得できませんでした：${err}`));
     };
-    for (let load_count = data_list_length; load_count > 0; --load_count) {
+    for (let load_count = data_list_length; load_count > data_list_length - 2; --load_count) {
       const pathname = "/api/blog/" + (blog_start.year + ~~((blog_start.month + load_count - 1) / 12)).toString() + "-" + ((blog_start.month + load_count - 2) % 12 + 1).toString()
       getData(pathname);
     }
