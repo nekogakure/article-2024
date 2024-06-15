@@ -110,17 +110,17 @@ body {
   }
 
   #article-title {
-    margin-left: 5vw;
+    margin-left: 2.5vw;
     width: 90%;
   }
 
   #article-content {
-    margin-left: 5vw;
+    margin-left: 2.5vw;
     width: 90%;
   }
 
   #other-articles {
-    margin-left: 5vw;
+    margin-left: 2.5vw;
     width: 94%;
   }
 }

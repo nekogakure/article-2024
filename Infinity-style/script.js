@@ -67,7 +67,7 @@ const main = () => {//add article
       title.innerHTML = info.title;
       box.innerHTML = loading.outerHTML + thumbnail.outerHTML + title.outerHTML;
       const insert_button = () => {
-        document.querySelector("#other-articles")
+        document.querySelector("#other-articles").append(box);
       }
       insert_button();
     };
