@@ -80,15 +80,13 @@ const main = () => {//add article
             let counter = 0;
             for (let i = 0; i < infos.length; ++i) {
               const info = infos[i];
-              if (Math.random() < 1 / (info.length - 1)) {
-                append_blog_button(info);
-                counter++;
-              }
-              if (counter >= 2) {
-                return 0;
+              if (Math.random() < 1 / (info.length - i)) {
+                if (counter < 2) {
+                  append_blog_button(info);
+                  counter++;
+                }
               }
             }
-            return 1;//エラーが発生した。
           }
         ).catch((err) => console.log(`データが取得できませんでした：${err}`));
     };
