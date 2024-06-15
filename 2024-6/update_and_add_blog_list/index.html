@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="Ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ブログをさらに進化させる</title>
+    <link rel="stylesheet" href="../../Infinity-style/style.css" />
+    <script defer src="../../Infinity-style/script.js"></script>
+  </head>
+  <body>
+    <h2>前までなかったもの</h2>
+    <h3>私のブログに足りないもの</h3>
+    <p>他の人のブログを見ていて気になったことがあります。
+    大体のブログには、ブログ記事を見終わると次の記事が見れるように、ページの最下部の方に
+    記事のリストがあるのですが、私のものにはそれがない！困ったもんです！というわけで早速作ることにしました！</p>
+    <h3>一体何が足りないのだろうか</h3>
+    <blockquote>
+    <p><a href="https://elekibear.com/post/20240101_01_next_elekibear"><img style="width:100%;aspect-ratio:1620/1287;" src="./img/elekibear-blog-article.png" alt="" /></a>
+    都会のエレキベアと検索したら出てくるプラスモさんのブログなのですが、
+    下部に新着記事と書いてあって他の記事へのリンクがあります。
+    ですが私のブログにはそんなものはありませんでした
+    ٩( ᐛ )وどないしようか</p>
+    </blockquote>
+    <h2>どうやってやろうか</h2>
+    <h3>記事が多過ぎた</h3>
+    <p>記事そのものを書き換えようにも既に20以上の記事を書いており、全てに変更を適用するのは余りにも面倒なので、共通スクリプトの<a href="../../Infinity-style/">Infinity-style</a>に書き足すことで記事リストの追加を図ろうと思います。<a href="../../../blog/script.js">blogのscript</a>からブログの検索、リンクボタンの追加などのプログラムを取り出し、<a href="../../Infinity-style/script.js">Infinity-style/script.js</a>に取り入れます。その際に、プログラムの改造を施して、過去2ヶ月の記事の中から月毎にそれぞれ3記事ずつ(合計6つ)の記事を取り出すようにします。そして完成したのがこちら。</p>
+    <h3>JavaScriptのソース</h3>
+    <pre>
+    <code>const main = () =&gt; {//add article</code>
+    <code>  const article_text = document.body.innerHTML;</code>
+    <code>  document.body.innerHTML = "";</code>
+    <code>  const article_box = document.createElement("div");</code>
+    <code>  article_box.id = "article-content";</code>
+    <code>  article_box.innerHTML = article_text;</code>
+    <code>  const article_inner = document.createElement("div");</code>
+    <code>  article_inner.append(article_box);</code>
+    <code>  document.body.append(article_inner);</code>
+    <code>  //add title</code>
+    <code>  const title_elem = document.querySelector("title");</code>
+    <code>  const article_title = document.createElement("div");</code>
+    <code>  article_title.id = "article-title";</code>
+    <code>  article_title.innerHTML = "&lt;h1&gt;" + title_elem.innerHTML + "&lt;/h1&gt;";</code>
+    <code>  article_inner.prepend(article_title);</code>
+    <code>  //add index</code>
+    <code>  const article_index = document.createElement("div");</code>
+    <code>  article_index.id = "article-index";</code>
+    <code>  article_inner.append(article_index);</code>
+    <code>  for (let i = 0; i &lt; article_box.children.length; ++i) {</code>
+    <code>    const article_box_child = article_box.children[i];</code>
+    <code>    const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };</code>
+    <code>    if (article_box_child.tagName in tags) {</code>
+    <code>      const index_text = document.createElement(article_box_child.tagName);</code>
+    <code>      index_text.innerHTML = article_box_child.innerHTML;</code>
+    <code>      index_text.onclick = () =&gt; {</code>
+    <code>        article_box_child.scrollIntoView({</code>
+    <code>          behavior: 'smooth',</code>
+    <code>          block: 'end',</code>
+    <code>          inline: 'center'</code>
+    <code>        });</code>
+    <code>      }</code>
+    <code>      article_index.append(index_text);</code>
+    <code>    }</code>
+    <code>  }</code>
+    <code>  const other_articles = document.createElement("div");</code>
+    <code>  other_articles.id = "other-articles";</code>
+    <code>  article_inner.append(other_articles);</code>
+    <code>  const get_all_article_info = () =&gt; {</code>
+    <code>    const blog_start = {</code>
+    <code>      year: 2024,</code>
+    <code>      month: 4</code>
+    <code>    }</code>
+    <code>    let today = new Date();</code>
+    <code>    today = {</code>
+    <code>      year: today.getFullYear(),</code>
+    <code>      month: today.getMonth() + 1</code>
+    <code>    }</code>
+    <code>    const data_list_length = 1 + 12 * (today.year - blog_start.year) + today.month - blog_start.month;</code>
+    <code>    const domain = new URL(window.location.href);</code>
+    <code>    const blog_domain = domain.hostname;</code>
+    <code>    const append_blog_button = info =&gt; {</code>
+    <code>      const box = document.createElement("button");</code>
+    <code>      box.classList.add("blog-button");</code>
+    <code>      box.onclick = () =&gt; {</code>
+    <code>        window.location.href = "https://" + blog_domain + info.index;</code>
+    <code>      }</code>
+    <code>      const thumbnail = document.createElement("img");</code>
+    <code>      thumbnail.src = "https://" + blog_domain + info.thumbnail;</code>
+    <code>      thumbnail.alt = info.name;</code>
+    <code>      thumbnail.loading = "lazy";</code>
+    <code>      const loading = document.createElement("img");</code>
+    <code>      loading.src = "data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=";</code>
+    <code>      loading.alt = "loading...";</code>
+    <code>      loading.className = "loading-infinity";</code>
+    <code>      const title = document.createElement("div");</code>
+    <code>      title.innerHTML = info.title;</code>
+    <code>      box.innerHTML = loading.outerHTML + thumbnail.outerHTML + title.outerHTML;</code>
+    <code>      const insert_button = () =&gt; {</code>
+    <code>        document.querySelector("#other-articles").append(box);</code>
+    <code>      }</code>
+    <code>      insert_button();</code>
+    <code>    };</code>
+    <code>    const getData = (name) =&gt; {</code>
+    <code>      console.log("get: " + "https://" + blog_domain + name + ".json");</code>
+    <code>      fetch("https://" + blog_domain + name + ".json")</code>
+    <code>        .then((res) =&gt; res.json()).then(</code>
+    <code>          data =&gt; {</code>
+    <code>            const infos = data.info;</code>
+    <code>            let counter = 3;</code>
+    <code>            for (let i = 0; i &lt; infos.length; ++i) {</code>
+    <code>              const info = infos[i];</code>
+    <code>              if (Math.random() &lt; 1 / (infos.length - i - counter)) {</code>
+    <code>                if (counter &gt; 0) {</code>
+    <code>                  append_blog_button(info);</code>
+    <code>                  counter--;</code>
+    <code>                }</code>
+    <code>              }</code>
+    <code>            }</code>
+    <code>          }</code>
+    <code>        ).catch((err) =&gt; console.log(`データが取得できませんでした：${err}`));</code>
+    <code>    };</code>
+    <code>    for (let load_count = data_list_length; load_count &gt; data_list_length - 2; --load_count) {</code>
+    <code>      const pathname = "/api/blog/" + (blog_start.year + ~~((blog_start.month + load_count - 1) / 12)).toString() + "-" + ((blog_start.month + load_count - 2) % 12 + 1).toString()</code>
+    <code>      getData(pathname);</code>
+    <code>    }</code>
+    <code>  };</code>
+    <code>  get_all_article_info();</code>
+    <code>  //add style</code>
+    <code>  fetch("https://" + new URL(window.location.href).hostname + "/The-Infinitys-Infinity/style.css").then(res =&gt; res.text()).then(style =&gt; {</code>
+    <code>    const The_Infinitys_css = document.createElement("style");</code>
+    <code>    The_Infinitys_css.innerHTML = style;</code>
+    <code>    document.body.append(The_Infinitys_css);</code>
+    <code>  }).catch(err =&gt; alert(err));</code>
+    <code>  fetch("https://" + new URL(window.location.href).hostname + "/The-Infinitys-Infinity/script.js").then(res =&gt; res.text()).then(style =&gt; {</code>
+    <code>    const The_Infinitys_js = document.createElement("script");</code>
+    <code>    The_Infinitys_js.innerHTML = style;</code>
+    <code>    document.body.append(The_Infinitys_js);</code>
+    <code>  }).catch(err =&gt; alert(err));</code>
+    <code>};</code>
+    <code>main();</code>
+    </pre>
+    <h3>CSSのソース</h3>
+    <p>あとcssも</p>
+    <pre>
+    <code>* {</code>
+    <code>  margin: 0;</code>
+    <code>  padding: 0;</code>
+    <code>}</code>
+    <code></code>
+    <code>:root {</code>
+    <code>  --article-back: #eee;</code>
+    <code>  --article-text: #000;</code>
+    <code>}</code>
+    <code></code>
+    <code>@media (prefers-color-scheme: dark) {</code>
+    <code>  :root {</code>
+    <code>    --article-back: #111;</code>
+    <code>    --article-text: #fff;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  a {</code>
+    <code>    color: aqua;</code>
+    <code>  }</code>
+    <code>}</code>
+    <code></code>
+    <code>body {</code>
+    <code>  background-color: var(--article-back);</code>
+    <code>}</code>
+    <code></code>
+    <code>#article-title {</code>
+    <code>  margin-left: 10vw;</code>
+    <code>  width: 50%;</code>
+    <code>  height: auto;</code>
+    <code>  text-wrap: wrap;</code>
+    <code>  color: var(--article-text);</code>
+    <code>}</code>
+    <code></code>
+    <code>#article-content {</code>
+    <code>  margin-top: 5vh;</code>
+    <code>  margin-left: 10vw;</code>
+    <code>  margin-bottom: 5vh;</code>
+    <code>  padding: 2%;</code>
+    <code>  width: 50%;</code>
+    <code>  height: max(auto, 80vh);</code>
+    <code>  color: var(--article-text);</code>
+    <code>  background-color: color-mix(in srgb, var(--article-back), #888 20%);</code>
+    <code>  overflow: hidden;</code>
+    <code>  overflow-wrap: break-word;</code>
+    <code>}</code>
+    <code></code>
+    <code>#article-index {</code>
+    <code>  position: sticky;</code>
+    <code>  width: 30%;</code>
+    <code>  height: 70vh;</code>
+    <code>  bottom: 15vh;</code>
+    <code>  left: 65%;</code>
+    <code>  overflow: scroll;</code>
+    <code>  color: var(--article-text);</code>
+    <code>  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);</code>
+    <code>}</code>
+    <code></code>
+    <code>#other-articles {</code>
+    <code>  margin-top: -70vh;</code>
+    <code>  margin-left: 10vw;</code>
+    <code>  margin-bottom: 10vh;</code>
+    <code>  width: calc(50vw + 2 * 2vw);</code>
+    <code>  aspect-ratio: 8/9;</code>
+    <code>  background-color: color-mix(in srgb, var(--article-back), #888 20%);</code>
+    <code>}</code>
+    <code></code>
+    <code>.blog-button {</code>
+    <code>  overflow: hidden;</code>
+    <code>  position: relative;</code>
+    <code>  background-color: #ffffff55;</code>
+    <code></code>
+    <code>  @media (prefers-color-scheme: dark) {</code>
+    <code>    background-color: #00000055;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  width:50%;</code>
+    <code>  aspect-ratio: 4/3;</code>
+    <code>}</code>
+    <code></code>
+    <code>.blog-button img {</code>
+    <code>  position: absolute;</code>
+    <code>  top: 0;</code>
+    <code>  left: 0;</code>
+    <code>  width: 100%;</code>
+    <code>  height: 85%;</code>
+    <code>  object-fit: cover;</code>
+    <code>}</code>
+    <code></code>
+    <code>.loading-infinity {</code>
+    <code>  position: absolute;</code>
+    <code>  top: 0;</code>
+    <code>  left: 0;</code>
+    <code>  width: 100%;</code>
+    <code>  height: 85%;</code>
+    <code>  object-fit: contain;</code>
+    <code>}</code>
+    <code></code>
+    <code>.blog-button div {</code>
+    <code>  position: absolute;</code>
+    <code>  width: 100%;</code>
+    <code>  height: 15%;</code>
+    <code>  bottom: 0;</code>
+    <code>  color: var(--text);</code>
+    <code>  font-size: max(auto, 12px);</code>
+    <code>}</code>
+    <code></code>
+    <code>@media (max-aspect-ratio: 1) {</code>
+    <code>  #article-index {</code>
+    <code>    visibility: hidden;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  #article-title {</code>
+    <code>    margin-left: 2.5vw;</code>
+    <code>    width: 90%;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  #article-content {</code>
+    <code>    margin-left: 2.5vw;</code>
+    <code>    width: 90%;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  #other-articles {</code>
+    <code>    margin-left: 2.5vw;</code>
+    <code>    width: 94%;</code>
+    <code>  }</code>
+    <code>}</code>
+    <code></code>
+    <code>pre {</code>
+    <code>  position: relative;</code>
+    <code>  white-space: pre-wrap;</code>
+    <code>  word-wrap: break-word;</code>
+    <code>  overflow: auto;</code>
+    <code>  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);</code>
+    <code>  color: var(--article-text);</code>
+    <code>  padding: 10px;</code>
+    <code>  border-radius: 4px;</code>
+    <code>  font-size: 15px;</code>
+    <code>}</code>
+    </pre>
+    <p>我ながらかなり難しかった...</p>
+    <h2>感想</h2>
+    <p>個人的には大満足の出来でした。ですがやはり今まで貯めてきたプログラムが無ければ作業は難航していたでしょう...
+    あ、<a href="https://scratch.mit.edu/projects/1037788134/">scratch</a>にもあるのでよろしく。
+    <date>2024/06/15</date></p>
+
+  </body>
+</html>
