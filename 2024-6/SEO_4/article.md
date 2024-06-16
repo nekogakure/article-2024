@@ -16,7 +16,7 @@ PageSpeed Insightsのスコアが全て満点になりました！やったぜ�
 あ、結果はここです。
 <details>
   <summary>結果画像</summary>
-  <img style="width:100%;" src="./img/pagespeedinsight-result.jpeg" />
+  <img style="width:100%;" src="./img/pagespeedinsights-result.jpeg" />
 </details>
 
 ## 最頂点に到達した感想
