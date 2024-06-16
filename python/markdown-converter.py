@@ -2,7 +2,7 @@ import datetime
 import os
 import markdown
 from sys import exit
-article_temp_head='''
+article_temp_head = '''
 <!DOCTYPE html>
 <html lang="Ja">
   <head>
@@ -18,12 +18,10 @@ article_temp_head='''
     <div id="article-body">
       <div id="article-content">
 '''
-article_temp_foot='''
-      </div>
+article_temp_foot = '''      </div>
     </div>
   </body>
 </html>
-
 '''
 def listfolders(dir_path):
   result = [
@@ -85,7 +83,7 @@ for article_dir in listfolders(root_dir):
     html_text = convertmarkdown(markdown_text)
     html_result=""
     for html_line in html_text.split("\n"):
-      html_result+=" "*6+html_line+"\n"
+      html_result+=" "*8+html_line+"\n"
     if index_path==None:
       with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
         f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
