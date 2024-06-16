@@ -22,30 +22,30 @@
 const main = () => {//add article
   const article_text = document.body.innerHTML;
   document.body.innerHTML = "";
-  const article_box = document.createElement("div");
-  article_box.id = "article-content";
-  article_box.innerHTML = article_text;
-  const article_inner = document.createElement("div");
-  article_inner.append(article_box);
-  document.body.append(article_inner);
+  const article_content = document.createElement("div");
+  article_content.id = "article-content";
+  article_content.innerHTML = article_text;
+  const article_body = document.createElement("div");
+  article_body.append(article_content);
+  document.body.append(article_body);
   //add title
   const title_elem = document.querySelector("title");
   const article_title = document.createElement("div");
   article_title.id = "article-title";
   article_title.innerHTML = "<h1>" + title_elem.innerHTML + "</h1>";
-  article_inner.prepend(article_title);
+  article_body.prepend(article_title);
   //add index
   const article_index = document.createElement("div");
   article_index.id = "article-index";
-  article_inner.append(article_index);
-  for (let i = 0; i < article_box.children.length; ++i) {
-    const article_box_child = article_box.children[i];
+  article_body.append(article_index);
+  for (let i = 0; i < article_content.children.length; ++i) {
+    const article_content_child = article_content.children[i];
     const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
-    if (article_box_child.tagName in tags) {
-      const index_text = document.createElement(article_box_child.tagName);
-      index_text.innerHTML = article_box_child.innerHTML;
+    if (article_content_child.tagName in tags) {
+      const index_text = document.createElement(article_content_child.tagName);
+      index_text.innerHTML = article_content_child.innerHTML;
       index_text.onclick = () => {
-        article_box_child.scrollIntoView({
+        article_content_child.scrollIntoView({
           behavior: 'smooth',
           block: 'end',
           inline: 'center'
@@ -56,7 +56,7 @@ const main = () => {//add article
   }
   const other_articles = document.createElement("div");
   other_articles.id = "other-articles";
-  article_inner.append(other_articles);
+  article_body.append(other_articles);
   const get_all_article_info = () => {
     const blog_start = {
       year: 2024,

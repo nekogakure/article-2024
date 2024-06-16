@@ -33,10 +33,10 @@ article_temp_head='''
     <link rel="stylesheet" href="../../Infinity-style/style.css" />
     <script defer src="../../Infinity-style/script.js"></script>
   </head>
-  <body>
+  <body><div id="article-body"><div id="article-content">
 '''
 article_temp_foot='''
-  </body>
+  </div></div></body>
 </html>
 '''
 def listfolders(dir_path):

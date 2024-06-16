@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../Infinity-style/style.css" />
     <script defer src="../../Infinity-style/script.js"></script>
   </head>
-  <body>
+  <body><div id="article-body"><div id="article-content">
     <h2>前までなかったもの</h2>
     <h3>私のブログに足りないもの</h3>
     <p>他の人のブログを見ていて気になったことがあります。
@@ -30,30 +30,30 @@
     <code>const main = () =&gt; {//add article</code>
     <code>  const article_text = document.body.innerHTML;</code>
     <code>  document.body.innerHTML = "";</code>
-    <code>  const article_box = document.createElement("div");</code>
-    <code>  article_box.id = "article-content";</code>
-    <code>  article_box.innerHTML = article_text;</code>
-    <code>  const article_inner = document.createElement("div");</code>
-    <code>  article_inner.append(article_box);</code>
-    <code>  document.body.append(article_inner);</code>
+    <code>  const article_content = document.createElement("div");</code>
+    <code>  article_content.id = "article-content";</code>
+    <code>  article_content.innerHTML = article_text;</code>
+    <code>  const article_body = document.createElement("div");</code>
+    <code>  article_body.append(article_content);</code>
+    <code>  document.body.append(article_body);</code>
     <code>  //add title</code>
     <code>  const title_elem = document.querySelector("title");</code>
     <code>  const article_title = document.createElement("div");</code>
     <code>  article_title.id = "article-title";</code>
     <code>  article_title.innerHTML = "&lt;h1&gt;" + title_elem.innerHTML + "&lt;/h1&gt;";</code>
-    <code>  article_inner.prepend(article_title);</code>
+    <code>  article_body.prepend(article_title);</code>
     <code>  //add index</code>
     <code>  const article_index = document.createElement("div");</code>
     <code>  article_index.id = "article-index";</code>
-    <code>  article_inner.append(article_index);</code>
-    <code>  for (let i = 0; i &lt; article_box.children.length; ++i) {</code>
-    <code>    const article_box_child = article_box.children[i];</code>
+    <code>  article_body.append(article_index);</code>
+    <code>  for (let i = 0; i &lt; article_content.children.length; ++i) {</code>
+    <code>    const article_content_child = article_content.children[i];</code>
     <code>    const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };</code>
-    <code>    if (article_box_child.tagName in tags) {</code>
-    <code>      const index_text = document.createElement(article_box_child.tagName);</code>
-    <code>      index_text.innerHTML = article_box_child.innerHTML;</code>
+    <code>    if (article_content_child.tagName in tags) {</code>
+    <code>      const index_text = document.createElement(article_content_child.tagName);</code>
+    <code>      index_text.innerHTML = article_content_child.innerHTML;</code>
     <code>      index_text.onclick = () =&gt; {</code>
-    <code>        article_box_child.scrollIntoView({</code>
+    <code>        article_content_child.scrollIntoView({</code>
     <code>          behavior: 'smooth',</code>
     <code>          block: 'end',</code>
     <code>          inline: 'center'</code>
@@ -64,7 +64,7 @@
     <code>  }</code>
     <code>  const other_articles = document.createElement("div");</code>
     <code>  other_articles.id = "other-articles";</code>
-    <code>  article_inner.append(other_articles);</code>
+    <code>  article_body.append(other_articles);</code>
     <code>  const get_all_article_info = () =&gt; {</code>
     <code>    const blog_start = {</code>
     <code>      year: 2024,</code>
@@ -286,5 +286,5 @@
     <p>個人的には大満足の出来でした。ですがやはり今まで貯めてきたプログラムが無ければ作業は難航していたでしょう...
     あ、<a href="https://scratch.mit.edu/projects/1037788134/">scratch</a>にもあるのでよろしく。
     <date>2024/06/15</date></p>
-  </body>
+  </div></div></body>
 </html>
