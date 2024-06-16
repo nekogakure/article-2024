@@ -13,7 +13,7 @@ article_temp_head='''
     <script defer src="./script.js"></script>
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
-  <script defer src="/The-Infinitys-Infinity/script.js"></script><link rel="styleshee" href="/The-Infinitys-Infinity/style.css" /></head>
+  <script defer src="/The-Infinitys-Infinity/script.js"></script><link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" /></head>
   <body>
     <div id="article-body">
       <div id="article-content">

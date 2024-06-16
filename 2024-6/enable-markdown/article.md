@@ -32,7 +32,7 @@ article_temp_head='''
     <title>HERE TO THE TITLE</title>
     <link rel="stylesheet" href="../../Infinity-style/style.css" />
     <script defer src="../../Infinity-style/script.js"></script>
-  <script defer src="/The-Infinitys-Infinity/script.js"></script><link rel="styleshee" href="/The-Infinitys-Infinity/style.css" /></head>
+  <script defer src="/The-Infinitys-Infinity/script.js"></script><link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" /></head>
   <body><div id="article-body"><div id="article-content">
 '''
 article_temp_foot='''
