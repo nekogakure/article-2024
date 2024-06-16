@@ -8,15 +8,22 @@ article_temp_head='''
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HERE TO THE TITLE</title>
-    <link rel="stylesheet" href="../../Infinity-style/style.css" />
-    <script defer src="../../Infinity-style/script.js"></script>
-  </head>
-  <body><div id="article-body"><div id="article-content">
+    <title>Title</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+    <script defer src="/The-Infinitys-Infinity/script.js"></script>
+    <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
+  <script defer src="/The-Infinitys-Infinity/script.js"></script><link rel="styleshee" href="/The-Infinitys-Infinity/style.css" /></head>
+  <body>
+    <div id="article-body">
+      <div id="article-content">
 '''
 article_temp_foot='''
-  </div></div></body>
+      </div>
+    </div>
+  </body>
 </html>
+
 '''
 def listfolders(dir_path):
   result = [
@@ -78,7 +85,7 @@ for article_dir in listfolders(root_dir):
     html_text = convertmarkdown(markdown_text)
     html_result=""
     for html_line in html_text.split("\n"):
-      html_result+=" "*4+html_line+"\n"
+      html_result+=" "*6+html_line+"\n"
     if index_path==None:
       with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
         f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)

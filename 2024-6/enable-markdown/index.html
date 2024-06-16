@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="Ja">
   <head>
@@ -7,21 +6,36 @@
     <title>markdownでブログを書けるようにした</title>
     <link rel="stylesheet" href="../../Infinity-style/style.css" />
     <script defer src="../../Infinity-style/script.js"></script>
+    <script defer src="/The-Infinitys-Infinity/script.js"></script>
+    <link rel="styleshee" href="/The-Infinitys-Infinity/style.css" />
   </head>
-  <body><div id="article-body"><div id="article-content">
-    <h2>余りにも面倒だったhtml</h2>
-    <p>どうもどうも! The Infinitysです!
-    最近blogを書いていて、思ったことがあるんですよね...</p>
-    <p>「いちいちhtmlで書くのは面倒臭いな...(´・ω・)」</p>
-    <p>と。それでも今日までずっとhtmlで書いてきて慣れていたので、まあいっかって思ったんです。ですが私の友人の人子がきっかけでその考えは変わりました。</p>
-    <p>「markdownでblogを書きたい」</p>
-    <p>その時私の何かがフツッと切れ、次の瞬間にはキーボードをばちばち叩く私の姿が٩( ᐛ )وやっぱりhtmlで書くのは面倒くさい！</p>
-    <p>そう言うわけで、私はhtmlで書くのをやめたいと思いました。これからはブログは全てmarkdown経由で書きます。</p>
-    <h2>どうやってやったのか</h2>
-    <p>私も一プログラマですので、自分のやりたい事くらいは自分でできなければメンタルが持ちません。そう言うわけでググりながら調べまわりました。
-    markdownで書くうえで一切htmlを経由せずに書けるように、プログラムで自動化しました。まずは、pythonでスクリプトを書きます。</p>
-    <h4>markdown-converter.pyのソースコード</h4>
-    <pre>
+  <body>
+    <div id="article-body">
+      <div id="article-content">
+        <h2>余りにも面倒だったhtml</h2>
+        <p>
+          どうもどうも! The Infinitysです!
+          最近blogを書いていて、思ったことがあるんですよね...
+        </p>
+        <p>「いちいちhtmlで書くのは面倒臭いな...(´・ω・)」</p>
+        <p>
+          と。それでも今日までずっとhtmlで書いてきて慣れていたので、まあいっかって思ったんです。ですが私の友人の人子がきっかけでその考えは変わりました。
+        </p>
+        <p>「markdownでblogを書きたい」</p>
+        <p>
+          その時私の何かがフツッと切れ、次の瞬間にはキーボードをばちばち叩く私の姿が٩(
+          ᐛ )وやっぱりhtmlで書くのは面倒くさい！
+        </p>
+        <p>
+          そう言うわけで、私はhtmlで書くのをやめたいと思いました。これからはブログは全てmarkdown経由で書きます。
+        </p>
+        <h2>どうやってやったのか</h2>
+        <p>
+          私も一プログラマですので、自分のやりたい事くらいは自分でできなければメンタルが持ちません。そう言うわけでググりながら調べまわりました。
+          markdownで書くうえで一切htmlを経由せずに書けるように、プログラムで自動化しました。まずは、pythonでスクリプトを書きます。
+        </p>
+        <h4>markdown-converter.pyのソースコード</h4>
+        <pre>
     <code>import datetime</code>
     <code>import os</code>
     <code>import markdown</code>
@@ -98,10 +112,12 @@
     <code>renew()</code>
     <code></code>
     </pre>
-    <p>これだけのプログラムを自力で書きました...(´・ω・)ある程度(リポジトリの更新とファイル・フォルダ構造の解析)はapiのプログラムから流用が効いたのですが...こんなことをするのは恐らく私が初めてみたいで、参考になるような情報は一切合切手に入りませんでした。
-    そして次に、github actionsのyamlファイルを書きました。</p>
-    <h4>yamlファイルの方</h4>
-    <pre>
+        <p>
+          これだけのプログラムを自力で書きました...(´・ω・)ある程度(リポジトリの更新とファイル・フォルダ構造の解析)はapiのプログラムから流用が効いたのですが...こんなことをするのは恐らく私が初めてみたいで、参考になるような情報は一切合切手に入りませんでした。
+          そして次に、github actionsのyamlファイルを書きました。
+        </p>
+        <h4>yamlファイルの方</h4>
+        <pre>
     <code>name: The-Infinitys_Blog-markdown</code>
     <code>run-name: converting markdown</code>
     <code>on: push</code>
@@ -117,10 +133,14 @@
     <code>      - run: pip install markdown</code>
     <code>      - run: python ./programs/markdown-converter.py</code>
     </pre>
-    <p>こっちのyamlファイルはがっつりapiから流用できたので苦でもありませんでした。</p>
-    <h2>やってみた感想</h2>
-    <p>激ムズすぎて二度とやりたくないです(´・ω・)
-    <date>2024/06/13</date></p>
-
-  </div></div></body>
+        <p>
+          こっちのyamlファイルはがっつりapiから流用できたので苦でもありませんでした。
+        </p>
+        <h2>やってみた感想</h2>
+        <p>
+          激ムズすぎて二度とやりたくないです(´・ω・) <date>2024/06/13</date>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
