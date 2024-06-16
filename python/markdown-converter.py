@@ -9,8 +9,8 @@ article_temp_head = '''
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERE TO THE TITLE</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="../../Infinity-style/style.css" />
+    <script defer src="../../Infinity-style/script.js"></script>
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
