@@ -73,7 +73,7 @@ body {
 .blog-button {
   box-sizing: border-box;
   margin: 2%;
-  border: 1px solid #888;
+  border: 1px solid var(--article-text);
   border-radius: 2.5%;
   overflow: hidden;
   position: relative;
