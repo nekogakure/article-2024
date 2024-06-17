@@ -65,6 +65,7 @@ body {
 }
 
 .blog-button {
+  border:1px solid #888;
   overflow: hidden;
   position: relative;
   background-color: #ffffff55;
@@ -82,7 +83,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 85%;
+  height: 80%;
   object-fit: cover;
 }
 
@@ -91,14 +92,14 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 85%;
+  height: 80%;
   object-fit: contain;
 }
 
 .blog-button div {
   position: absolute;
   width: 100%;
-  height: 15%;
+  height: 20%;
   bottom: 0;
   color: var(--text);
   font-size: max(auto, 12px);
