@@ -50,7 +50,8 @@ body {
   height: 70vh;
   bottom: 15vh;
   left: 65%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x:hidden;
   color: var(--article-text);
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
 }
