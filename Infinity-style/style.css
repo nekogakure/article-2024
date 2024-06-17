@@ -65,6 +65,8 @@ body {
 }
 
 .blog-button {
+  box-sizing: border-box;
+  padding: 3%;
   border:1px solid #888;
   border-radius:3%;
   overflow: hidden;
