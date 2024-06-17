@@ -61,7 +61,7 @@ body {
   margin-bottom: 10vh;
   width: calc(50vw + 2 * 2vw);
   aspect-ratio: 8/9;
-  background-color: color-mix(in srgb, var(--article-back), #888 20%);
+  background-color: color-mix(in srgb, var(--article-back), transparent 80%);
 }
 
 .blog-button {
