@@ -29,6 +29,7 @@ const main = () => {//add article
   }
   const other_articles = document.createElement("div");
   other_articles.id = "other-articles";
+  other_articles.innerHTML = "<h1>other articles</h1>";
   article_body.append(other_articles);
   const get_all_article_info = () => {
     const blog_start = {
