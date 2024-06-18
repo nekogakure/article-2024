@@ -13,7 +13,11 @@ def listfiles(dir_path):
   ]
   return result
 now=datetime.datetime.now()
-now.month=5
+class custom_date:
+  def __init__(year,month):
+    self.year=year
+    self.month=month
+now=custom_date(2024,5)
 json_files_name="./index/"+str(now.year)+"-"+str(now.month)+".json"
 result_obj={"info":[]}
 root_dir="./"+str(now.year)+"-"+str(now.month)
