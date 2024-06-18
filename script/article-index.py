@@ -12,7 +12,7 @@ def listfiles(dir_path):
       f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))
   ]
   return result
-custom_date_file=open("./script/custom-date.json")
+custom_date_file=open("./setting/custom-date.json")
 custom_date_info=json.loads(custom_date_file.read())
 custom_date_file.close()
 class custom_date:

@@ -2,7 +2,7 @@ name: The Infinity's Infinity style Static site generator
 run-name: convert markdown and generate html
 on: push
 jobs:
-  markdown-convert:
+  convert-markdown-and-generate-html:
     permissions:
       repository-projects: write
       contents: write
@@ -12,4 +12,4 @@ jobs:
       - run: git pull
       - run: pip install markdown
       - run: python ./script/Infinity-style.py
-      - run: python ./script/index.py
+      - run: python ./script/article-index.py
