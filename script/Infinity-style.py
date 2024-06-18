@@ -39,12 +39,6 @@ def listfiles(dir_path):
 now=datetime.datetime.now()
 now=str(now.year)+"-"+str(now.month)
 root_dir="./"+now
-def renew():
-  os.system("git config user.name github-actions")
-  os.system("git config user.email github-actions@github.com")
-  os.system("git add .")
-  os.system("git commit -m \"convert markdown\"")
-  os.system("git push")
 if not os.path.isdir(root_dir):
   print("No datas")
   exit()
@@ -91,4 +85,3 @@ for article_dir in listfolders(root_dir):
       with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
         f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
         f.close()
-renew()
