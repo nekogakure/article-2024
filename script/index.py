@@ -12,12 +12,19 @@ def listfiles(dir_path):
       f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))
   ]
   return result
-now=datetime.datetime.now()
+custom_date_file=open("./script/custom-date.json")
+custom_date_info=json.loads(custom_date_file.read())
+custom_date_file.close()
 class custom_date:
   def __init__(self,year,month):
     self.year=year
     self.month=month
-now=custom_date(2024,5)
+now=None
+if custom_date_info["auto"]:
+  now=datetime.datetime.now()
+else:
+  now=custom_date(custom_date_info["year"],custom_date_info["month"])
+repository_name="article-2024"
 json_files_name="./index/"+str(now.year)+"-"+str(now.month)+".json"
 result_obj={"info":[]}
 root_dir="./"+str(now.year)+"-"+str(now.month)
@@ -55,7 +62,7 @@ for article_dir in listfolders(root_dir):
     article_data.close()
     title=article_text[article_text.find("<title>")+7:article_text.find("</title>")]
     title=title.encode("unicode-escape").decode("unicode-escape")
-    add_path="/"+root_dir.replace("./","")+"/"+article_dir+"/"
+    add_path="/"+repository_name+"/"+root_dir.replace("./","")+"/"+article_dir+"/"
     result_obj["info"].append({"index":add_path,"thumbnail":add_path+thumbnail_path,"name":article_dir,"title":title})
 end()
 renew()
