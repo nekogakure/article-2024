@@ -86,7 +86,7 @@ const main = () => {//add article
         ).catch((err) => console.log(`データが取得できませんでした：${err}`));
     };
     for (let load_count = data_list_length; load_count > data_list_length - 2; --load_count) {
-      const pathname = "/api/blog/" + (blog_start.year + ~~((blog_start.month + load_count - 1) / 12)).toString() + "-" + ((blog_start.month + load_count - 2) % 12 + 1).toString()
+      const pathname = "/article-2024/index/" + (blog_start.year + ~~((blog_start.month + load_count - 1) / 12)).toString() + "-" + ((blog_start.month + load_count - 2) % 12 + 1).toString()
       getData(pathname);
     }
   };
