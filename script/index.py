@@ -15,7 +15,7 @@ def listfiles(dir_path):
 now=datetime.datetime.now()
 json_files_name="./index/"+str(now.year)+"-"+str(now.month)+".json"
 result_obj={"info":[]}
-root_dir="./"
+root_dir="."
 def end():
   f=open(json_files_name,mode="w")
   f.write(json.dumps(result_obj,indent=2))
