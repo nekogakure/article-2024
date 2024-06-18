@@ -1,5 +1,5 @@
-name: The-Infinitys_Blog-markdown
-run-name: converting markdown
+name: The Infinity's Infinity style Static site generator
+run-name: convert markdown and generate html
 on: push
 jobs:
   markdown-convert:
@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: git pull
       - run: pip install markdown
-      - run: python ./python/markdown-converter.py
+      - run: python ./python/Infinity-style.py
