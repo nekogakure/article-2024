@@ -4,19 +4,22 @@
       "index": "/article-2024/2024-4/i_think_about_scratch/",
       "thumbnail": "/article-2024/2024-4/i_think_about_scratch/thumbnail.png",
       "name": "i_think_about_scratch",
-      "title": "Scratch\u306b\u3064\u3044\u3066\u601d\u3046\u3053\u3068"
+      "title": "Scratch\u306b\u3064\u3044\u3066\u601d\u3046\u3053\u3068",
+      "date": "2024/04/23"
     },
     {
       "index": "/article-2024/2024-4/js_taiso_Infinity/",
       "thumbnail": "/article-2024/2024-4/js_taiso_Infinity/thumbnail.jpeg",
       "name": "js_taiso_Infinity",
-      "title": "JavaScript\u3067\u982d\u306e\u4f53\u64cd\uff01"
+      "title": "JavaScript\u3067\u982d\u306e\u4f53\u64cd\uff01",
+      "date": "2024/4/26"
     },
     {
       "index": "/article-2024/2024-4/SEO_1/",
       "thumbnail": "/article-2024/2024-4/SEO_1/thumbnail.png",
       "name": "SEO_1",
-      "title": "SEO\u5bfe\u7b56\u3084\u3063\u3066\u307f\u305f\uff01\u305d\u306e1"
+      "title": "SEO\u5bfe\u7b56\u3084\u3063\u3066\u307f\u305f\uff01\u305d\u306e1",
+      "date": "TYPE html>\n<html lang=\"ja\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta name=\"description\" content=\"The Infinity's awesome blog article\" />\n    <script defer src=\"../../Infinity-style/script.js\"></script>\n    <link rel=\"stylesheet\" href=\"../../Infinity-style/style.css\" />\n    <title>SEO\u5bfe\u7b56\u3084\u3063\u3066\u307f\u305f\uff01\u305d\u306e1</title>\n    <script defer src=\"/The-Infinitys-Infinity/script.js\"></script>\n    <link rel=\"stylesheet\" href=\"/The-Infinitys-Infinity/style.css\" />\n  </head>\n  <body>\n    <div id=\"article-body\">\n      <div id=\"article-content\">\n        <h1>SEO\u5bfe\u7b56\u3084\u3063\u3066\u307f\u305f</h1>\n        <p>\n          \u6700\u8fd1\u30da\u30fc\u30b8\u306e\u5927\u5e45\u30ea\u30cb\u30e5\u30fc\u30a2\u30eb\u3092\u3057\u305f\u306e\u3067\u3001\u305d\u3046\u3044\u3048\u3070SEO\u3063\u3066\u306a\u3093\u3060\u3063\u305f\u3051...\u3068\u601d\u3063\u3066\u3084\u3063\u3066\u307f\u308b\u3053\u3068\u306b\u3057\u307e\u3057\u305f\uff01\n        </p>\n        <h2>SEO\u3063\u3066\uff1f</h2>\n        <p>\n          SEO\uff08Search Engine Optimization\uff09\u3068\u306f\u300c\u691c\u7d22\u30a8\u30f3\u30b8\u30f3\u6700\u9069\u5316\u300d\u306e\u7565\u3067\u3001<br />\n          \u691c\u7d22\u30a8\u30f3\u30b8\u30f3\u3067\u81ea\u793e\u306e\u30da\u30fc\u30b8\u3092\u4e0a\u4f4d\u8868\u793a\u3055\u305b\u308b\u305f\u3081\u306e\u65bd\u7b56\u3067\u3059\u3002<br />\n          \u5177\u4f53\u7684\u306b\u306f\u3001Google\u3084Yahoo!\u306a\u3069\u306e\u691c\u7d22\u30a8\u30f3\u30b8\u30f3\u306b\u81ea\u793e\u306eWeb\u30b5\u30a4\u30c8\u306e\u5185\u5bb9\u3092\u7406\u89e3\u3057\u3084\u3059\u3044\u3088\u3046\u306b\u6700\u9069\u5316\u3057\u3001<br />\n          \u691c\u7d22\u7d50\u679c\u306b\u8868\u793a\u3055\u305b\u308b\u3053\u3068\u3067\u3001\u30e6\u30fc\u30b6\u30fc\u306b\u60c5\u5831\u3092\u5c4a\u3051\u3089\u308c\u308b\u3088\u3046\u306b\u3057\u307e\u3059\u3002\n        </p>\n        <p>(by AI)</p>\n        <h2>\u307e\u305a\u306f\u30c1\u30a7\u30c3\u30af\u30c1\u30a7\u30c3\u30af...</h2>\n        <p>\u4eca\u56deSEO\u5bfe\u7b56\u306a\u3069\u3092\u30c1\u30a7\u30c3\u30af\u3059\u308b\u306e\u306b\u7528\u3044\u305f\u306e\u306f\u3001</p>\n        <a href=\"https://pagespeed.web.dev\" target=\"_parent\"\n          >PageSpeed Insights</a\n        >\n        <p>\n          \u3068\u8a00\u3046\u3082\u306e\u3067\u3059\u3002Google\u304c\u63d0\u4f9b\u3059\u308b\u7121\u6599\u306e\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u8a08\u6e2c\u30c4\u30fc\u30eb...\u3060\u305d\u3046\u3067\u3059\u3002\n        </p>\n        <h2>\u7d50\u679c</h2>\n        <iframe\n          src=\"./PageSpeedInsights/PageSpeedInsights.html\"\n          frameborder=\"0\"\n          style=\"width:100%;height:75vh;background-color:white;\"></iframe>\n        <p>\u3046\u30fc\u3093...\u306a\u3093\u3068\u8a00\u3063\u305f\u3089\u826f\u3044\u3082\u306e\u304b...</p>\n        <p>\u601d\u3063\u305f\u3088\u308a\u7d50\u69cb\u826f\u304b\u3063\u305f\uff01\u0669( \u141b )\u0648</p>\n        <p>\u3067\u3082\u8272\u3005\u554f\u984c\u304c\u3042\u308b\u307f\u305f\u3044...</p>\n        <p>js\u306e\u30a8\u30e9\u30fc\u3068\u304b...\u753b\u50cf\u30b5\u30a4\u30ba\u306e\u7e2e\u5c0f\u3068\u304b...</p>\n        <p>\u6b21\u56de\u304b\u3089\u76f4\u3057\u3066\u3044\u3053\u3046\u3068\u601d\u3044\u307e\u3059</p>\n        <p>(\u7d9a\u304f...)</p>\n      </div>\n    </div>\n  </body>\n</html>"
     }
   ]
 }
