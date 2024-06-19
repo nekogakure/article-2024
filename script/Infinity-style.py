@@ -16,10 +16,10 @@ article_temp_head = '''
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" />
-    <script
-    defer
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045274771035552"
-    crossorigin="anonymous"></script>
+    <script
+    defer
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045274771035552"
+    crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="article-body">
