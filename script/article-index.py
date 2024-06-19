@@ -61,8 +61,17 @@ for article_dir in listfolders(root_dir):
     article_text=article_data.read()
     article_data.close()
     title=article_text[article_text.find("<title>")+7:article_text.find("</title>")]
+    date=article_text[article_text.find("<date>")+6:article_text.find("</date>")]
     title=title.encode("unicode-escape").decode("unicode-escape")
     add_path="/"+repository_name+"/"+root_dir.replace("./","")+"/"+article_dir+"/"
-    result_obj["info"].append({"index":add_path,"thumbnail":add_path+thumbnail_path,"name":article_dir,"title":title})
+    result_obj["info"].append(
+      {
+        "index":add_path,
+        "thumbnail":add_path+thumbnail_path,
+        "name":article_dir,
+        "title":title,
+        "date":date
+      }
+    )
 end()
 renew()
