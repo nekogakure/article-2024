@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="Ja">
+  <head>
+    <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="The Infinity's awesome blog article" />
+    <meta name="description" content="The Infinity's awesome blog article" />
+    <title>検索機能を搭載する</title>
+    <link rel="stylesheet" href="../../Infinity-style/style.css" />
+    <script defer src="../../Infinity-style/script.js"></script>
+    <script defer src="/The-Infinitys-Infinity/script.js"></script>
+    <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
+    <script defer src="/The-Infinitys-Infinity/script.js"></script>
+    <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" />
+  </head>
+  <body>
+    <div id="article-body">
+      <div id="article-content">
+        <h1>検索機能をブログに搭載しました</h1>
+        <p>The Infinity'sです。つい最近
+        <a href="../update_and_add_blog_list/">次のブログ記事を表示する機能を追加</a>
+        したばかりですが、
+        機能的には足りませんでした、と言うのもですね...
+        私のブログには<strong>検索機能</strong>が存在して居なかったんですよ...
+        それでこのままではまずいと思いまして、ブログに検索機能を足しました。</p>
+        <h2>面倒だった作業</h2>
+        <p>やり方としては、inputエレメントを改めて作り、そこに検索クエリを入れる方式にします。</p>
+        <h3>html</h3>
+        <pre>
+        <code>&lt;div id="list-head"&gt;</code>
+        <code>  &lt;h1&gt;Blog List&lt;/h1&gt;</code>
+        <code>  &lt;div&gt;</code>
+        <code>    &lt;img</code>
+        <code>      onclick="search_articles()"</code>
+        <code>      src="../image/Infinity-search.svg"</code>
+        <code>      alt="" /&gt;</code>
+        <code>    &lt;input id="search" type="text" onchange="search_articles()" /&gt;</code>
+        <code>  &lt;/div&gt;</code>
+        <code>&lt;/div&gt;</code>
+        </pre>
+        <p>こんな感じです。
+        次に、CSSの適用...</p>
+        <h3>CSS</h3>
+        <pre>
+        <code>#list-head {</code>
+        <code>  width: 100%;</code>
+        <code>  height: auto;</code>
+        <code>  display: flex;</code>
+        <code>  @media (max-aspect-ratio:1/1) {</code>
+        <code>    display: block;</code>
+        <code>  }</code>
+        <code>}</code>
+        <code></code>
+        <code>#list-head h1 {</code>
+        <code>  margin-right: auto;</code>
+        <code>  position: relative;</code>
+        <code>  font-size: 4vh;</code>
+        <code>}</code>
+        <code></code>
+        <code>#list-head div {</code>
+        <code>  width: 40vh;</code>
+        <code>  height: 4vh;</code>
+        <code>  background-color: var(--background);</code>
+        <code>  display: flex 1 auto;</code>
+        <code>}</code>
+        <code></code>
+        <code>#list-head div img {</code>
+        <code>  width: 10%;</code>
+        <code>  height: 100%;</code>
+        <code>  margin-right: auto;</code>
+        <code>}</code>
+        <code></code>
+        <code>#list-head div input {</code>
+        <code>  width: 85%;</code>
+        <code>  height: 100%;</code>
+        <code>  font-size: 4vh;</code>
+        <code>  background-color: var(--background);</code>
+        <code>  color: var(--text);</code>
+        <code>}</code>
+        </pre>
+        
+        <p>そしてjavascript...</p>
+        <h3>JavaScript</h3>
+        <pre>
+        <code>//検索機能</code>
+        <code>const article_search_input = document.querySelector("#list-head div input");</code>
+        <code>const search_articles = () =&gt; {</code>
+        <code>  const search_query = article_search_input.value.replace("　", " ").toLowerCase();</code>
+        <code>  const blog_buttons = document.querySelector("#blog-button-section").children;</code>
+        <code>  if (search_query == "") {</code>
+        <code>    for (let i = 0; i &lt; blog_buttons.length; i++) {</code>
+        <code>      blog_buttons[i].style.display = "";</code>
+        <code>    }</code>
+        <code>    return null;</code>
+        <code>  }</code>
+        <code>  const search_querys = search_query.split(" ");</code>
+        <code>  for (let i = 0; i &lt; blog_buttons.length; i++) {</code>
+        <code>    const blog_button = blog_buttons[i];</code>
+        <code>    const button_inner = blog_button.innerHTML;</code>
+        <code>    const title = button_inner.substring(button_inner.indexOf("&lt;div&gt;") + 5, button_inner.indexOf("&lt;/div&gt;")).toLowerCase();</code>
+        <code>    blog_button.style.display = "";</code>
+        <code>    for (let j = 0; j &lt; search_querys.length; ++j) {</code>
+        <code>      if (-1 == title.indexOf(search_querys[j])) {</code>
+        <code>        blog_button.style.display = "none";</code>
+        <code>      }</code>
+        <code>    }</code>
+        <code>  }</code>
+        <code>  return search_query;</code>
+        <code>}</code>
+        </pre>
+        
+        <h2>仕組みの解説</h2>
+        <p>全体的な仕組みとしては、</p>
+        <ol>
+        <li>searchクエリが入力される</li>
+        <li>検索ボタンかenterが押される</li>
+        <li>全てのボタンをチェック開始する</li>
+        <li>ブログボタンを初期化(一旦displayの値をnullにする)</li>
+        <li>検索クエリを含まないブログのボタンのdisplayをnoneに設定する</li>
+        <li>(4-5の作業を)繰り返す</li>
+        </ol>
+        <p>と言うふうになっています。</p>
+        <h2>感想</h2>
+        <p>かなり難しかったです。検索機能の実装自体が難しいのと、
+        アイコンを書いていくのが大変でした。検索アイコンはここにあります。
+        <img alt="search_icon" src="/image/Infinity-search.svg" /></p>
+        <p><date>2024/06/19</date></p>
+      </div>
+    </div>
+  </body>
+</html>
