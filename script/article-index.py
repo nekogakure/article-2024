@@ -62,6 +62,8 @@ for article_dir in listfolders(root_dir):
     article_data.close()
     title=article_text[article_text.find("<title>")+7:article_text.find("</title>")]
     date=article_text[article_text.find("<date>")+6:article_text.find("</date>")]
+    if article_text.find("<date>")==-1:
+      date=str(now.year)+"/"+str(now.month)+"/nn"
     title=title.encode("unicode-escape").decode("unicode-escape")
     add_path="/"+repository_name+"/"+root_dir.replace("./","")+"/"+article_dir+"/"
     result_obj["info"].append(
