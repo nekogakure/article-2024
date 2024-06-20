@@ -147,7 +147,8 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow: auto;
-  line-height:1.1rem;
+  line-height: 1.2rem;
+  font-family: monospace;
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);
   color: var(--article-text);
   padding: 10px;
