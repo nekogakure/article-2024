@@ -22,6 +22,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  convert-markdown-and-generate-html:
+    permissions:
+      repository-projects: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull
+      - run: pip install markdown
+      - run: python ./script/Infinity-style.py
   # Build job
   build:
     runs-on: ubuntu-latest
