@@ -32,7 +32,6 @@ body {
 }
 
 #article-content {
-  line-height: 1.5em;
   margin-top: 5vh;
   margin-left: 10vw;
   margin-right: 10vw;
@@ -44,6 +43,10 @@ body {
   background-color: color-mix(in srgb, var(--article-back), #888 20%);
   overflow: hidden;
   overflow-wrap: break-word;
+}
+
+#article-content * { 
+  line-height: 1.5em;
 }
 
 #article-index {
