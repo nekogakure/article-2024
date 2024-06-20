@@ -32,8 +32,10 @@ body {
 }
 
 #article-content {
+  line-height: 250%;
   margin-top: 5vh;
   margin-left: 10vw;
+  margin-right: 10vw;
   margin-bottom: 5vh;
   padding: 2%;
   width: 50%;
@@ -45,6 +47,7 @@ body {
 }
 
 #article-index {
+  line-height: 150%;
   position: sticky;
   width: 30%;
   height: 70vh;
