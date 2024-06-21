@@ -179,3 +179,10 @@ code{
   height: 10vh;
   z-index:2000;
 }
+table {
+  border-collapse: collapse;
+  border: solid 2px var(--article-text);
+}
+th,td {
+ border: solid 2px var(--article-text); 
+}
