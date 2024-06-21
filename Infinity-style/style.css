@@ -171,5 +171,7 @@ th,td {
 }
 .codehilite {
   overflow: scroll;
+}
+.codehilite > pre > span {
   font-family: monospace;
 }
