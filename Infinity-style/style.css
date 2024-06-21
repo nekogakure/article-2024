@@ -153,10 +153,10 @@ pre {
   font-family: monospace;
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);
   color: var(--article-text);
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
   font-size: 15px;
 }
-pre * {
-  line-height: 1.2rem;
+code {
+  line-height: 1.2em;
 }
