@@ -64,23 +64,27 @@ for article_dir in listfolders(root_dir):
       f.close()
           
     def convertmarkdown(markdown_text):
+      extensions = [
+        "extra",
+        'admonition',
+        'codehilite',
+        'legacy_attrs',
+        'legacy_em',
+        'nl2br',
+        'sane_lists',
+        'toc',
+        'wikilinks',
+        'meta',
+        'smarty',        
+      ]
       global markdown_title
       markdown_result=""
-      code_mode=False
       for markdown_line in markdown_text.split("\n"):
           if markdown_line.startswith("#title: "):
             markdown_title=markdown_line[8:]
-          elif markdown_line.startswith("```"):
-            if code_mode:
-              markdown_result+="</pre>\n"
-            else:
-              markdown_result+="<pre>\n"
-            code_mode = not code_mode
-          elif code_mode:
-            markdown_result+="<code>"+markdown_line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")+"</code>\n"
           else:
             markdown_result+=markdown_line+"\n"
-      return markdown.markdown(markdown_result)
+      return markdown.markdown(markdown_result,extensions=extensions)
     html_text = convertmarkdown(markdown_text)
     html_result=""
     for html_line in html_text.split("\n"):
