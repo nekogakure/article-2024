@@ -80,7 +80,7 @@ for article_dir in listfolders(root_dir):
       configs = {
         'codehilite':{
             'noclasses': True,
-            'pygments_style': 'vs',
+            'pygments_style': 'monokai',
         }
       }
       global markdown_title
