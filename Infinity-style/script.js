@@ -1,4 +1,38 @@
 const main = () => {//add article
+  const go_top=document.createElement("button");
+  go_top.id="go-top";
+  go_top.innerHTML=`
+  <svg
+    viewBox="0 0 100 100"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    fill="none"
+    stroke="#888"
+    stroke-width="2">
+    <animate
+      attributeName="stroke"
+      dur="5s"
+      repeatCount="indefinite"
+      values="#ff0000;#ffff00;#00ff00;#00ffff;#0000ff;#ff00ff;#ff0000"
+      >
+    </animate>
+    <circle cx="50" cy="50" r="40" />
+    <path d="M 80 45 L50 25 L 20 45" />
+    <path d="M 80 55 L50 35 L 20 55" />
+    <circle cx="50" cy="65" r="20"/>
+    <ellipse cx="40" cy="65" rx="10" ry="8" stroke-width="1" />
+    <ellipse cx="60" cy="65" rx="10" ry="8" stroke-width="1" />
+  </svg>
+  `;
+  go_top.onclick=()=>{
+    document.querySelector("#article-title").scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'center'
+    });
+  }
+  document.body.append(go_top);
   const article_content = document.querySelector("#article-content");
   const article_body = document.querySelector("#article-body");
   //add title
