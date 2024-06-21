@@ -14,7 +14,6 @@ article_temp_head = '''
     <script defer src="../../Infinity-style/script.js"></script>
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
-    <link rel="stylesheet" href="../../Infinity-style/codehighlight.css">
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" />
     <script
@@ -80,7 +79,8 @@ for article_dir in listfolders(root_dir):
       ]
       configs = {
         'codehilite':{
-            'noclasses': True
+            'noclasses': True,
+            'pygments_style': 'github-dark',
         }
       }
       global markdown_title
