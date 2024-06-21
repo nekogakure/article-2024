@@ -40,12 +40,18 @@ body {
   width: 50%;
   height: max(auto, 80vh);
   color: var(--article-text);
-  background-color: color-mix(in srgb, var(--article-back), #888 20%);
+  background-color: color-mix(in srgb, var(--article-back), transparent 30%);
   overflow: hidden;
   overflow-wrap: break-word;
 }
 
-#article-content * { 
+#article-content > h1,
+#article-content > h2,
+#article-content > h3,
+#article-content > h4,
+#article-content > h5,
+#article-content > h6,
+#article-content > p { 
   line-height: 2.5em;
 }
 
@@ -59,7 +65,7 @@ body {
   overflow-y: scroll;
   overflow-x:hidden;
   color: var(--article-text);
-  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
+  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), transparent 10%);
 }
 
 #other-articles {
