@@ -177,4 +177,5 @@ code{
   right:0;
   width:10vh;
   height: 10vh;
+  z-index:2000;
 }
