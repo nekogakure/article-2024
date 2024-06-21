@@ -31,8 +31,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: git pull
       - run: pip install pygments
-      - run: pygmentize -L style
-      - run: pygmentize -S default -f html -a .codehilite > ./Infinity-style/codehighlight.css
       - run: pip install markdown
       - run: python ./script/Infinity-style.py
       - run: python ./script/article-index.py
