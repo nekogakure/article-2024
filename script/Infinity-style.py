@@ -77,6 +77,11 @@ for article_dir in listfolders(root_dir):
         'meta',
         'smarty',        
       ]
+      configs = {
+        'codehilite':{
+            'noclasses': True
+        }
+      }
       global markdown_title
       markdown_result=""
       for markdown_line in markdown_text.split("\n"):
@@ -84,12 +89,13 @@ for article_dir in listfolders(root_dir):
             markdown_title=markdown_line[8:]
           else:
             markdown_result+=markdown_line+"\n"
-      return markdown.markdown(markdown_result,extensions=extensions)
+      return markdown.markdown(markdown_result,extensions=extensions,extension_configs=configs)
     html_text = convertmarkdown(markdown_text)
     html_result=""
     for html_line in html_text.split("\n"):
       html_result+=" "*8+html_line+"\n"
-    if index_path==None:
-      with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
-        f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
-        f.close()
+    if index_path!=None:
+      os.system("rm "+root_dir+"/"+article_dir+"/index.html")
+    with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
+      f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
+      f.close()
