@@ -169,6 +169,7 @@ table {
 th,td {
  border: solid 2px var(--article-text); 
 }
-code {
+.codehilite {
   overflow: scroll;
+  font-family: monospace;
 }
