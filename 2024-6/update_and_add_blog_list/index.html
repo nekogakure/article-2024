@@ -10,7 +10,6 @@
     <script defer src="../../Infinity-style/script.js"></script>
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
-    <link rel="stylesheet" href="../../Infinity-style/codehighlight.css">
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" />
     <script
@@ -38,259 +37,259 @@
         <h3 id="_5">記事が多過ぎた</h3>
         <p>記事そのものを書き換えようにも既に20以上の記事を書いており、全てに変更を適用するのは余りにも面倒なので、共通スクリプトの<a href="../../Infinity-style/">Infinity-style</a>に書き足すことで記事リストの追加を図ろうと思います。<a href="../../../blog/script.js">blogのscript</a>からブログの検索、リンクボタンの追加などのプログラムを取り出し、<a href="../../Infinity-style/script.js">Infinity-style/script.js</a>に取り入れます。その際に、プログラムの改造を施して、過去2ヶ月の記事の中から月毎にそれぞれ3記事ずつ(合計6つ)の記事を取り出すようにします。そして完成したのがこちら。</p>
         <h3 id="javascript">JavaScriptのソース</h3>
-        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">const</span> main <span style="color: #666666">=</span> () =&gt; {<span style="color: #3D7B7B; font-style: italic">//add article</span>
-          <span style="color: #008000; font-weight: bold">const</span> article_text <span style="color: #666666">=</span> <span style="color: #008000">document</span>.body.innerHTML;
-          <span style="color: #008000">document</span>.body.innerHTML <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
-          <span style="color: #008000; font-weight: bold">const</span> article_content <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;div&quot;</span>);
-          article_content.id <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;article-content&quot;</span>;
-          article_content.innerHTML <span style="color: #666666">=</span> article_text;
-          <span style="color: #008000; font-weight: bold">const</span> article_body <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;div&quot;</span>);
+        <div class="codehilite" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000ff">const</span> main = () =&gt; {<span style="color: #008000">//add article</span>
+          <span style="color: #0000ff">const</span> article_text = document.body.innerHTML;
+          document.body.innerHTML = <span style="color: #a31515">&quot;&quot;</span>;
+          <span style="color: #0000ff">const</span> article_content = document.createElement(<span style="color: #a31515">&quot;div&quot;</span>);
+          article_content.id = <span style="color: #a31515">&quot;article-content&quot;</span>;
+          article_content.innerHTML = article_text;
+          <span style="color: #0000ff">const</span> article_body = document.createElement(<span style="color: #a31515">&quot;div&quot;</span>);
           article_body.append(article_content);
-          <span style="color: #008000">document</span>.body.append(article_body);
-          <span style="color: #3D7B7B; font-style: italic">//add title</span>
-          <span style="color: #008000; font-weight: bold">const</span> title_elem <span style="color: #666666">=</span> <span style="color: #008000">document</span>.querySelector(<span style="color: #BA2121">&quot;title&quot;</span>);
-          <span style="color: #008000; font-weight: bold">const</span> article_title <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;div&quot;</span>);
-          article_title.id <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;article-title&quot;</span>;
-          article_title.innerHTML <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&lt;h1&gt;&quot;</span> <span style="color: #666666">+</span> title_elem.innerHTML <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;&lt;/h1&gt;&quot;</span>;
+          document.body.append(article_body);
+          <span style="color: #008000">//add title</span>
+          <span style="color: #0000ff">const</span> title_elem = document.querySelector(<span style="color: #a31515">&quot;title&quot;</span>);
+          <span style="color: #0000ff">const</span> article_title = document.createElement(<span style="color: #a31515">&quot;div&quot;</span>);
+          article_title.id = <span style="color: #a31515">&quot;article-title&quot;</span>;
+          article_title.innerHTML = <span style="color: #a31515">&quot;&lt;h1&gt;&quot;</span> + title_elem.innerHTML + <span style="color: #a31515">&quot;&lt;/h1&gt;&quot;</span>;
           article_body.prepend(article_title);
-          <span style="color: #3D7B7B; font-style: italic">//add index</span>
-          <span style="color: #008000; font-weight: bold">const</span> article_index <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;div&quot;</span>);
-          article_index.id <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;article-index&quot;</span>;
+          <span style="color: #008000">//add index</span>
+          <span style="color: #0000ff">const</span> article_index = document.createElement(<span style="color: #a31515">&quot;div&quot;</span>);
+          article_index.id = <span style="color: #a31515">&quot;article-index&quot;</span>;
           article_body.append(article_index);
-          <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">let</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> article_content.children.length; <span style="color: #666666">++</span>i) {
-            <span style="color: #008000; font-weight: bold">const</span> article_content_child <span style="color: #666666">=</span> article_content.children[i];
-            <span style="color: #008000; font-weight: bold">const</span> tags <span style="color: #666666">=</span> { <span style="color: #BA2121">&quot;H1&quot;</span><span style="color: #666666">:</span> <span style="color: #BA2121">&quot;H1&quot;</span>, <span style="color: #BA2121">&quot;H2&quot;</span><span style="color: #666666">:</span> <span style="color: #BA2121">&quot;H2&quot;</span>, <span style="color: #BA2121">&quot;H3&quot;</span><span style="color: #666666">:</span> <span style="color: #BA2121">&quot;H3&quot;</span>, <span style="color: #BA2121">&quot;H4&quot;</span><span style="color: #666666">:</span> <span style="color: #BA2121">&quot;H4&quot;</span> };
-            <span style="color: #008000; font-weight: bold">if</span> (article_content_child.tagName <span style="color: #AA22FF; font-weight: bold">in</span> tags) {
-              <span style="color: #008000; font-weight: bold">const</span> index_text <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(article_content_child.tagName);
-              index_text.innerHTML <span style="color: #666666">=</span> article_content_child.innerHTML;
-              index_text.onclick <span style="color: #666666">=</span> () =&gt; {
+          <span style="color: #0000ff">for</span> (<span style="color: #0000ff">let</span> i = 0; i &lt; article_content.children.length; ++i) {
+            <span style="color: #0000ff">const</span> article_content_child = article_content.children[i];
+            <span style="color: #0000ff">const</span> tags = { <span style="color: #a31515">&quot;H1&quot;</span>: <span style="color: #a31515">&quot;H1&quot;</span>, <span style="color: #a31515">&quot;H2&quot;</span>: <span style="color: #a31515">&quot;H2&quot;</span>, <span style="color: #a31515">&quot;H3&quot;</span>: <span style="color: #a31515">&quot;H3&quot;</span>, <span style="color: #a31515">&quot;H4&quot;</span>: <span style="color: #a31515">&quot;H4&quot;</span> };
+            <span style="color: #0000ff">if</span> (article_content_child.tagName <span style="color: #0000ff">in</span> tags) {
+              <span style="color: #0000ff">const</span> index_text = document.createElement(article_content_child.tagName);
+              index_text.innerHTML = article_content_child.innerHTML;
+              index_text.onclick = () =&gt; {
                 article_content_child.scrollIntoView({
-                  behavior<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;smooth&#39;</span>,
-                  block<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;end&#39;</span>,
-                  inline<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;center&#39;</span>
+                  behavior: <span style="color: #a31515">&#39;smooth&#39;</span>,
+                  block: <span style="color: #a31515">&#39;end&#39;</span>,
+                  inline: <span style="color: #a31515">&#39;center&#39;</span>
                 });
               }
               article_index.append(index_text);
             }
           }
-          <span style="color: #008000; font-weight: bold">const</span> other_articles <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;div&quot;</span>);
-          other_articles.id <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;other-articles&quot;</span>;
+          <span style="color: #0000ff">const</span> other_articles = document.createElement(<span style="color: #a31515">&quot;div&quot;</span>);
+          other_articles.id = <span style="color: #a31515">&quot;other-articles&quot;</span>;
           article_body.append(other_articles);
-          <span style="color: #008000; font-weight: bold">const</span> get_all_article_info <span style="color: #666666">=</span> () =&gt; {
-            <span style="color: #008000; font-weight: bold">const</span> blog_start <span style="color: #666666">=</span> {
-              year<span style="color: #666666">:</span> <span style="color: #666666">2024</span>,
-              month<span style="color: #666666">:</span> <span style="color: #666666">4</span>
+          <span style="color: #0000ff">const</span> get_all_article_info = () =&gt; {
+            <span style="color: #0000ff">const</span> blog_start = {
+              year: 2024,
+              month: 4
             }
-            <span style="color: #008000; font-weight: bold">let</span> today <span style="color: #666666">=</span> <span style="color: #AA22FF; font-weight: bold">new</span> <span style="color: #008000">Date</span>();
-            today <span style="color: #666666">=</span> {
-              year<span style="color: #666666">:</span> today.getFullYear(),
-              month<span style="color: #666666">:</span> today.getMonth() <span style="color: #666666">+</span> <span style="color: #666666">1</span>
+            <span style="color: #0000ff">let</span> today = <span style="color: #0000ff">new</span> Date();
+            today = {
+              year: today.getFullYear(),
+              month: today.getMonth() + 1
             }
-            <span style="color: #008000; font-weight: bold">const</span> data_list_length <span style="color: #666666">=</span> <span style="color: #666666">1</span> <span style="color: #666666">+</span> <span style="color: #666666">12</span> <span style="color: #666666">*</span> (today.year <span style="color: #666666">-</span> blog_start.year) <span style="color: #666666">+</span> today.month <span style="color: #666666">-</span> blog_start.month;
-            <span style="color: #008000; font-weight: bold">const</span> domain <span style="color: #666666">=</span> <span style="color: #AA22FF; font-weight: bold">new</span> URL(<span style="color: #008000">window</span>.location.href);
-            <span style="color: #008000; font-weight: bold">const</span> blog_domain <span style="color: #666666">=</span> domain.hostname;
-            <span style="color: #008000; font-weight: bold">const</span> append_blog_button <span style="color: #666666">=</span> info =&gt; {
-              <span style="color: #008000; font-weight: bold">const</span> box <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;button&quot;</span>);
-              box.classList.add(<span style="color: #BA2121">&quot;blog-button&quot;</span>);
-              box.onclick <span style="color: #666666">=</span> () =&gt; {
-                <span style="color: #008000">window</span>.location.href <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;https://&quot;</span> <span style="color: #666666">+</span> blog_domain <span style="color: #666666">+</span> info.index;
+            <span style="color: #0000ff">const</span> data_list_length = 1 + 12 * (today.year - blog_start.year) + today.month - blog_start.month;
+            <span style="color: #0000ff">const</span> domain = <span style="color: #0000ff">new</span> URL(window.location.href);
+            <span style="color: #0000ff">const</span> blog_domain = domain.hostname;
+            <span style="color: #0000ff">const</span> append_blog_button = info =&gt; {
+              <span style="color: #0000ff">const</span> box = document.createElement(<span style="color: #a31515">&quot;button&quot;</span>);
+              box.classList.add(<span style="color: #a31515">&quot;blog-button&quot;</span>);
+              box.onclick = () =&gt; {
+                window.location.href = <span style="color: #a31515">&quot;https://&quot;</span> + blog_domain + info.index;
               }
-              <span style="color: #008000; font-weight: bold">const</span> thumbnail <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;img&quot;</span>);
-              thumbnail.src <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;https://&quot;</span> <span style="color: #666666">+</span> blog_domain <span style="color: #666666">+</span> info.thumbnail;
-              thumbnail.alt <span style="color: #666666">=</span> info.name;
-              thumbnail.loading <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;lazy&quot;</span>;
-              <span style="color: #008000; font-weight: bold">const</span> loading <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;img&quot;</span>);
-              loading.src <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=&quot;</span>;
-              loading.alt <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;loading...&quot;</span>;
-              loading.className <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;loading-infinity&quot;</span>;
-              <span style="color: #008000; font-weight: bold">const</span> title <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;div&quot;</span>);
-              title.innerHTML <span style="color: #666666">=</span> info.title;
-              box.innerHTML <span style="color: #666666">=</span> loading.outerHTML <span style="color: #666666">+</span> thumbnail.outerHTML <span style="color: #666666">+</span> title.outerHTML;
-              <span style="color: #008000; font-weight: bold">const</span> insert_button <span style="color: #666666">=</span> () =&gt; {
-                <span style="color: #008000">document</span>.querySelector(<span style="color: #BA2121">&quot;#other-articles&quot;</span>).append(box);
+              <span style="color: #0000ff">const</span> thumbnail = document.createElement(<span style="color: #a31515">&quot;img&quot;</span>);
+              thumbnail.src = <span style="color: #a31515">&quot;https://&quot;</span> + blog_domain + info.thumbnail;
+              thumbnail.alt = info.name;
+              thumbnail.loading = <span style="color: #a31515">&quot;lazy&quot;</span>;
+              <span style="color: #0000ff">const</span> loading = document.createElement(<span style="color: #a31515">&quot;img&quot;</span>);
+              loading.src = <span style="color: #a31515">&quot;data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=&quot;</span>;
+              loading.alt = <span style="color: #a31515">&quot;loading...&quot;</span>;
+              loading.className = <span style="color: #a31515">&quot;loading-infinity&quot;</span>;
+              <span style="color: #0000ff">const</span> title = document.createElement(<span style="color: #a31515">&quot;div&quot;</span>);
+              title.innerHTML = info.title;
+              box.innerHTML = loading.outerHTML + thumbnail.outerHTML + title.outerHTML;
+              <span style="color: #0000ff">const</span> insert_button = () =&gt; {
+                document.querySelector(<span style="color: #a31515">&quot;#other-articles&quot;</span>).append(box);
               }
               insert_button();
             };
-            <span style="color: #008000; font-weight: bold">const</span> getData <span style="color: #666666">=</span> (name) =&gt; {
-              console.log(<span style="color: #BA2121">&quot;get: &quot;</span> <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;https://&quot;</span> <span style="color: #666666">+</span> blog_domain <span style="color: #666666">+</span> name <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;.json&quot;</span>);
-              fetch(<span style="color: #BA2121">&quot;https://&quot;</span> <span style="color: #666666">+</span> blog_domain <span style="color: #666666">+</span> name <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;.json&quot;</span>)
+            <span style="color: #0000ff">const</span> getData = (name) =&gt; {
+              console.log(<span style="color: #a31515">&quot;get: &quot;</span> + <span style="color: #a31515">&quot;https://&quot;</span> + blog_domain + name + <span style="color: #a31515">&quot;.json&quot;</span>);
+              fetch(<span style="color: #a31515">&quot;https://&quot;</span> + blog_domain + name + <span style="color: #a31515">&quot;.json&quot;</span>)
                 .then((res) =&gt; res.json()).then(
                   data =&gt; {
-                    <span style="color: #008000; font-weight: bold">const</span> infos <span style="color: #666666">=</span> data.info;
-                    <span style="color: #008000; font-weight: bold">let</span> counter <span style="color: #666666">=</span> <span style="color: #666666">3</span>;
-                    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">let</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> infos.length; <span style="color: #666666">++</span>i) {
-                      <span style="color: #008000; font-weight: bold">const</span> info <span style="color: #666666">=</span> infos[i];
-                      <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #008000">Math</span>.random() <span style="color: #666666">&lt;</span> <span style="color: #666666">1</span> <span style="color: #666666">/</span> (infos.length <span style="color: #666666">-</span> i <span style="color: #666666">-</span> counter)) {
-                        <span style="color: #008000; font-weight: bold">if</span> (counter <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) {
+                    <span style="color: #0000ff">const</span> infos = data.info;
+                    <span style="color: #0000ff">let</span> counter = 3;
+                    <span style="color: #0000ff">for</span> (<span style="color: #0000ff">let</span> i = 0; i &lt; infos.length; ++i) {
+                      <span style="color: #0000ff">const</span> info = infos[i];
+                      <span style="color: #0000ff">if</span> (Math.random() &lt; 1 / (infos.length - i - counter)) {
+                        <span style="color: #0000ff">if</span> (counter &gt; 0) {
                           append_blog_button(info);
-                          counter<span style="color: #666666">--</span>;
+                          counter--;
                         }
                       }
                     }
                   }
-                ).<span style="color: #008000; font-weight: bold">catch</span>((err) =&gt; console.log(<span style="color: #BA2121">`データが取得できませんでした：</span><span style="color: #A45A77; font-weight: bold">${</span>err<span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">`</span>));
+                ).<span style="color: #0000ff">catch</span>((err) =&gt; console.log(<span style="color: #a31515">`データが取得できませんでした：${</span>err<span style="color: #a31515">}`</span>));
             };
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">let</span> load_count <span style="color: #666666">=</span> data_list_length; load_count <span style="color: #666666">&gt;</span> data_list_length <span style="color: #666666">-</span> <span style="color: #666666">2</span>; <span style="color: #666666">--</span>load_count) {
-              <span style="color: #008000; font-weight: bold">const</span> pathname <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;/api/blog/&quot;</span> <span style="color: #666666">+</span> (blog_start.year <span style="color: #666666">+</span> <span style="color: #666666">~~</span>((blog_start.month <span style="color: #666666">+</span> load_count <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">12</span>)).toString() <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;-&quot;</span> <span style="color: #666666">+</span> ((blog_start.month <span style="color: #666666">+</span> load_count <span style="color: #666666">-</span> <span style="color: #666666">2</span>) <span style="color: #666666">%</span> <span style="color: #666666">12</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>).toString()
+            <span style="color: #0000ff">for</span> (<span style="color: #0000ff">let</span> load_count = data_list_length; load_count &gt; data_list_length - 2; --load_count) {
+              <span style="color: #0000ff">const</span> pathname = <span style="color: #a31515">&quot;/api/blog/&quot;</span> + (blog_start.year + ~~((blog_start.month + load_count - 1) / 12)).toString() + <span style="color: #a31515">&quot;-&quot;</span> + ((blog_start.month + load_count - 2) % 12 + 1).toString()
               getData(pathname);
             }
           };
           get_all_article_info();
-          <span style="color: #3D7B7B; font-style: italic">//add style</span>
-          fetch(<span style="color: #BA2121">&quot;https://&quot;</span> <span style="color: #666666">+</span> <span style="color: #AA22FF; font-weight: bold">new</span> URL(<span style="color: #008000">window</span>.location.href).hostname <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;/The-Infinitys-Infinity/style.css&quot;</span>).then(res =&gt; res.text()).then(style =&gt; {
-            <span style="color: #008000; font-weight: bold">const</span> The_Infinitys_css <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;style&quot;</span>);
-            The_Infinitys_css.innerHTML <span style="color: #666666">=</span> style;
-            <span style="color: #008000">document</span>.body.append(The_Infinitys_css);
-          }).<span style="color: #008000; font-weight: bold">catch</span>(err =&gt; alert(err));
-          fetch(<span style="color: #BA2121">&quot;https://&quot;</span> <span style="color: #666666">+</span> <span style="color: #AA22FF; font-weight: bold">new</span> URL(<span style="color: #008000">window</span>.location.href).hostname <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;/The-Infinitys-Infinity/script.js&quot;</span>).then(res =&gt; res.text()).then(style =&gt; {
-            <span style="color: #008000; font-weight: bold">const</span> The_Infinitys_js <span style="color: #666666">=</span> <span style="color: #008000">document</span>.createElement(<span style="color: #BA2121">&quot;script&quot;</span>);
-            The_Infinitys_js.innerHTML <span style="color: #666666">=</span> style;
-            <span style="color: #008000">document</span>.body.append(The_Infinitys_js);
-          }).<span style="color: #008000; font-weight: bold">catch</span>(err =&gt; alert(err));
+          <span style="color: #008000">//add style</span>
+          fetch(<span style="color: #a31515">&quot;https://&quot;</span> + <span style="color: #0000ff">new</span> URL(window.location.href).hostname + <span style="color: #a31515">&quot;/The-Infinitys-Infinity/style.css&quot;</span>).then(res =&gt; res.text()).then(style =&gt; {
+            <span style="color: #0000ff">const</span> The_Infinitys_css = document.createElement(<span style="color: #a31515">&quot;style&quot;</span>);
+            The_Infinitys_css.innerHTML = style;
+            document.body.append(The_Infinitys_css);
+          }).<span style="color: #0000ff">catch</span>(err =&gt; alert(err));
+          fetch(<span style="color: #a31515">&quot;https://&quot;</span> + <span style="color: #0000ff">new</span> URL(window.location.href).hostname + <span style="color: #a31515">&quot;/The-Infinitys-Infinity/script.js&quot;</span>).then(res =&gt; res.text()).then(style =&gt; {
+            <span style="color: #0000ff">const</span> The_Infinitys_js = document.createElement(<span style="color: #a31515">&quot;script&quot;</span>);
+            The_Infinitys_js.innerHTML = style;
+            document.body.append(The_Infinitys_js);
+          }).<span style="color: #0000ff">catch</span>(err =&gt; alert(err));
         };
         main();
         </code></pre></div>
         
         <h3 id="css">CSSのソース</h3>
         <p>あとcssも</p>
-        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">padding</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        <div class="codehilite" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>* {
+          <span style="color: #0000ff">margin</span>: 0;
+          <span style="color: #0000ff">padding</span>: 0;
+        }
         
-        :<span style="color: #AA22FF">root</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #19177C">--article-back</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">#eee</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #19177C">--article-text</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">#000</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        :root {
+          --article-back: #eee;
+          --article-text: #000;
+        }
         
-        @<span style="color: #008000; font-weight: bold">media</span><span style="color: #bbbbbb"> </span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">prefers-color-scheme</span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">dark</span><span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>:<span style="color: #AA22FF">root</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #19177C">--article-back</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">#111</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #19177C">--article-text</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">#fff</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+        @<span style="color: #0000ff">media</span> (prefers-color-scheme: dark) {
+          :root {
+            --article-back: #111;
+            --article-text: #fff;
+          }
         
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">a</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">aqua</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+          a {
+            <span style="color: #0000ff">color</span>: <span style="color: #0000ff">aqua</span>;
+          }
+        }
         
-        <span style="color: #008000; font-weight: bold">body</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-back</span>);<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        body {
+          <span style="color: #0000ff">background-color</span>: var(--article-back);
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">article-title</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">vw</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">50</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">auto</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">text-wrap</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">wrap</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-text</span>);<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #article-title {
+          <span style="color: #0000ff">margin-left</span>: 10<span style="color: #2b91af">vw</span>;
+          <span style="color: #0000ff">width</span>: 50<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: <span style="color: #0000ff">auto</span>;
+          <span style="color: #0000ff">text-wrap</span>: <span style="color: #0000ff">wrap</span>;
+          <span style="color: #0000ff">color</span>: var(--article-text);
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">article-content</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-top</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">vw</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-bottom</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">padding</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">50</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">max</span>(<span style="color: #008000; font-weight: bold">auto</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">80</span><span style="color: #B00040">vh</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-text</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">color-mix</span>(in<span style="color: #bbbbbb"> </span>srgb,<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-back</span>),<span style="color: #bbbbbb"> </span><span style="color: #666666">#888</span><span style="color: #bbbbbb"> </span><span style="color: #666666">20</span><span style="color: #B00040">%</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">overflow</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hidden</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">overflow-wrap</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">break-word</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #article-content {
+          <span style="color: #0000ff">margin-top</span>: 5<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">margin-left</span>: 10<span style="color: #2b91af">vw</span>;
+          <span style="color: #0000ff">margin-bottom</span>: 5<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">padding</span>: 2<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">width</span>: 50<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: max(<span style="color: #0000ff">auto</span>, 80<span style="color: #2b91af">vh</span>);
+          <span style="color: #0000ff">color</span>: var(--article-text);
+          <span style="color: #0000ff">background-color</span>: color-mix(in srgb, var(--article-back), #888 20<span style="color: #2b91af">%</span>);
+          <span style="color: #0000ff">overflow</span>: <span style="color: #0000ff">hidden</span>;
+          <span style="color: #0000ff">overflow-wrap</span>: <span style="color: #0000ff">break-word</span>;
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">article-index</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sticky</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">30</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">70</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">bottom</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">15</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">65</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">overflow</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">scroll</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-text</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">color-mix</span>(in<span style="color: #bbbbbb"> </span>srgb,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">color</span><span style="color: #19177C">-mix</span><span style="border: 1px solid #FF0000">(</span>in<span style="color: #bbbbbb"> </span>srgb,<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-back</span>),<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">transparent</span><span style="color: #bbbbbb"> </span><span style="color: #666666">50</span><span style="color: #B00040">%</span>),<span style="color: #bbbbbb"> </span><span style="color: #666666">#888</span><span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">%</span>);<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #article-index {
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">sticky</span>;
+          <span style="color: #0000ff">width</span>: 30<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: 70<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">bottom</span>: 15<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">left</span>: 65<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">overflow</span>: <span style="color: #0000ff">scroll</span>;
+          <span style="color: #0000ff">color</span>: var(--article-text);
+          <span style="color: #0000ff">background-color</span>: color-mix(in srgb, <span style="color: #0000ff">color</span>-mix<span style="border: 1px solid #FF0000">(</span>in srgb, var(--article-back), <span style="color: #0000ff">transparent</span> 50<span style="color: #2b91af">%</span>), #888 10<span style="color: #2b91af">%</span>);
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">other-articles</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-top</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">-70</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">vw</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-bottom</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000">calc</span>(<span style="color: #666666">50</span><span style="color: #B00040">vw</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #B00040">vw</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>aspect-ratio:<span style="color: #bbbbbb"> </span><span style="color: #666666">8/9</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">color-mix</span>(in<span style="color: #bbbbbb"> </span>srgb,<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-back</span>),<span style="color: #bbbbbb"> </span><span style="color: #666666">#888</span><span style="color: #bbbbbb"> </span><span style="color: #666666">20</span><span style="color: #B00040">%</span>);<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #other-articles {
+          <span style="color: #0000ff">margin-top</span>: -70<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">margin-left</span>: 10<span style="color: #2b91af">vw</span>;
+          <span style="color: #0000ff">margin-bottom</span>: 10<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">width</span>: calc(50<span style="color: #2b91af">vw</span> + 2 * 2<span style="color: #2b91af">vw</span>);
+          aspect-ratio: 8/9;
+          <span style="color: #0000ff">background-color</span>: color-mix(in srgb, var(--article-back), #888 20<span style="color: #2b91af">%</span>);
+        }
         
-        .<span style="color: #0000FF; font-weight: bold">blog-button</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">overflow</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hidden</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">relative</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">#ffffff55</span>;<span style="color: #bbbbbb"></span>
+        .<span style="color: #2b91af">blog-button</span> {
+          <span style="color: #0000ff">overflow</span>: <span style="color: #0000ff">hidden</span>;
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">relative</span>;
+          <span style="color: #0000ff">background-color</span>: #ffffff55;
         
-        <span style="color: #bbbbbb">  </span><span style="border: 1px solid #FF0000">@media</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">(</span>prefers-color-scheme:<span style="color: #bbbbbb"> </span>dark)<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">{</span><span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">background-color</span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">#00000055</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+          <span style="border: 1px solid #FF0000">@media</span> <span style="border: 1px solid #FF0000">(</span>prefers-color-scheme: dark) <span style="border: 1px solid #FF0000">{</span>
+            <span style="color: #0000ff">background-color</span>: #00000055;
+          }
         
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #AA22FF">50</span><span style="color: #666666">%;</span><span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">aspect-ratio</span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">4</span><span style="color: #666666">/</span><span style="color: #008000; font-weight: bold">3</span><span style="color: #666666">;</span><span style="color: #bbbbbb"></span>
-        <span style="border: 1px solid #FF0000">}</span><span style="color: #bbbbbb"></span>
+          width:50%;
+          aspect-ratio: 4/3;
+        <span style="border: 1px solid #FF0000">}</span>
         
-        .<span style="color: #0000FF; font-weight: bold">blog-button</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">img</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">absolute</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">top</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">100</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">85</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">object-fit</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">cover</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        .<span style="color: #2b91af">blog-button</span> img {
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">absolute</span>;
+          <span style="color: #0000ff">top</span>: 0;
+          <span style="color: #0000ff">left</span>: 0;
+          <span style="color: #0000ff">width</span>: 100<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: 85<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">object-fit</span>: <span style="color: #0000ff">cover</span>;
+        }
         
-        .<span style="color: #0000FF; font-weight: bold">loading-infinity</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">absolute</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">top</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">100</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">85</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">object-fit</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">contain</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        .<span style="color: #2b91af">loading-infinity</span> {
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">absolute</span>;
+          <span style="color: #0000ff">top</span>: 0;
+          <span style="color: #0000ff">left</span>: 0;
+          <span style="color: #0000ff">width</span>: 100<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: 85<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">object-fit</span>: <span style="color: #0000ff">contain</span>;
+        }
         
-        .<span style="color: #0000FF; font-weight: bold">blog-button</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">div</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">absolute</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">100</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">15</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">bottom</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--text</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">font-size</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">max</span>(<span style="color: #008000; font-weight: bold">auto</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">12</span><span style="color: #B00040">px</span>);<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        .<span style="color: #2b91af">blog-button</span> div {
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">absolute</span>;
+          <span style="color: #0000ff">width</span>: 100<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: 15<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">bottom</span>: 0;
+          <span style="color: #0000ff">color</span>: var(--text);
+          <span style="color: #0000ff">font-size</span>: max(<span style="color: #0000ff">auto</span>, 12<span style="color: #2b91af">px</span>);
+        }
         
-        @<span style="color: #008000; font-weight: bold">media</span><span style="color: #bbbbbb"> </span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">max-aspect-ratio</span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">1</span><span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>#<span style="color: #0000FF; font-weight: bold">article-index</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">visibility</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">hidden</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+        @<span style="color: #0000ff">media</span> (max-aspect-ratio: 1) {
+          #article-index {
+            <span style="color: #0000ff">visibility</span>: <span style="color: #0000ff">hidden</span>;
+          }
         
-        <span style="color: #bbbbbb">  </span>#<span style="color: #0000FF; font-weight: bold">article-title</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">margin-left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">2.5</span><span style="color: #B00040">vw</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">90</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+          #article-title {
+            <span style="color: #0000ff">margin-left</span>: 2.5<span style="color: #2b91af">vw</span>;
+            <span style="color: #0000ff">width</span>: 90<span style="color: #2b91af">%</span>;
+          }
         
-        <span style="color: #bbbbbb">  </span>#<span style="color: #0000FF; font-weight: bold">article-content</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">margin-left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">2.5</span><span style="color: #B00040">vw</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">90</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+          #article-content {
+            <span style="color: #0000ff">margin-left</span>: 2.5<span style="color: #2b91af">vw</span>;
+            <span style="color: #0000ff">width</span>: 90<span style="color: #2b91af">%</span>;
+          }
         
-        <span style="color: #bbbbbb">  </span>#<span style="color: #0000FF; font-weight: bold">other-articles</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">margin-left</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">2.5</span><span style="color: #B00040">vw</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">94</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+          #other-articles {
+            <span style="color: #0000ff">margin-left</span>: 2.5<span style="color: #2b91af">vw</span>;
+            <span style="color: #0000ff">width</span>: 94<span style="color: #2b91af">%</span>;
+          }
+        }
         
-        <span style="color: #008000; font-weight: bold">pre</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">relative</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">white-space</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">pre-wrap</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">word-wrap</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">break-word</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">overflow</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">auto</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">color-mix</span>(in<span style="color: #bbbbbb"> </span>srgb,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">color</span><span style="color: #19177C">-mix</span><span style="border: 1px solid #FF0000">(</span>in<span style="color: #bbbbbb"> </span>srgb,<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-back</span>),<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">transparent</span><span style="color: #bbbbbb"> </span><span style="color: #666666">50</span><span style="color: #B00040">%</span>),<span style="color: #bbbbbb"> </span><span style="color: #666666">#888</span><span style="color: #bbbbbb"> </span><span style="color: #666666">30</span><span style="color: #B00040">%</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--article-text</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">padding</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">px</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">border-radius</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #B00040">px</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">font-size</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">15</span><span style="color: #B00040">px</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        pre {
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">relative</span>;
+          <span style="color: #0000ff">white-space</span>: <span style="color: #0000ff">pre-wrap</span>;
+          <span style="color: #0000ff">word-wrap</span>: <span style="color: #0000ff">break-word</span>;
+          <span style="color: #0000ff">overflow</span>: <span style="color: #0000ff">auto</span>;
+          <span style="color: #0000ff">background-color</span>: color-mix(in srgb, <span style="color: #0000ff">color</span>-mix<span style="border: 1px solid #FF0000">(</span>in srgb, var(--article-back), <span style="color: #0000ff">transparent</span> 50<span style="color: #2b91af">%</span>), #888 30<span style="color: #2b91af">%</span>);
+          <span style="color: #0000ff">color</span>: var(--article-text);
+          <span style="color: #0000ff">padding</span>: 10<span style="color: #2b91af">px</span>;
+          <span style="color: #0000ff">border-radius</span>: 4<span style="color: #2b91af">px</span>;
+          <span style="color: #0000ff">font-size</span>: 15<span style="color: #2b91af">px</span>;
+        }
         </code></pre></div>
         
         <p>我ながらかなり難しかった&hellip;</p>

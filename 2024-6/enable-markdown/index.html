@@ -10,7 +10,6 @@
     <script defer src="../../Infinity-style/script.js"></script>
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
-    <link rel="stylesheet" href="../../Infinity-style/codehighlight.css">
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" />
     <script
@@ -33,83 +32,83 @@
         <p>私も一プログラマですので、自分のやりたい事くらいは自分でできなければメンタルが持ちません。そう言うわけでググりながら調べまわりました。<br />
         markdownで書くうえで一切htmlを経由せずに書けるように、プログラムで自動化しました。まずは、pythonでスクリプトを書きます。</p>
         <h4 id="markdown-converterpy">markdown-converter.pyのソースコード</h4>
-        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">datetime</span>
-        <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
-        <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">markdown</span>
-        <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sys</span> <span style="color: #008000; font-weight: bold">import</span> exit
-        article_temp_head<span style="color: #666666">=</span><span style="color: #BA2121">&#39;&#39;&#39;</span>
-        <span style="color: #BA2121">&lt;!DOCTYPE html&gt;</span>
-        <span style="color: #BA2121">&lt;html lang=&quot;Ja&quot;&gt;</span>
-        <span style="color: #BA2121">  &lt;head&gt;</span>
-        <span style="color: #BA2121">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span>
-        <span style="color: #BA2121">        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;&lt;meta name=&quot;description&quot; content=&quot;The Infinity&#39;s awesome blog article&quot; /&gt;</span>
-        <span style="color: #BA2121">    &lt;title&gt;HERE TO THE TITLE&lt;/title&gt;</span>
-        <span style="color: #BA2121">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../Infinity-style/style.css&quot; /&gt;</span>
-        <span style="color: #BA2121">    &lt;script defer src=&quot;../../Infinity-style/script.js&quot;&gt;&lt;/script&gt;</span>
-        <span style="color: #BA2121">  &lt;script defer src=&quot;/The-Infinitys-Infinity/script.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/The-Infinitys-Infinity/style.css&quot; /&gt;</span>
-        <span style="color: #BA2121">    &lt;script</span>
-        <span style="color: #BA2121">    defer</span>
-        <span style="color: #BA2121">    src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045274771035552&quot;</span>
-        <span style="color: #BA2121">    crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;&lt;/head&gt;</span>
-        <span style="color: #BA2121">  &lt;body&gt;&lt;div id=&quot;article-body&quot;&gt;&lt;div id=&quot;article-content&quot;&gt;</span>
-        <span style="color: #BA2121">&#39;&#39;&#39;</span>
-        article_temp_foot<span style="color: #666666">=</span><span style="color: #BA2121">&#39;&#39;&#39;</span>
-        <span style="color: #BA2121">  &lt;/div&gt;&lt;/div&gt;&lt;/body&gt;</span>
-        <span style="color: #BA2121">&lt;/html&gt;</span>
-        <span style="color: #BA2121">&#39;&#39;&#39;</span>
-        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">listfolders</span>(dir_path):
-          result <span style="color: #666666">=</span> [
-              f <span style="color: #008000; font-weight: bold">for</span> f <span style="color: #AA22FF; font-weight: bold">in</span> os<span style="color: #666666">.</span>listdir(dir_path) <span style="color: #008000; font-weight: bold">if</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>isdir(os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(dir_path, f))
+        <div class="codehilite" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #0000ff">import</span> datetime
+        <span style="color: #0000ff">import</span> os
+        <span style="color: #0000ff">import</span> markdown
+        <span style="color: #0000ff">from</span> sys <span style="color: #0000ff">import</span> exit
+        article_temp_head=<span style="color: #a31515">&#39;&#39;&#39;</span>
+        <span style="color: #a31515">&lt;!DOCTYPE html&gt;</span>
+        <span style="color: #a31515">&lt;html lang=&quot;Ja&quot;&gt;</span>
+        <span style="color: #a31515">  &lt;head&gt;</span>
+        <span style="color: #a31515">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span>
+        <span style="color: #a31515">        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;&lt;meta name=&quot;description&quot; content=&quot;The Infinity&#39;s awesome blog article&quot; /&gt;</span>
+        <span style="color: #a31515">    &lt;title&gt;HERE TO THE TITLE&lt;/title&gt;</span>
+        <span style="color: #a31515">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../Infinity-style/style.css&quot; /&gt;</span>
+        <span style="color: #a31515">    &lt;script defer src=&quot;../../Infinity-style/script.js&quot;&gt;&lt;/script&gt;</span>
+        <span style="color: #a31515">  &lt;script defer src=&quot;/The-Infinitys-Infinity/script.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/The-Infinitys-Infinity/style.css&quot; /&gt;</span>
+        <span style="color: #a31515">    &lt;script</span>
+        <span style="color: #a31515">    defer</span>
+        <span style="color: #a31515">    src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045274771035552&quot;</span>
+        <span style="color: #a31515">    crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;&lt;/head&gt;</span>
+        <span style="color: #a31515">  &lt;body&gt;&lt;div id=&quot;article-body&quot;&gt;&lt;div id=&quot;article-content&quot;&gt;</span>
+        <span style="color: #a31515">&#39;&#39;&#39;</span>
+        article_temp_foot=<span style="color: #a31515">&#39;&#39;&#39;</span>
+        <span style="color: #a31515">  &lt;/div&gt;&lt;/div&gt;&lt;/body&gt;</span>
+        <span style="color: #a31515">&lt;/html&gt;</span>
+        <span style="color: #a31515">&#39;&#39;&#39;</span>
+        <span style="color: #0000ff">def</span> listfolders(dir_path):
+          result = [
+              f <span style="color: #0000ff">for</span> f <span style="color: #0000ff">in</span> os.listdir(dir_path) <span style="color: #0000ff">if</span> os.path.isdir(os.path.join(dir_path, f))
           ]
-          <span style="color: #008000; font-weight: bold">return</span> result
-        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">listfiles</span>(dir_path):
-          result <span style="color: #666666">=</span> [
-              f <span style="color: #008000; font-weight: bold">for</span> f <span style="color: #AA22FF; font-weight: bold">in</span> os<span style="color: #666666">.</span>listdir(dir_path) <span style="color: #008000; font-weight: bold">if</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>isfile(os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(dir_path, f))
+          <span style="color: #0000ff">return</span> result
+        <span style="color: #0000ff">def</span> listfiles(dir_path):
+          result = [
+              f <span style="color: #0000ff">for</span> f <span style="color: #0000ff">in</span> os.listdir(dir_path) <span style="color: #0000ff">if</span> os.path.isfile(os.path.join(dir_path, f))
           ]
-          <span style="color: #008000; font-weight: bold">return</span> result
-        now<span style="color: #666666">=</span>datetime<span style="color: #666666">.</span>datetime<span style="color: #666666">.</span>now()
-        now<span style="color: #666666">=</span><span style="color: #008000">str</span>(now<span style="color: #666666">.</span>year)<span style="color: #666666">+</span><span style="color: #BA2121">&quot;-&quot;</span><span style="color: #666666">+</span><span style="color: #008000">str</span>(now<span style="color: #666666">.</span>month)
-        root_dir<span style="color: #666666">=</span><span style="color: #BA2121">&quot;./&quot;</span><span style="color: #666666">+</span>now
-        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">renew</span>():
-          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git config user.name github-actions&quot;</span>)
-          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git config user.email github-actions@github.com&quot;</span>)
-          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git add .&quot;</span>)
-          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git commit -m </span><span style="color: #AA5D1F; font-weight: bold">\&quot;</span><span style="color: #BA2121">convert markdown</span><span style="color: #AA5D1F; font-weight: bold">\&quot;</span><span style="color: #BA2121">&quot;</span>)
-          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git push&quot;</span>)
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>isdir(root_dir):
-          <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;No datas&quot;</span>)
+          <span style="color: #0000ff">return</span> result
+        now=datetime.datetime.now()
+        now=str(now.year)+<span style="color: #a31515">&quot;-&quot;</span>+str(now.month)
+        root_dir=<span style="color: #a31515">&quot;./&quot;</span>+now
+        <span style="color: #0000ff">def</span> renew():
+          os.system(<span style="color: #a31515">&quot;git config user.name github-actions&quot;</span>)
+          os.system(<span style="color: #a31515">&quot;git config user.email github-actions@github.com&quot;</span>)
+          os.system(<span style="color: #a31515">&quot;git add .&quot;</span>)
+          os.system(<span style="color: #a31515">&quot;git commit -m \&quot;convert markdown\&quot;&quot;</span>)
+          os.system(<span style="color: #a31515">&quot;git push&quot;</span>)
+        <span style="color: #0000ff">if</span> <span style="color: #0000ff">not</span> os.path.isdir(root_dir):
+          print(<span style="color: #a31515">&quot;No datas&quot;</span>)
           exit()
-        <span style="color: #008000; font-weight: bold">for</span> article_dir <span style="color: #AA22FF; font-weight: bold">in</span> listfolders(root_dir):
-          path <span style="color: #666666">=</span> root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir
-          file_names <span style="color: #666666">=</span> listfiles(path)
-          index_path <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
-          article_path<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>
-          <span style="color: #008000; font-weight: bold">for</span> file_name <span style="color: #AA22FF; font-weight: bold">in</span> file_names:
-            <span style="color: #008000; font-weight: bold">if</span> file_name<span style="color: #666666">.</span>startswith(<span style="color: #BA2121">&quot;index&quot;</span>):
-              index_path<span style="color: #666666">=</span>file_name
-            <span style="color: #008000; font-weight: bold">elif</span> file_name<span style="color: #666666">==</span>(<span style="color: #BA2121">&quot;article.md&quot;</span>):
-              article_path<span style="color: #666666">=</span>file_name
-          <span style="color: #008000; font-weight: bold">if</span> article_path<span style="color: #666666">!=</span><span style="color: #008000; font-weight: bold">None</span>:
-            markdown_text <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
-            markdown_title <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
-            <span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_path,mode<span style="color: #666666">=</span><span style="color: #BA2121">&quot;r&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> f:
-              markdown_text <span style="color: #666666">=</span> f<span style="color: #666666">.</span>read()
-              f<span style="color: #666666">.</span>close()
-            markdown_result <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
-            <span style="color: #008000; font-weight: bold">for</span> markdown_line <span style="color: #AA22FF; font-weight: bold">in</span> markdown_text<span style="color: #666666">.</span>split(<span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>):
-              <span style="color: #008000; font-weight: bold">if</span> markdown_line<span style="color: #666666">.</span>startswith(<span style="color: #BA2121">&quot;#title: &quot;</span>):
-                markdown_title<span style="color: #666666">=</span>markdown_line[<span style="color: #666666">8</span>:]
-              <span style="color: #008000; font-weight: bold">else</span>:
-                markdown_result<span style="color: #666666">+=</span>markdown_line<span style="color: #666666">+</span><span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>
-            html_text<span style="color: #666666">=</span>markdown<span style="color: #666666">.</span>markdown(markdown_result)
-            html_result<span style="color: #666666">=</span><span style="color: #BA2121">&quot;&quot;</span>
-            <span style="color: #008000; font-weight: bold">for</span> html_line <span style="color: #AA22FF; font-weight: bold">in</span> html_text<span style="color: #666666">.</span>split(<span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>):
-              html_result<span style="color: #666666">+=</span><span style="color: #BA2121">&quot; &quot;</span><span style="color: #666666">*4+</span>html_line<span style="color: #666666">+</span><span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>
-            <span style="color: #008000; font-weight: bold">if</span> index_path<span style="color: #666666">!=</span><span style="color: #008000; font-weight: bold">None</span>:
-              os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;rm &quot;</span><span style="color: #666666">+</span>root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>index_path)
-            <span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/index.html&quot;</span>,mode<span style="color: #666666">=</span><span style="color: #BA2121">&quot;w&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> f:
-              f<span style="color: #666666">.</span>write(article_temp_head<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&quot;HERE TO THE TITLE&quot;</span>,markdown_title)<span style="color: #666666">+</span>html_result<span style="color: #666666">+</span>article_temp_foot)
-              f<span style="color: #666666">.</span>close()
+        <span style="color: #0000ff">for</span> article_dir <span style="color: #0000ff">in</span> listfolders(root_dir):
+          path = root_dir+<span style="color: #a31515">&quot;/&quot;</span>+article_dir
+          file_names = listfiles(path)
+          index_path = <span style="color: #0000ff">None</span>
+          article_path=<span style="color: #0000ff">None</span>
+          <span style="color: #0000ff">for</span> file_name <span style="color: #0000ff">in</span> file_names:
+            <span style="color: #0000ff">if</span> file_name.startswith(<span style="color: #a31515">&quot;index&quot;</span>):
+              index_path=file_name
+            <span style="color: #0000ff">elif</span> file_name==(<span style="color: #a31515">&quot;article.md&quot;</span>):
+              article_path=file_name
+          <span style="color: #0000ff">if</span> article_path!=<span style="color: #0000ff">None</span>:
+            markdown_text = <span style="color: #a31515">&quot;&quot;</span>
+            markdown_title = <span style="color: #a31515">&quot;&quot;</span>
+            <span style="color: #0000ff">with</span> open(root_dir+<span style="color: #a31515">&quot;/&quot;</span>+article_dir+<span style="color: #a31515">&quot;/&quot;</span>+article_path,mode=<span style="color: #a31515">&quot;r&quot;</span>) <span style="color: #0000ff">as</span> f:
+              markdown_text = f.read()
+              f.close()
+            markdown_result = <span style="color: #a31515">&quot;&quot;</span>
+            <span style="color: #0000ff">for</span> markdown_line <span style="color: #0000ff">in</span> markdown_text.split(<span style="color: #a31515">&quot;\n&quot;</span>):
+              <span style="color: #0000ff">if</span> markdown_line.startswith(<span style="color: #a31515">&quot;#title: &quot;</span>):
+                markdown_title=markdown_line[8:]
+              <span style="color: #0000ff">else</span>:
+                markdown_result+=markdown_line+<span style="color: #a31515">&quot;\n&quot;</span>
+            html_text=markdown.markdown(markdown_result)
+            html_result=<span style="color: #a31515">&quot;&quot;</span>
+            <span style="color: #0000ff">for</span> html_line <span style="color: #0000ff">in</span> html_text.split(<span style="color: #a31515">&quot;\n&quot;</span>):
+              html_result+=<span style="color: #a31515">&quot; &quot;</span>*4+html_line+<span style="color: #a31515">&quot;\n&quot;</span>
+            <span style="color: #0000ff">if</span> index_path!=<span style="color: #0000ff">None</span>:
+              os.system(<span style="color: #a31515">&quot;rm &quot;</span>+root_dir+<span style="color: #a31515">&quot;/&quot;</span>+article_dir+<span style="color: #a31515">&quot;/&quot;</span>+index_path)
+            <span style="color: #0000ff">with</span> open(root_dir+<span style="color: #a31515">&quot;/&quot;</span>+article_dir+<span style="color: #a31515">&quot;/index.html&quot;</span>,mode=<span style="color: #a31515">&quot;w&quot;</span>) <span style="color: #0000ff">as</span> f:
+              f.write(article_temp_head.replace(<span style="color: #a31515">&quot;HERE TO THE TITLE&quot;</span>,markdown_title)+html_result+article_temp_foot)
+              f.close()
         renew()
         </code></pre></div>
         

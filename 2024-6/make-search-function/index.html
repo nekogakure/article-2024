@@ -10,7 +10,6 @@
     <script defer src="../../Infinity-style/script.js"></script>
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css">
-    <link rel="stylesheet" href="../../Infinity-style/codehighlight.css">
     <script defer src="/The-Infinitys-Infinity/script.js"></script>
     <link rel="stylesheet" href="/The-Infinitys-Infinity/style.css" />
     <script
@@ -31,84 +30,84 @@
         <h2 id="_2">面倒だった作業</h2>
         <p>やり方としては、inputエレメントを改めて作り、そこに検索クエリを入れる方式にします。</p>
         <h3 id="html">html</h3>
-        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>&lt;<span style="color: #008000; font-weight: bold">div</span> <span style="color: #687822">id</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;list-head&quot;</span>&gt;
-          &lt;<span style="color: #008000; font-weight: bold">h1</span>&gt;Blog List&lt;/<span style="color: #008000; font-weight: bold">h1</span>&gt;
-          &lt;<span style="color: #008000; font-weight: bold">div</span>&gt;
-            &lt;<span style="color: #008000; font-weight: bold">img</span>
-              <span style="color: #687822">onclick</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;search_articles()&quot;</span>
-              <span style="color: #687822">src</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;../image/Infinity-search.svg&quot;</span>
-              <span style="color: #687822">alt</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;&quot;</span> /&gt;
-            &lt;<span style="color: #008000; font-weight: bold">input</span> <span style="color: #687822">id</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;search&quot;</span> <span style="color: #687822">type</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;text&quot;</span> <span style="color: #687822">onchange</span><span style="color: #666666">=</span><span style="color: #BA2121">&quot;search_articles()&quot;</span> /&gt;
-          &lt;/<span style="color: #008000; font-weight: bold">div</span>&gt;
-        &lt;/<span style="color: #008000; font-weight: bold">div</span>&gt;
+        <div class="codehilite" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>&lt;div id=<span style="color: #a31515">&quot;list-head&quot;</span>&gt;
+          &lt;h1&gt;Blog List&lt;/h1&gt;
+          &lt;div&gt;
+            &lt;img
+              onclick=<span style="color: #a31515">&quot;search_articles()&quot;</span>
+              src=<span style="color: #a31515">&quot;../image/Infinity-search.svg&quot;</span>
+              alt=<span style="color: #a31515">&quot;&quot;</span> /&gt;
+            &lt;input id=<span style="color: #a31515">&quot;search&quot;</span> type=<span style="color: #a31515">&quot;text&quot;</span> onchange=<span style="color: #a31515">&quot;search_articles()&quot;</span> /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
         </code></pre></div>
         
         <p>こんな感じです。<br />
         次に、CSSの適用&hellip;</p>
         <h3 id="css">CSS</h3>
-        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>#<span style="color: #0000FF; font-weight: bold">list-head</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">100</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">auto</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">display</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">flex</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="border: 1px solid #FF0000">@media</span><span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">(</span>max-aspect-ratio:<span style="color: #666666">1/1</span>)<span style="color: #bbbbbb"> </span><span style="border: 1px solid #FF0000">{</span><span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">display</span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">block</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
-        <span style="border: 1px solid #FF0000">}</span><span style="color: #bbbbbb"></span>
+        <div class="codehilite" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code>#list-head {
+          <span style="color: #0000ff">width</span>: 100<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: <span style="color: #0000ff">auto</span>;
+          <span style="color: #0000ff">display</span>: <span style="color: #0000ff">flex</span>;
+          <span style="border: 1px solid #FF0000">@media</span> <span style="border: 1px solid #FF0000">(</span>max-aspect-ratio:1/1) <span style="border: 1px solid #FF0000">{</span>
+            <span style="color: #0000ff">display</span>: <span style="color: #0000ff">block</span>;
+          }
+        <span style="border: 1px solid #FF0000">}</span>
         
-        #<span style="color: #0000FF; font-weight: bold">list-head</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">h1</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-right</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">auto</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">position</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">relative</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">font-size</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #list-head h1 {
+          <span style="color: #0000ff">margin-right</span>: <span style="color: #0000ff">auto</span>;
+          <span style="color: #0000ff">position</span>: <span style="color: #0000ff">relative</span>;
+          <span style="color: #0000ff">font-size</span>: 4<span style="color: #2b91af">vh</span>;
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">list-head</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">div</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">40</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--background</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">display</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">flex</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">auto</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #list-head div {
+          <span style="color: #0000ff">width</span>: 40<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">height</span>: 4<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">background-color</span>: var(--background);
+          <span style="color: #0000ff">display</span>: <span style="color: #0000ff">flex</span> 1 <span style="color: #0000ff">auto</span>;
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">list-head</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">div</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">img</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">100</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">margin-right</span>:<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">auto</span>;<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #list-head div img {
+          <span style="color: #0000ff">width</span>: 10<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: 100<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">margin-right</span>: <span style="color: #0000ff">auto</span>;
+        }
         
-        #<span style="color: #0000FF; font-weight: bold">list-head</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">div</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">input</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">width</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">85</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">height</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">100</span><span style="color: #B00040">%</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">font-size</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">4</span><span style="color: #B00040">vh</span>;<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">background-color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--background</span>);<span style="color: #bbbbbb"></span>
-        <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">color</span>:<span style="color: #bbbbbb"> </span><span style="color: #0000FF">var</span>(<span style="color: #19177C">--text</span>);<span style="color: #bbbbbb"></span>
-        }<span style="color: #bbbbbb"></span>
+        #list-head div input {
+          <span style="color: #0000ff">width</span>: 85<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">height</span>: 100<span style="color: #2b91af">%</span>;
+          <span style="color: #0000ff">font-size</span>: 4<span style="color: #2b91af">vh</span>;
+          <span style="color: #0000ff">background-color</span>: var(--background);
+          <span style="color: #0000ff">color</span>: var(--text);
+        }
         </code></pre></div>
         
         <p>そしてjavascript&hellip;</p>
         <h3 id="javascript">JavaScript</h3>
-        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic">//検索機能</span>
-        <span style="color: #008000; font-weight: bold">const</span> article_search_input <span style="color: #666666">=</span> <span style="color: #008000">document</span>.querySelector(<span style="color: #BA2121">&quot;#list-head div input&quot;</span>);
-        <span style="color: #008000; font-weight: bold">const</span> search_articles <span style="color: #666666">=</span> () =&gt; {
-          <span style="color: #008000; font-weight: bold">const</span> search_query <span style="color: #666666">=</span> article_search_input.value.replace(<span style="color: #BA2121">&quot;　&quot;</span>, <span style="color: #BA2121">&quot; &quot;</span>).toLowerCase();
-          <span style="color: #008000; font-weight: bold">const</span> blog_buttons <span style="color: #666666">=</span> <span style="color: #008000">document</span>.querySelector(<span style="color: #BA2121">&quot;#blog-button-section&quot;</span>).children;
-          <span style="color: #008000; font-weight: bold">if</span> (search_query <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;&quot;</span>) {
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">let</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> blog_buttons.length; i<span style="color: #666666">++</span>) {
-              blog_buttons[i].style.display <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
+        <div class="codehilite" style="background: #ffffff"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">//検索機能</span>
+        <span style="color: #0000ff">const</span> article_search_input = document.querySelector(<span style="color: #a31515">&quot;#list-head div input&quot;</span>);
+        <span style="color: #0000ff">const</span> search_articles = () =&gt; {
+          <span style="color: #0000ff">const</span> search_query = article_search_input.value.replace(<span style="color: #a31515">&quot;　&quot;</span>, <span style="color: #a31515">&quot; &quot;</span>).toLowerCase();
+          <span style="color: #0000ff">const</span> blog_buttons = document.querySelector(<span style="color: #a31515">&quot;#blog-button-section&quot;</span>).children;
+          <span style="color: #0000ff">if</span> (search_query == <span style="color: #a31515">&quot;&quot;</span>) {
+            <span style="color: #0000ff">for</span> (<span style="color: #0000ff">let</span> i = 0; i &lt; blog_buttons.length; i++) {
+              blog_buttons[i].style.display = <span style="color: #a31515">&quot;&quot;</span>;
             }
-            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span>;
+            <span style="color: #0000ff">return</span> <span style="color: #0000ff">null</span>;
           }
-          <span style="color: #008000; font-weight: bold">const</span> search_querys <span style="color: #666666">=</span> search_query.split(<span style="color: #BA2121">&quot; &quot;</span>);
-          <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">let</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> blog_buttons.length; i<span style="color: #666666">++</span>) {
-            <span style="color: #008000; font-weight: bold">const</span> blog_button <span style="color: #666666">=</span> blog_buttons[i];
-            <span style="color: #008000; font-weight: bold">const</span> button_inner <span style="color: #666666">=</span> blog_button.innerHTML;
-            <span style="color: #008000; font-weight: bold">const</span> title <span style="color: #666666">=</span> button_inner.substring(button_inner.indexOf(<span style="color: #BA2121">&quot;&lt;div&gt;&quot;</span>) <span style="color: #666666">+</span> <span style="color: #666666">5</span>, button_inner.indexOf(<span style="color: #BA2121">&quot;&lt;/div&gt;&quot;</span>)).toLowerCase();
-            blog_button.style.display <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">let</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> search_querys.length; <span style="color: #666666">++</span>j) {
-              <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">-1</span> <span style="color: #666666">==</span> title.indexOf(search_querys[j])) {
-                blog_button.style.display <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;none&quot;</span>;
+          <span style="color: #0000ff">const</span> search_querys = search_query.split(<span style="color: #a31515">&quot; &quot;</span>);
+          <span style="color: #0000ff">for</span> (<span style="color: #0000ff">let</span> i = 0; i &lt; blog_buttons.length; i++) {
+            <span style="color: #0000ff">const</span> blog_button = blog_buttons[i];
+            <span style="color: #0000ff">const</span> button_inner = blog_button.innerHTML;
+            <span style="color: #0000ff">const</span> title = button_inner.substring(button_inner.indexOf(<span style="color: #a31515">&quot;&lt;div&gt;&quot;</span>) + 5, button_inner.indexOf(<span style="color: #a31515">&quot;&lt;/div&gt;&quot;</span>)).toLowerCase();
+            blog_button.style.display = <span style="color: #a31515">&quot;&quot;</span>;
+            <span style="color: #0000ff">for</span> (<span style="color: #0000ff">let</span> j = 0; j &lt; search_querys.length; ++j) {
+              <span style="color: #0000ff">if</span> (-1 == title.indexOf(search_querys[j])) {
+                blog_button.style.display = <span style="color: #a31515">&quot;none&quot;</span>;
               }
             }
           }
-          <span style="color: #008000; font-weight: bold">return</span> search_query;
+          <span style="color: #0000ff">return</span> search_query;
         }
         </code></pre></div>
         
