@@ -32,84 +32,84 @@
         <p>私も一プログラマですので、自分のやりたい事くらいは自分でできなければメンタルが持ちません。そう言うわけでググりながら調べまわりました。<br />
         markdownで書くうえで一切htmlを経由せずに書けるように、プログラムで自動化しました。まずは、pythonでスクリプトを書きます。</p>
         <h4 id="markdown-converterpy">markdown-converter.pyのソースコード</h4>
-        <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
-        <span class="kn">import</span> <span class="nn">os</span>
-        <span class="kn">import</span> <span class="nn">markdown</span>
-        <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
-        <span class="n">article_temp_head</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
-        <span class="s1">&lt;!DOCTYPE html&gt;</span>
-        <span class="s1">&lt;html lang=&quot;Ja&quot;&gt;</span>
-        <span class="s1">  &lt;head&gt;</span>
-        <span class="s1">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span>
-        <span class="s1">        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;&lt;meta name=&quot;description&quot; content=&quot;The Infinity&#39;s awesome blog article&quot; /&gt;</span>
-        <span class="s1">    &lt;title&gt;HERE TO THE TITLE&lt;/title&gt;</span>
-        <span class="s1">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../Infinity-style/style.css&quot; /&gt;</span>
-        <span class="s1">    &lt;script defer src=&quot;../../Infinity-style/script.js&quot;&gt;&lt;/script&gt;</span>
-        <span class="s1">  &lt;script defer src=&quot;/The-Infinitys-Infinity/script.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/The-Infinitys-Infinity/style.css&quot; /&gt;</span>
-        <span class="s1">    &lt;script</span>
-        <span class="s1">    defer</span>
-        <span class="s1">    src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045274771035552&quot;</span>
-        <span class="s1">    crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;&lt;/head&gt;</span>
-        <span class="s1">  &lt;body&gt;&lt;div id=&quot;article-body&quot;&gt;&lt;div id=&quot;article-content&quot;&gt;</span>
-        <span class="s1">&#39;&#39;&#39;</span>
-        <span class="n">article_temp_foot</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
-        <span class="s1">  &lt;/div&gt;&lt;/div&gt;&lt;/body&gt;</span>
-        <span class="s1">&lt;/html&gt;</span>
-        <span class="s1">&#39;&#39;&#39;</span>
-        <span class="k">def</span> <span class="nf">listfolders</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
-          <span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
-              <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
-          <span class="p">]</span>
-          <span class="k">return</span> <span class="n">result</span>
-        <span class="k">def</span> <span class="nf">listfiles</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
-          <span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
-              <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
-          <span class="p">]</span>
-          <span class="k">return</span> <span class="n">result</span>
-        <span class="n">now</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        <span class="n">now</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-        <span class="n">root_dir</span><span class="o">=</span><span class="s2">&quot;./&quot;</span><span class="o">+</span><span class="n">now</span>
-        <span class="k">def</span> <span class="nf">renew</span><span class="p">():</span>
-          <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git config user.name github-actions&quot;</span><span class="p">)</span>
-          <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git config user.email github-actions@github.com&quot;</span><span class="p">)</span>
-          <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git add .&quot;</span><span class="p">)</span>
-          <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git commit -m </span><span class="se">\&quot;</span><span class="s2">convert markdown</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
-          <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git push&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">root_dir</span><span class="p">):</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No datas&quot;</span><span class="p">)</span>
-          <span class="n">exit</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">article_dir</span> <span class="ow">in</span> <span class="n">listfolders</span><span class="p">(</span><span class="n">root_dir</span><span class="p">):</span>
-          <span class="n">path</span> <span class="o">=</span> <span class="n">root_dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">article_dir</span>
-          <span class="n">file_names</span> <span class="o">=</span> <span class="n">listfiles</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-          <span class="n">index_path</span> <span class="o">=</span> <span class="kc">None</span>
-          <span class="n">article_path</span><span class="o">=</span><span class="kc">None</span>
-          <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">file_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">):</span>
-              <span class="n">index_path</span><span class="o">=</span><span class="n">file_name</span>
-            <span class="k">elif</span> <span class="n">file_name</span><span class="o">==</span><span class="p">(</span><span class="s2">&quot;article.md&quot;</span><span class="p">):</span>
-              <span class="n">article_path</span><span class="o">=</span><span class="n">file_name</span>
-          <span class="k">if</span> <span class="n">article_path</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
-            <span class="n">markdown_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-            <span class="n">markdown_title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">root_dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">article_dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">article_path</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-              <span class="n">markdown_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-              <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="n">markdown_result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-            <span class="k">for</span> <span class="n">markdown_line</span> <span class="ow">in</span> <span class="n">markdown_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
-              <span class="k">if</span> <span class="n">markdown_line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#title: &quot;</span><span class="p">):</span>
-                <span class="n">markdown_title</span><span class="o">=</span><span class="n">markdown_line</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>
-              <span class="k">else</span><span class="p">:</span>
-                <span class="n">markdown_result</span><span class="o">+=</span><span class="n">markdown_line</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="n">html_text</span><span class="o">=</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">markdown_result</span><span class="p">)</span>
-            <span class="n">html_result</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-            <span class="k">for</span> <span class="n">html_line</span> <span class="ow">in</span> <span class="n">html_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
-              <span class="n">html_result</span><span class="o">+=</span><span class="s2">&quot; &quot;</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="n">html_line</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="k">if</span> <span class="n">index_path</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
-              <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;rm &quot;</span><span class="o">+</span><span class="n">root_dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">article_dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">index_path</span><span class="p">)</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">root_dir</span><span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span><span class="n">article_dir</span><span class="o">+</span><span class="s2">&quot;/index.html&quot;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-              <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">article_temp_head</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;HERE TO THE TITLE&quot;</span><span class="p">,</span><span class="n">markdown_title</span><span class="p">)</span><span class="o">+</span><span class="n">html_result</span><span class="o">+</span><span class="n">article_temp_foot</span><span class="p">)</span>
-              <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="n">renew</span><span class="p">()</span>
+        <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">datetime</span>
+        <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
+        <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">markdown</span>
+        <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sys</span> <span style="color: #008000; font-weight: bold">import</span> exit
+        article_temp_head<span style="color: #666666">=</span><span style="color: #BA2121">&#39;&#39;&#39;</span>
+        <span style="color: #BA2121">&lt;!DOCTYPE html&gt;</span>
+        <span style="color: #BA2121">&lt;html lang=&quot;Ja&quot;&gt;</span>
+        <span style="color: #BA2121">  &lt;head&gt;</span>
+        <span style="color: #BA2121">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span>
+        <span style="color: #BA2121">        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;&lt;meta name=&quot;description&quot; content=&quot;The Infinity&#39;s awesome blog article&quot; /&gt;</span>
+        <span style="color: #BA2121">    &lt;title&gt;HERE TO THE TITLE&lt;/title&gt;</span>
+        <span style="color: #BA2121">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../Infinity-style/style.css&quot; /&gt;</span>
+        <span style="color: #BA2121">    &lt;script defer src=&quot;../../Infinity-style/script.js&quot;&gt;&lt;/script&gt;</span>
+        <span style="color: #BA2121">  &lt;script defer src=&quot;/The-Infinitys-Infinity/script.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/The-Infinitys-Infinity/style.css&quot; /&gt;</span>
+        <span style="color: #BA2121">    &lt;script</span>
+        <span style="color: #BA2121">    defer</span>
+        <span style="color: #BA2121">    src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045274771035552&quot;</span>
+        <span style="color: #BA2121">    crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;&lt;/head&gt;</span>
+        <span style="color: #BA2121">  &lt;body&gt;&lt;div id=&quot;article-body&quot;&gt;&lt;div id=&quot;article-content&quot;&gt;</span>
+        <span style="color: #BA2121">&#39;&#39;&#39;</span>
+        article_temp_foot<span style="color: #666666">=</span><span style="color: #BA2121">&#39;&#39;&#39;</span>
+        <span style="color: #BA2121">  &lt;/div&gt;&lt;/div&gt;&lt;/body&gt;</span>
+        <span style="color: #BA2121">&lt;/html&gt;</span>
+        <span style="color: #BA2121">&#39;&#39;&#39;</span>
+        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">listfolders</span>(dir_path):
+          result <span style="color: #666666">=</span> [
+              f <span style="color: #008000; font-weight: bold">for</span> f <span style="color: #AA22FF; font-weight: bold">in</span> os<span style="color: #666666">.</span>listdir(dir_path) <span style="color: #008000; font-weight: bold">if</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>isdir(os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(dir_path, f))
+          ]
+          <span style="color: #008000; font-weight: bold">return</span> result
+        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">listfiles</span>(dir_path):
+          result <span style="color: #666666">=</span> [
+              f <span style="color: #008000; font-weight: bold">for</span> f <span style="color: #AA22FF; font-weight: bold">in</span> os<span style="color: #666666">.</span>listdir(dir_path) <span style="color: #008000; font-weight: bold">if</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>isfile(os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(dir_path, f))
+          ]
+          <span style="color: #008000; font-weight: bold">return</span> result
+        now<span style="color: #666666">=</span>datetime<span style="color: #666666">.</span>datetime<span style="color: #666666">.</span>now()
+        now<span style="color: #666666">=</span><span style="color: #008000">str</span>(now<span style="color: #666666">.</span>year)<span style="color: #666666">+</span><span style="color: #BA2121">&quot;-&quot;</span><span style="color: #666666">+</span><span style="color: #008000">str</span>(now<span style="color: #666666">.</span>month)
+        root_dir<span style="color: #666666">=</span><span style="color: #BA2121">&quot;./&quot;</span><span style="color: #666666">+</span>now
+        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">renew</span>():
+          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git config user.name github-actions&quot;</span>)
+          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git config user.email github-actions@github.com&quot;</span>)
+          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git add .&quot;</span>)
+          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git commit -m </span><span style="color: #AA5D1F; font-weight: bold">\&quot;</span><span style="color: #BA2121">convert markdown</span><span style="color: #AA5D1F; font-weight: bold">\&quot;</span><span style="color: #BA2121">&quot;</span>)
+          os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;git push&quot;</span>)
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>isdir(root_dir):
+          <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;No datas&quot;</span>)
+          exit()
+        <span style="color: #008000; font-weight: bold">for</span> article_dir <span style="color: #AA22FF; font-weight: bold">in</span> listfolders(root_dir):
+          path <span style="color: #666666">=</span> root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir
+          file_names <span style="color: #666666">=</span> listfiles(path)
+          index_path <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">None</span>
+          article_path<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span>
+          <span style="color: #008000; font-weight: bold">for</span> file_name <span style="color: #AA22FF; font-weight: bold">in</span> file_names:
+            <span style="color: #008000; font-weight: bold">if</span> file_name<span style="color: #666666">.</span>startswith(<span style="color: #BA2121">&quot;index&quot;</span>):
+              index_path<span style="color: #666666">=</span>file_name
+            <span style="color: #008000; font-weight: bold">elif</span> file_name<span style="color: #666666">==</span>(<span style="color: #BA2121">&quot;article.md&quot;</span>):
+              article_path<span style="color: #666666">=</span>file_name
+          <span style="color: #008000; font-weight: bold">if</span> article_path<span style="color: #666666">!=</span><span style="color: #008000; font-weight: bold">None</span>:
+            markdown_text <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
+            markdown_title <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
+            <span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_path,mode<span style="color: #666666">=</span><span style="color: #BA2121">&quot;r&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> f:
+              markdown_text <span style="color: #666666">=</span> f<span style="color: #666666">.</span>read()
+              f<span style="color: #666666">.</span>close()
+            markdown_result <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>
+            <span style="color: #008000; font-weight: bold">for</span> markdown_line <span style="color: #AA22FF; font-weight: bold">in</span> markdown_text<span style="color: #666666">.</span>split(<span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>):
+              <span style="color: #008000; font-weight: bold">if</span> markdown_line<span style="color: #666666">.</span>startswith(<span style="color: #BA2121">&quot;#title: &quot;</span>):
+                markdown_title<span style="color: #666666">=</span>markdown_line[<span style="color: #666666">8</span>:]
+              <span style="color: #008000; font-weight: bold">else</span>:
+                markdown_result<span style="color: #666666">+=</span>markdown_line<span style="color: #666666">+</span><span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>
+            html_text<span style="color: #666666">=</span>markdown<span style="color: #666666">.</span>markdown(markdown_result)
+            html_result<span style="color: #666666">=</span><span style="color: #BA2121">&quot;&quot;</span>
+            <span style="color: #008000; font-weight: bold">for</span> html_line <span style="color: #AA22FF; font-weight: bold">in</span> html_text<span style="color: #666666">.</span>split(<span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>):
+              html_result<span style="color: #666666">+=</span><span style="color: #BA2121">&quot; &quot;</span><span style="color: #666666">*4+</span>html_line<span style="color: #666666">+</span><span style="color: #BA2121">&quot;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>
+            <span style="color: #008000; font-weight: bold">if</span> index_path<span style="color: #666666">!=</span><span style="color: #008000; font-weight: bold">None</span>:
+              os<span style="color: #666666">.</span>system(<span style="color: #BA2121">&quot;rm &quot;</span><span style="color: #666666">+</span>root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>index_path)
+            <span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(root_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/&quot;</span><span style="color: #666666">+</span>article_dir<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/index.html&quot;</span>,mode<span style="color: #666666">=</span><span style="color: #BA2121">&quot;w&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> f:
+              f<span style="color: #666666">.</span>write(article_temp_head<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&quot;HERE TO THE TITLE&quot;</span>,markdown_title)<span style="color: #666666">+</span>html_result<span style="color: #666666">+</span>article_temp_foot)
+              f<span style="color: #666666">.</span>close()
+        renew()
         </code></pre></div>
         
         <p>これだけのプログラムを自力で書きました&hellip;(´・ω・)ある程度(リポジトリの更新とファイル・フォルダ構造の解析)はapiのプログラムから流用が効いたのですが&hellip;こんなことをするのは恐らく私が初めてみたいで、参考になるような情報は一切合切手に入りませんでした。<br />
