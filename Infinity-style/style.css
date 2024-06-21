@@ -169,3 +169,6 @@ table {
 th,td {
  border: solid 2px var(--article-text); 
 }
+code {
+  overflow: scroll;
+}
