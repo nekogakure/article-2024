@@ -151,23 +151,6 @@ body {
   }
 }
 
-pre {
-  position: relative;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow: auto;
-  font-family: monospace;
-  background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 20%);
-  color: var(--article-text);
-  padding: 5px;
-  border-radius: 4px;
-  font-size: 15px;
-  line-height:16px;
-}
-code{ 
-  font-family: monospace;
-}
-
 #go-top{
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 20%);
   border:none;
