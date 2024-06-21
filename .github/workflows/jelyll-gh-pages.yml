@@ -32,6 +32,7 @@ jobs:
       - run: git pull
       - run: pip install markdown
       - run: python ./script/Infinity-style.py
+      - run: python ./script/article-index.py
   # Build job
   build:
     runs-on: ubuntu-latest
