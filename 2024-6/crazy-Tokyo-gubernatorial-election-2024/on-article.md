@@ -33,13 +33,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://saipon.jp/h/sawa/nobunaga" target="_blank"
-          >https://saipon.jp/h/sawa/nobunaga<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://saipon.jp/h/sawa/nobunaga</a>
       </td>
       <td></td>
     </tr>
@@ -49,13 +43,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://yamato-yukio.studio.site/" target="_blank"
-          >https://yamato-yukio.studio.site/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://yamato-yukio.studio.site/</a>
       </td>
       <td></td>
     </tr>
@@ -65,13 +53,7 @@
       <td class="party">未来党</td>
       <td class="address">
         <a href="https://x.com/miraitou_honbu" target="_blank"
-          >https://x.com/miraitou_honbu<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://x.com/miraitou_honbu</a>
       </td>
       <td></td>
     </tr>
@@ -81,13 +63,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://www.yuriko.or.jp/" target="_blank"
-          >https://www.yuriko.or.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.yuriko.or.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -97,13 +73,7 @@
       <td class="party">市民がつくる政治の会</td>
       <td class="address">
         <a href="https://go2senkyo.com/seijika/193748" target="_blank"
-          >https://go2senkyo.com/seijika/193748<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://go2senkyo.com/seijika/193748</a>
       </td>
       <td></td>
     </tr>
@@ -113,13 +83,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://ishimaru-shinji.com" target="_blank"
-          >https://ishimaru-shinji.com<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://ishimaru-shinji.com</a>
       </td>
       <td></td>
     </tr>
@@ -129,13 +93,7 @@
       <td class="party">忠臣蔵義士新党</td>
       <td class="address">
         <a href="https://onodera.akogishi.com" target="_blank"
-          >https://onodera.akogishi.com<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://onodera.akogishi.com</a>
       </td>
       <td></td>
     </tr>
@@ -152,13 +110,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://www.hideyukitakemoto.com" target="_blank"
-          >https://www.hideyukitakemoto.com<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.hideyukitakemoto.com</a>
       </td>
       <td></td>
     </tr>
@@ -168,13 +120,7 @@
       <td class="party">日本第一党</td>
       <td class="address">
         <a href="https://sakurai-makoto.jp/" target="_blank"
-          >https://sakurai-makoto.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://sakurai-makoto.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -184,13 +130,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="http://dr.nakamats.com" target="_blank"
-          >http://dr.nakamats.com<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >http://dr.nakamats.com</a>
       </td>
       <td></td>
     </tr>
@@ -200,13 +140,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://takahiroanno.com" target="_blank"
-          >https://takahiroanno.com<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://takahiroanno.com</a>
       </td>
       <td></td>
     </tr>
@@ -216,13 +150,7 @@
       <td class="party">清水国明と東京都の安全な未来をつくる会</td>
       <td class="address">
         <a href="https://www.shimizu-kuniaki-tokyo.com/" target="_blank"
-          >https://www.shimizu-kuniaki-tokyo.com/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.shimizu-kuniaki-tokyo.com/</a>
       </td>
       <td></td>
     </tr>
@@ -246,13 +174,7 @@
       <td class="party">ラブ＆ピース党</td>
       <td class="address">
         <a href="https://gototeruki.net" target="_blank"
-          >https://gototeruki.net<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://gototeruki.net</a>
       </td>
       <td></td>
     </tr>
@@ -262,13 +184,7 @@
       <td class="party">ジョーカー議員と投票率を上げる会</td>
       <td class="address">
         <a href="https://kawai-yusuke.info" target="_blank"
-          >https://kawai-yusuke.info<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://kawai-yusuke.info</a>
       </td>
       <td></td>
     </tr>
@@ -278,13 +194,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://福本繁幸.tokyo/" target="_blank"
-          >https://福本繁幸.tokyo/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://福本繁幸.tokyo/</a>
       </td>
       <td></td>
     </tr>
@@ -296,13 +206,7 @@
         <a
           href="https://www.youtube.com/@user-zp4nl4ee3m?si=tjeEP9PIR6Gj-ZxQ"
           target="_blank"
-          >https://www.youtube.com/@user-zp4nl4ee3m?si=tjeEP9PIR6Gj-ZxQ<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.youtube.com/@user-zp4nl4ee3m?si=tjeEP9PIR6Gj-ZxQ</a>
       </td>
       <td></td>
     </tr>
@@ -312,13 +216,7 @@
       <td class="party">核融合党</td>
       <td class="address">
         <a href="https://www.kuwaj.com" target="_blank"
-          >https://www.kuwaj.com<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.kuwaj.com</a>
       </td>
       <td></td>
     </tr>
@@ -328,13 +226,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://www.tamogami-toshio.jp/" target="_blank"
-          >https://www.tamogami-toshio.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.tamogami-toshio.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -344,13 +236,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://renho.jp" target="_blank"
-          >https://renho.jp<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://renho.jp</a>
       </td>
       <td></td>
     </tr>
@@ -367,13 +253,7 @@
       <td class="party">カワイイ私の政見放送を見てね</td>
       <td class="address">
         <a href="https://x.com/airiv0ice" target="_blank"
-          >https://x.com/airiv0ice<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://x.com/airiv0ice</a>
       </td>
       <td></td>
     </tr>
@@ -383,13 +263,7 @@
       <td class="party">石丸幸人党</td>
       <td class="address">
         <a href="https://youtube.com/@ishimaruyukito" target="_blank"
-          >https://youtube.com/@ishimaruyukito<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://youtube.com/@ishimaruyukito</a>
       </td>
       <td></td>
     </tr>
@@ -399,13 +273,7 @@
       <td class="party">ポーカー党</td>
       <td class="address">
         <a href="https://qr.paps.jp/Mnfuk" target="_blank"
-          >https://qr.paps.jp/Mnfuk<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://qr.paps.jp/Mnfuk</a>
       </td>
       <td></td>
     </tr>
@@ -415,13 +283,7 @@
       <td class="party">ゴルフ党</td>
       <td class="address">
         <a href="https://golf-party.jp/" target="_blank"
-          >https://golf-party.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://golf-party.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -431,13 +293,7 @@
       <td class="party">覇王党</td>
       <td class="address">
         <a href="https://www.facebook.com/takuji.kagata" target="_blank"
-          >https://www.facebook.com/takuji.kagata<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.facebook.com/takuji.kagata</a>
       </td>
       <td></td>
     </tr>
@@ -447,13 +303,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -463,13 +313,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -479,13 +323,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -495,13 +333,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -511,13 +343,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -527,13 +353,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://x.com/taizoninomiya" target="_blank"
-          >https://x.com/taizoninomiya<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://x.com/taizoninomiya</a>
       </td>
       <td></td>
     </tr>
@@ -543,13 +363,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -559,13 +373,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -575,13 +383,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -591,13 +393,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -607,13 +403,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -623,13 +413,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp" target="_blank"
-          >https://www.syoha.jp<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp</a>
       </td>
       <td></td>
     </tr>
@@ -639,13 +423,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -655,13 +433,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp" target="_blank"
-          >https://www.syoha.jp<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp</a>
       </td>
       <td></td>
     </tr>
@@ -671,13 +443,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp" target="_blank"
-          >https://www.syoha.jp<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp</a>
       </td>
       <td></td>
     </tr>
@@ -687,13 +453,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -703,13 +463,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp" target="_blank"
-          >https://www.syoha.jp<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp</a>
       </td>
       <td></td>
     </tr>
@@ -719,13 +473,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp" target="_blank"
-          >https://www.syoha.jp<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp</a>
       </td>
       <td></td>
     </tr>
@@ -735,13 +483,7 @@
       <td class="party">ＮＨＫから国民を守る党</td>
       <td class="address">
         <a href="https://www.syoha.jp/" target="_blank"
-          >https://www.syoha.jp/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://www.syoha.jp/</a>
       </td>
       <td></td>
     </tr>
@@ -772,13 +514,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://twitter.com/himasoraakane/" target="_blank"
-          >https://twitter.com/himasoraakane/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://twitter.com/himasoraakane/</a>
       </td>
       <td></td>
     </tr>
@@ -788,13 +524,7 @@
       <td class="party">無所属</td>
       <td class="address">
         <a href="https://twitter.com/KohgoMasanori" target="_blank"
-          >https://twitter.com/KohgoMasanori<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://twitter.com/KohgoMasanori</a>
       </td>
       <td></td>
     </tr>
@@ -813,13 +543,7 @@
         <a
           href="https://blog.goo.ne.jp/furutamakotohiraokatensei"
           target="_blank"
-          >https://blog.goo.ne.jp/furutamakotohiraokatensei<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://blog.goo.ne.jp/furutamakotohiraokatensei</a>
       </td>
       <td>
         土頭を働かし最高裁裁判官５人を弾劾する党　身体から地頭へ人の増える会
@@ -831,13 +555,7 @@
       <td class="party">ネオ幕府アキノリ党</td>
       <td class="address">
         <a href="https://neobakufu.tumblr.com/" target="_blank"
-          >https://neobakufu.tumblr.com/<img
-            src="/images/common/img_newwdw.gif"
-            alt="新規ウィンドウが開きます"
-            width="48"
-            height="42"
-            class="newwdw"
-        /></a>
+          >https://neobakufu.tumblr.com/</a>
       </td>
       <td></td>
     </tr>
