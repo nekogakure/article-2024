@@ -2,7 +2,7 @@
 
 どうも！The Infinity's です！つい先日、私のScratchのフォロワーが700人を突破しました！
 ヤッター！
-<img src="./thumbnail.png" style="width:100%;" />
+<img src="./thumbnail.jpeg" style="width:100%;" />
 
 いや〜嬉しい限りです！これからもがんばりますので！
 よろしくおねがいします！
