@@ -162,7 +162,7 @@ body {
   height: 10vh;
   z-index:2000;
 }
-table {
+#article-content > table {
   border-collapse: collapse;
   border: solid 2px var(--article-text);
 }
