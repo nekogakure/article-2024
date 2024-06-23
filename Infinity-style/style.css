@@ -166,7 +166,8 @@ body {
   border-collapse: collapse;
   border: solid 2px var(--article-text);
 }
-th,td {
+#article-content th,
+#article-content td {
  border: solid 2px var(--article-text); 
 }
 .codehilite {
