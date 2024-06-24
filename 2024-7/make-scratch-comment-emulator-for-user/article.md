@@ -1,0 +1,94 @@
+#title: Scratch Comment emulatorを作ってみた！
+
+Scratchでコメントをした際にどのように表示されるのかをエミュレートするプログラムを作りました。ご自由にお使いください。
+```javascript
+alert("Scratch comment emulator (for User directory)");
+if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
+  var comment_box = document.createElement("div");
+  comment_box.id = Math.floor(Math.random() * 10 ** 10);
+  comment_box.className = "comment";
+  var actions_warp = document.createElement("div");
+  actions_warp.className = "actions-wrap";
+  actions_warp.innerHTML = '<span data-control="delete" class="actions report">Delete</span>\n<span data-control="report" class="actions report"> 報告 </span>';
+  comment_box.append(actions_warp);
+  const comment_user_a = document.createElement("a");
+  const comment_username = prompt("user: ");
+  comment_user_a.href = "/users/" + comment_username;
+  const comment_image = document.createElement("img");
+  comment_image.className = "avatar";
+  fetch("https://api.scratch.mit.edu/users/" + comment_username)
+    .then(res => res.json())
+    .then(data => {
+      comment_image.src = data.profile.images["60x60"];
+      comment_image.alt = comment_username;
+    })
+    .catch(err => alert("error: " + err));
+  comment_image.width = 45;
+  comment_image.height = 45;
+  comment_user_a.append(comment_image);
+  comment_box.append(comment_user_a);
+  const comment_info = document.createElement("div");
+  comment_info.className = "info";
+  comment_info.innerHTML = '<div class="name">\n<a href="/users/' + comment_username + '">' + comment_username + '</a>\n</div>';
+  comment_content = document.createElement("div");
+  comment_content.className = "content";
+  comment_content.innerHTML = prompt("text: ");
+  comment_info.append(comment_content);
+  const comment_info_other = document.createElement("div");
+  comment_info_other.innerHTML = `
+<div>
+<span class="time" title="made by The Infinity's">1 minute ago</span>
+<a
+  class="reply"
+  style="display: inline;"
+  data-comment-id="1234567890"
+  data-parent-thread="1234567890"
+  data-commentee-id="1234567890"
+  data-control="reply-to">
+  <span>Reply</span>
+</a>
+</div>
+<div data-content="reply-form"></div>
+`;
+  comment_info.append(comment_info_other);
+  comment_box.append(comment_info);
+  document.querySelector("#comment-form").nextElementSibling.prepend(comment_box);
+  /*
+  <div id="comments-1234567890" class="comment" data-comment-id="335898053">
+    <div class="actions-wrap">
+      <span data-control="delete" class="actions report">Delete</span>
+      <span data-control="report" class="actions report"> 報告 </span>
+    </div>
+    <a href="/users/michinsk" id="comment-user" data-comment-user="michinsk"
+      ><img
+        class="avatar"
+        src="//cdn2.scratch.mit.edu/get_image/user/89663687_60x60.png"
+        width="45"
+        height="45"
+    /></a>
+    <div class="info">
+      <div class="name">
+        <a href="/users/michinsk">michinsk</a>
+      </div>
+      <div class="content">icon変わりましたね。このアイコン不思議です</div>
+      <div>
+        <span class="time" title="June 23, 2024">about 5 hours ago</span>
+  
+        <a
+          class="reply"
+          style="display: inline;"
+          data-comment-id="335898053"
+          data-parent-thread="335898053"
+          data-commentee-id="89663687"
+          data-control="reply-to">
+          <span>Reply</span>
+        </a>
+      </div>
+      <div data-content="reply-form"></div>
+    </div>
+  </div>
+  */
+} else {
+  alert("対応していません")
+}
+```
