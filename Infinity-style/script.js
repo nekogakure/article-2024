@@ -44,7 +44,6 @@ const main = () => {//add article
   //add index
   const article_index = document.createElement("div");
   article_index.id = "article-index";
-  article_body.append(article_index);
   for (let i = 0; i < article_content.children.length; ++i) {
     const article_content_child = article_content.children[i];
     const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
@@ -61,6 +60,7 @@ const main = () => {//add article
       article_index.append(index_text);
     }
   }
+  article_body.prepend(article_index);
   const other_articles = document.createElement("div");
   other_articles.id = "other-articles";
   other_articles.innerHTML = "<h1>other articles</h1>";
