@@ -30,6 +30,9 @@ result_obj={"info":[]}
 root_dir="./"+str(now.year)+"-"+str(now.month)
 def end():
   f=open(json_files_name,mode="w")
+  def get_date(obj):
+    return obj["date"]
+  result_obj["info"].sort(key=get_date)
   f.write(json.dumps(result_obj,indent=2))
   print(json.dumps(result_obj,indent=2))
   f.close()
