@@ -129,7 +129,9 @@ body {
 
 @media (max-aspect-ratio: 1) {
   #article-index {
-    visibility: hidden;
+    position:static;
+    width:100%;
+    height:auto;
   }
 
   #article-title {
@@ -172,7 +174,5 @@ body {
 }
 .codehilite {
   overflow: scroll;
-}
-.codehilite > pre > span {
   font-family: monospace;
 }
