@@ -2,7 +2,7 @@
 
 Scratchでコメントをした際にどのように表示されるのかをエミュレートするプログラムを作りました。ご自由にお使いください。
 ```javascript
-alert("Scratch comment emulator (for User directory)");
+alert("Scratch comment emulator");
 if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
   var comment_box = document.createElement("div");
   comment_box.id = Math.floor(Math.random() * 10 ** 10);
@@ -52,7 +52,13 @@ if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
 `;
   comment_info.append(comment_info_other);
   comment_box.append(comment_info);
-  document.querySelector("#comment-form").nextElementSibling.prepend(comment_box);
+  const comment_li = document.createElement("li");
+  comment_li.className = "top-level-reply";
+  comment_li.append(comment_box);
+  const comment_ul = document.createElement("ul");
+  comment_ul.className = "replies";
+  comment_li.append(comment_ul);
+  document.querySelector("ul.comments").prepend(comment_li);
   /*
   <div id="comments-1234567890" class="comment" data-comment-id="335898053">
     <div class="actions-wrap">
