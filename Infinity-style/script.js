@@ -60,7 +60,7 @@ const main = () => {//add article
       article_index.append(index_text);
     }
   }
-  article_body.prepend(article_index);
+  article_body.append(article_index);
   const other_articles = document.createElement("div");
   other_articles.id = "other-articles";
   other_articles.innerHTML = "<h1>other articles</h1>";
