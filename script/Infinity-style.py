@@ -7,7 +7,8 @@ article_temp_head = '''
 <html lang="Ja">
   <head>
     <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="The Infinity's awesome blog article" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    meta name="description" content="The Infinity's awesome blog article" />
     <meta name="description" content="The Infinity's awesome blog article" />
     <title>HERE TO THE TITLE</title>
     <link rel="stylesheet" href="../../Infinity-style/style.css" />
@@ -40,7 +41,18 @@ def listfiles(dir_path):
       f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))
   ]
   return result
-now=datetime.datetime.now()
+custom_date_file=open("./setting/custom-date.json")
+custom_date_info=json.loads(custom_date_file.read())
+custom_date_file.close()
+class custom_date:
+  def __init__(self,year,month):
+    self.year=year
+    self.month=month
+now=None
+if custom_date_info["auto"]:
+  now=datetime.datetime.now()
+else:
+  now=custom_date(custom_date_info["year"],custom_date_info["month"])
 now=str(now.year)+"-"+str(now.month)
 root_dir="./"+now
 if not os.path.isdir(root_dir):
