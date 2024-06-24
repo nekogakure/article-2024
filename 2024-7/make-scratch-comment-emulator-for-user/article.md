@@ -96,16 +96,8 @@ if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
     </div>
   </div>
   */
-} else {
-  alert("対応していません")
-}
-```
-### for projects and studios
-```javascript
-alert("Scratch comment emulator");
-if (
-  window.location.href.startsWith("https://scratch.mit.edu/projects/") ||
-  window.location.href.startsWith("https://scratch.mit.edu/studios/")
+} else if (
+  window.location.href.startsWith("https://scratch.mit.edu/projects/")
 ) {
   var comment_box = document.createElement("div");
   comment_box.id = Math.floor(Math.random() * 10 ** 10);
