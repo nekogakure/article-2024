@@ -45,14 +45,19 @@ body {
   overflow-wrap: break-word;
 }
 
-#article-content > h1,
-#article-content > h2,
-#article-content > h3,
-#article-content > h4,
-#article-content > h5,
-#article-content > h6,
-#article-content > p { 
-  line-height: 2.5em;
+#article-content>h5,
+#article-content>h6,
+#article-content>p {
+  line-height: 2.5;
+}
+
+
+#article-content>h1,
+#article-content>h2,
+#article-content>h3,
+#article-content>h4 {
+  border-top: color-mix(in srgb, var(--article-text), transparent 50%) 2px solid;
+  border-bottom: var(--article-text) 2px solid;
 }
 
 #article-index {
@@ -63,10 +68,23 @@ body {
   bottom: 15vh;
   left: 65%;
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
   color: var(--article-text);
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 20%), #888 10%);
 }
+
+#article-index>h2 {
+  margin-left: 5px;
+}
+
+#article-index>h3 {
+  margin-left: 10px;
+}
+
+#article-index>h4 {
+  margin-left: 15px;
+}
+
 
 #other-articles {
   margin-top: -70vh;
@@ -79,7 +97,7 @@ body {
 
 #other-articles h1 {
   text-align: center;
-  color:var(--article-text);
+  color: var(--article-text);
   font-size: 6vw;
 }
 
@@ -129,9 +147,7 @@ body {
 
 @media (max-aspect-ratio: 1) {
   #article-index {
-    position:static;
-    width:100%;
-    height:auto;
+    visibility: hidden;
   }
 
   #article-title {
@@ -148,30 +164,34 @@ body {
     margin-left: 2.5vw;
     width: 94%;
   }
-  #other-articles h1{
+
+  #other-articles h1 {
     font-size: 14vw;
   }
 }
 
-#go-top{
+#go-top {
   background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 20%);
-  border:none;
-  border-radius:50%;
-  position:fixed;
-  bottom:0;
-  right:0;
-  width:10vh;
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 10vh;
   height: 10vh;
-  z-index:2000;
+  z-index: 2000;
 }
-#article-content > table {
+
+#article-content>table {
   border-collapse: collapse;
   border: solid 2px var(--article-text);
 }
+
 #article-content th,
 #article-content td {
- border: solid 2px var(--article-text); 
+  border: solid 2px var(--article-text);
 }
+
 .codehilite {
   overflow: scroll;
   font-family: monospace;

@@ -1,7 +1,7 @@
 const main = () => {//add article
-  const go_top=document.createElement("button");
-  go_top.id="go-top";
-  go_top.innerHTML=`
+  const go_top = document.createElement("button");
+  go_top.id = "go-top";
+  go_top.innerHTML = `
   <svg
     viewBox="0 0 100 100"
     version="1.1"
@@ -25,7 +25,7 @@ const main = () => {//add article
     <ellipse cx="60" cy="65" rx="10" ry="8" stroke-width="1" />
   </svg>
   `;
-  go_top.onclick=()=>{
+  go_top.onclick = () => {
     document.querySelector("#article-title").scrollIntoView({
       behavior: 'smooth',
       block: 'end',
@@ -127,3 +127,7 @@ const main = () => {//add article
   get_all_article_info();
 };
 main();
+window.onscroll = () => {
+  const scroll = document.body.scrollTop / document.body.scrollHeight;
+  document.querySelector("#article-index").scrollTop = scroll * document.querySelector("#article-index").scrollHeight;
+};
