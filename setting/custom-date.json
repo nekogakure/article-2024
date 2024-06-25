@@ -1,3 +1,5 @@
 {
-  "auto":true
+  "auto":false,
+  "year":2024,
+  "month":5
 }
