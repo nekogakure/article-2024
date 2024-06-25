@@ -1,0 +1,28 @@
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewbox="0 0 100 100"
+  style="width:2em;height:2em;"
+  stroke="#888"
+  fill="none"
+  stroke-width="5">
+  <circle cx="50" cy="50" r="40" />
+  <path d="M50 50,L50 20 Z" />
+  <path d="M50 50,L70 70 Z" />
+  <circle cx="50" cy="50" r="30" stroke-opacity="0.5" />
+  <ellipse
+    cx="37.5"
+    cy="50"
+    rx="12.5"
+    ry="10"
+    stroke-width="2"
+    stroke-opacity="0.5" />
+  <ellipse
+    cx="62.5"
+    cy="50"
+    rx="12.5"
+    ry="10"
+    stroke-width="2"
+    stroke-opacity="0.5" />
+</svg>

@@ -40,6 +40,38 @@ const main = () => {//add article
   const article_title = document.createElement("div");
   article_title.id = "article-title";
   article_title.innerHTML = "<h1>" + title_elem.innerHTML + "</h1>";
+  article_title.innerHTML += "<br />";
+  article_title.innerHTML += `<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewbox="0 0 100 100"
+  style="width:2em;height:2em;"
+  stroke="#888"
+  fill="none"
+  stroke-width="5">
+  <circle cx="50" cy="50" r="40" />
+  <path d="M50 50,L50 20 Z" />
+  <path d="M50 50,L70 70 Z" />
+  <circle cx="50" cy="50" r="30" stroke-opacity="0.5" />
+  <ellipse
+    cx="37.5"
+    cy="50"
+    rx="12.5"
+    ry="10"
+    stroke-width="2"
+    stroke-opacity="0.5" />
+  <ellipse
+    cx="62.5"
+    cy="50"
+    rx="12.5"
+    ry="10"
+    stroke-width="2"
+    stroke-opacity="0.5" />
+</svg>
+`;  // Infinity-clock.svg
+  const date_obj = document.querySelector("date");
+  article_title.innerHTML += date_obj.outerHTML;
   article_body.prepend(article_title);
   //add index
   const article_index = document.createElement("div");

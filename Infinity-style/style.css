@@ -25,10 +25,18 @@ body {
 
 #article-title {
   margin-left: 10vw;
+  font-size: large;
   width: 50%;
   height: auto;
   text-wrap: wrap;
   color: var(--article-text);
+}
+
+#article-title>date {
+  font-size: 1.2em;
+  vertical-align:top;
+  opacity: 0.8;
+  font-family: sans-serif;
 }
 
 #article-content {
@@ -264,4 +272,12 @@ body {
 .codehilite {
   overflow: scroll;
   font-family: monospace;
+}
+
+#article-content>ol {
+  margin-left: 1.5em;
+}
+
+#article-content>date {
+  display: none;
 }
