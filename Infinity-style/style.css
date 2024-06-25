@@ -51,13 +51,47 @@ body {
   line-height: 2.5;
 }
 
+@keyframes rainbow-border {
+  0% {
+    border-color: #f00;
+  }
+
+  17% {
+    border-color: #ff0;
+  }
+
+  33% {
+    border-color: #0f0;
+  }
+
+  50% {
+    border-color: #0ff;
+  }
+
+  67% {
+    border-color: #00f;
+  }
+
+  83% {
+    border-color: #f0f;
+  }
+
+  100% {
+    border-color: #f00;
+  }
+}
 
 #article-content>h1,
 #article-content>h2,
 #article-content>h3,
 #article-content>h4 {
-  border-top: color-mix(in srgb, var(--article-text), transparent 50%) 2px solid;
-  border-bottom: var(--article-text) 2px solid;
+  line-height: 2;
+  padding-left: 10px;
+  animation: rainbow-border 5s linear infinite;
+  border-top: color-mix(in srgb, var(--article-text), transparent 50%) 1px solid;
+  border-bottom: color-mix(in srgb, var(--article-text), transparent 50%) 1px solid;
+  border-left: color-mix(in srgb, var(--article-text), transparent 50%) 10px solid;
+  border-radius: 5px 0 0 5px;
 }
 
 #article-index {
