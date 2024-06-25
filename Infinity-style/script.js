@@ -128,6 +128,6 @@ const main = () => {//add article
 };
 main();
 window.onscroll = () => {
-  const scroll = window.scrollTop / window.scrollHeight;
+  const scroll = window.scrollY / window.scrollHeight;
   document.querySelector("#article-index").scrollTop = scroll * document.querySelector("#article-index").scrollHeight;
 };
