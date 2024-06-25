@@ -143,6 +143,6 @@ const scroll_index=()=>{
   const index_scrollTop_now = document.querySelector("#article-index").scrollTop;
   document.querySelector("#article-index").scrollTop = (index_scrollTop_target - index_scrollTop_now) / 10;
 };
-window.onscroll.addEventListener("scroll",e=>{
+window.addEventListener("scroll",e=>{
   throttle(scroll_index,1000/30);
 });
