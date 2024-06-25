@@ -1,95 +1,18 @@
 {
   "info": [
     {
-      "index": "/article-2024/2024-6/update-blog-to-article/",
-      "thumbnail": "/article-2024/2024-6/update-blog-to-article/thumbnail.png",
-      "name": "update-blog-to-article",
-      "title": "Blog\u306e\u66f4\u65b0",
-      "date": " 2024/06/07 "
+      "index": "/article-2024/2024-6/crazy-Tokyo-gubernatorial-election-2024/",
+      "thumbnail": "/article-2024/2024-6/crazy-Tokyo-gubernatorial-election-2024/thumbnail.jpg",
+      "name": "crazy-Tokyo-gubernatorial-election-2024",
+      "title": "\u30e4\u30d0\u904e\u304e\u308b\u4eca\u5e74\u306e\u6771\u4eac\u90fd\u77e5\u4e8b\u9078\u6319",
+      "date": "2024/06/21"
     },
     {
-      "index": "/article-2024/2024-6/Scratch-messages-count-tool/",
-      "thumbnail": "/article-2024/2024-6/Scratch-messages-count-tool/thumbnail.png",
-      "name": "Scratch-messages-count-tool",
-      "title": "scratch messages counter\u3092\u4f5c\u3063\u305f",
-      "date": "2024/06/01"
-    },
-    {
-      "index": "/article-2024/2024-6/To_all_AI_artists_who_call_themselves_AI_engineers/",
-      "thumbnail": "/article-2024/2024-6/To_all_AI_artists_who_call_themselves_AI_engineers/thumbnail.png",
-      "name": "To_all_AI_artists_who_call_themselves_AI_engineers",
-      "title": "AI\u6280\u5e2b\u3092\u540d\u4e57\u308b\u5168\u3066\u306eAI\u7d75\u5e2b\u3078",
-      "date": "2024/06/01"
-    },
-    {
-      "index": "/article-2024/2024-6/new-about-server/",
-      "thumbnail": "/article-2024/2024-6/new-about-server/thumbnail.png",
-      "name": "new-about-server",
-      "title": "\u30b5\u30fc\u30d0\u30fc\u306b\u3064\u3044\u3066\u306e\u8a71",
-      "date": "2024/06/03"
-    },
-    {
-      "index": "/article-2024/2024-6/AI_technology_with_The-Infinitys/",
-      "thumbnail": "/article-2024/2024-6/AI_technology_with_The-Infinitys/thumbnail.jpg",
-      "name": "AI_technology_with_The-Infinitys",
-      "title": "AI\u306b\u81ea\u5206\u3092\u63cf\u304b\u305b\u3066\u307f\u305f!",
-      "date": "2024/06/04"
-    },
-    {
-      "index": "/article-2024/2024-6/to-use-site-generator/",
-      "thumbnail": "/article-2024/2024-6/to-use-site-generator/thumbnail.png",
-      "name": "to-use-site-generator",
-      "title": "Web\u30b5\u30a4\u30c8\u3092\u4f5c\u308b\u3068\u304d\u306b\u30b5\u30a4\u30c8\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u3092\u4f7f\u3046\u3079\u304d\u304b\uff1f",
-      "date": "2024/06/05"
-    },
-    {
-      "index": "/article-2024/2024-6/enable-markdown/",
-      "thumbnail": "/article-2024/2024-6/enable-markdown/thumbnail.png",
-      "name": "enable-markdown",
-      "title": "markdown\u3067\u30d6\u30ed\u30b0\u3092\u66f8\u3051\u308b\u3088\u3046\u306b\u3057\u305f",
-      "date": "2024/06/13"
-    },
-    {
-      "index": "/article-2024/2024-6/to-understand-remix-culture/",
-      "thumbnail": "/article-2024/2024-6/to-understand-remix-culture/thumbnail.png",
-      "name": "to-understand-remix-culture",
-      "title": "\u30ea\u30df\u30c3\u30af\u30b9\u6587\u5316\u3092\u7406\u89e3\u3059\u308b\u3053\u3068",
-      "date": "2024/06/13"
-    },
-    {
-      "index": "/article-2024/2024-6/The-Infinitys_1st_anniversary_comming_soon/",
-      "thumbnail": "/article-2024/2024-6/The-Infinitys_1st_anniversary_comming_soon/thumbnail.png",
-      "name": "The-Infinitys_1st_anniversary_comming_soon",
-      "title": "\u3082\u3046\u76f4\u30501\u5468\u5e74!",
-      "date": "2024/06/14"
-    },
-    {
-      "index": "/article-2024/2024-6/update_and_add_blog_list/",
-      "thumbnail": "/article-2024/2024-6/update_and_add_blog_list/thumbnail.jpeg",
-      "name": "update_and_add_blog_list",
-      "title": "\u30d6\u30ed\u30b0\u3092\u3055\u3089\u306b\u9032\u5316\u3055\u305b\u308b",
-      "date": "2024/06/15"
-    },
-    {
-      "index": "/article-2024/2024-6/SEO_4/",
-      "thumbnail": "/article-2024/2024-6/SEO_4/thumbnail.jpeg",
-      "name": "SEO_4",
-      "title": "SEO\u5bfe\u7b56\u305d\u306e4",
-      "date": "2024/06/16"
-    },
-    {
-      "index": "/article-2024/2024-6/powerup-speed/",
-      "thumbnail": "/article-2024/2024-6/powerup-speed/thumbnail.png",
-      "name": "powerup-speed",
-      "title": "\u30d6\u30ed\u30b0\u306e\u8868\u793a\u304c\u65e9\u304f\u306a\u308a\u307e\u3057\u305f\u3002",
-      "date": "2024/06/16"
-    },
-    {
-      "index": "/article-2024/2024-6/news-changed-directory/",
-      "thumbnail": "/article-2024/2024-6/news-changed-directory/thumbnail.png",
-      "name": "news-changed-directory",
-      "title": "\u304a\u77e5\u3089\u305b - \u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u540d\u304c\u5909\u308f\u308a\u307e\u3057\u305f \u4ed6\u4e8c\u3064",
-      "date": "2024/06/17"
+      "index": "/article-2024/2024-6/The_Infinitys-666-follower-on-Scratch/",
+      "thumbnail": "/article-2024/2024-6/The_Infinitys-666-follower-on-Scratch/thumbnail.svg",
+      "name": "The_Infinitys-666-follower-on-Scratch",
+      "title": "Scratch\u306e\u30d5\u30a9\u30ed\u30ef\u30fc\u304c666\u4eba\u306b\u306a\u308a\u307e\u3057\u305f\u3002",
+      "date": "2024/06/1n"
     },
     {
       "index": "/article-2024/2024-6/make-search-function/",
@@ -106,18 +29,95 @@
       "date": "2024/06/19"
     },
     {
-      "index": "/article-2024/2024-6/The_Infinitys-666-follower-on-Scratch/",
-      "thumbnail": "/article-2024/2024-6/The_Infinitys-666-follower-on-Scratch/thumbnail.svg",
-      "name": "The_Infinitys-666-follower-on-Scratch",
-      "title": "Scratch\u306e\u30d5\u30a9\u30ed\u30ef\u30fc\u304c666\u4eba\u306b\u306a\u308a\u307e\u3057\u305f\u3002",
-      "date": "2024/06/1n"
+      "index": "/article-2024/2024-6/news-changed-directory/",
+      "thumbnail": "/article-2024/2024-6/news-changed-directory/thumbnail.png",
+      "name": "news-changed-directory",
+      "title": "\u304a\u77e5\u3089\u305b - \u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u540d\u304c\u5909\u308f\u308a\u307e\u3057\u305f \u4ed6\u4e8c\u3064",
+      "date": "2024/06/17"
     },
     {
-      "index": "/article-2024/2024-6/crazy-Tokyo-gubernatorial-election-2024/",
-      "thumbnail": "/article-2024/2024-6/crazy-Tokyo-gubernatorial-election-2024/thumbnail.jpg",
-      "name": "crazy-Tokyo-gubernatorial-election-2024",
-      "title": "\u30e4\u30d0\u904e\u304e\u308b\u4eca\u5e74\u306e\u6771\u4eac\u90fd\u77e5\u4e8b\u9078\u6319",
-      "date": "2024/06/21"
+      "index": "/article-2024/2024-6/SEO_4/",
+      "thumbnail": "/article-2024/2024-6/SEO_4/thumbnail.jpeg",
+      "name": "SEO_4",
+      "title": "SEO\u5bfe\u7b56\u305d\u306e4",
+      "date": "2024/06/16"
+    },
+    {
+      "index": "/article-2024/2024-6/powerup-speed/",
+      "thumbnail": "/article-2024/2024-6/powerup-speed/thumbnail.png",
+      "name": "powerup-speed",
+      "title": "\u30d6\u30ed\u30b0\u306e\u8868\u793a\u304c\u65e9\u304f\u306a\u308a\u307e\u3057\u305f\u3002",
+      "date": "2024/06/16"
+    },
+    {
+      "index": "/article-2024/2024-6/update_and_add_blog_list/",
+      "thumbnail": "/article-2024/2024-6/update_and_add_blog_list/thumbnail.jpeg",
+      "name": "update_and_add_blog_list",
+      "title": "\u30d6\u30ed\u30b0\u3092\u3055\u3089\u306b\u9032\u5316\u3055\u305b\u308b",
+      "date": "2024/06/15"
+    },
+    {
+      "index": "/article-2024/2024-6/The-Infinitys_1st_anniversary_comming_soon/",
+      "thumbnail": "/article-2024/2024-6/The-Infinitys_1st_anniversary_comming_soon/thumbnail.png",
+      "name": "The-Infinitys_1st_anniversary_comming_soon",
+      "title": "\u3082\u3046\u76f4\u30501\u5468\u5e74!",
+      "date": "2024/06/14"
+    },
+    {
+      "index": "/article-2024/2024-6/enable-markdown/",
+      "thumbnail": "/article-2024/2024-6/enable-markdown/thumbnail.png",
+      "name": "enable-markdown",
+      "title": "markdown\u3067\u30d6\u30ed\u30b0\u3092\u66f8\u3051\u308b\u3088\u3046\u306b\u3057\u305f",
+      "date": "2024/06/13"
+    },
+    {
+      "index": "/article-2024/2024-6/to-understand-remix-culture/",
+      "thumbnail": "/article-2024/2024-6/to-understand-remix-culture/thumbnail.png",
+      "name": "to-understand-remix-culture",
+      "title": "\u30ea\u30df\u30c3\u30af\u30b9\u6587\u5316\u3092\u7406\u89e3\u3059\u308b\u3053\u3068",
+      "date": "2024/06/13"
+    },
+    {
+      "index": "/article-2024/2024-6/update-blog-to-article/",
+      "thumbnail": "/article-2024/2024-6/update-blog-to-article/thumbnail.png",
+      "name": "update-blog-to-article",
+      "title": "Blog\u306e\u66f4\u65b0",
+      "date": "2024/06/07"
+    },
+    {
+      "index": "/article-2024/2024-6/to-use-site-generator/",
+      "thumbnail": "/article-2024/2024-6/to-use-site-generator/thumbnail.png",
+      "name": "to-use-site-generator",
+      "title": "Web\u30b5\u30a4\u30c8\u3092\u4f5c\u308b\u3068\u304d\u306b\u30b5\u30a4\u30c8\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u3092\u4f7f\u3046\u3079\u304d\u304b\uff1f",
+      "date": "2024/06/05"
+    },
+    {
+      "index": "/article-2024/2024-6/AI_technology_with_The-Infinitys/",
+      "thumbnail": "/article-2024/2024-6/AI_technology_with_The-Infinitys/thumbnail.jpg",
+      "name": "AI_technology_with_The-Infinitys",
+      "title": "AI\u306b\u81ea\u5206\u3092\u63cf\u304b\u305b\u3066\u307f\u305f!",
+      "date": "2024/06/04"
+    },
+    {
+      "index": "/article-2024/2024-6/new-about-server/",
+      "thumbnail": "/article-2024/2024-6/new-about-server/thumbnail.png",
+      "name": "new-about-server",
+      "title": "\u30b5\u30fc\u30d0\u30fc\u306b\u3064\u3044\u3066\u306e\u8a71",
+      "date": "2024/06/03"
+    },
+    {
+      "index": "/article-2024/2024-6/Scratch-messages-count-tool/",
+      "thumbnail": "/article-2024/2024-6/Scratch-messages-count-tool/thumbnail.png",
+      "name": "Scratch-messages-count-tool",
+      "title": "scratch messages counter\u3092\u4f5c\u3063\u305f",
+      "date": "2024/06/01"
+    },
+    {
+      "index": "/article-2024/2024-6/To_all_AI_artists_who_call_themselves_AI_engineers/",
+      "thumbnail": "/article-2024/2024-6/To_all_AI_artists_who_call_themselves_AI_engineers/thumbnail.png",
+      "name": "To_all_AI_artists_who_call_themselves_AI_engineers",
+      "title": "AI\u6280\u5e2b\u3092\u540d\u4e57\u308b\u5168\u3066\u306eAI\u7d75\u5e2b\u3078",
+      "date": "2024/06/01"
     }
   ]
 }
