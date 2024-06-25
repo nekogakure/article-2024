@@ -127,9 +127,22 @@ const main = () => {//add article
   get_all_article_info();
 };
 main();
-window.onscroll = () => {
+
+function throttle(fn, wait) {
+  let time = Date.now();
+  return function() {
+    if ((time + wait - Date.now()) < 0) {
+      fn();
+      time = Date.now();
+    }
+  }
+}
+const scroll_index=()=>{
   const body_scroll = window.scrollY / document.body.scrollHeight;
   const index_scrollTop_target = body_scroll * document.querySelector("#article-index").scrollHeight;
   const index_scrollTop_now = document.querySelector("#article-index").scrollTop;
-  document.querySelector("#article-index").scrollTop = (index_scrollTop_target - index_scrollTop_now) / 3;
+  document.querySelector("#article-index").scrollTop = (index_scrollTop_target - index_scrollTop_now) / 10;
 };
+window.onscroll.addEventListener("scroll",e=>{
+  throttle(scroll_index,1000/30);
+});
