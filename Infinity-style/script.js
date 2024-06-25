@@ -49,7 +49,8 @@ const main = () => {//add article
   style="width:2em;height:2em;"
   stroke="#888"
   fill="none"
-  stroke-width="5">
+  stroke-width="5"
+  stroke-linecap="round">
   <circle cx="50" cy="50" r="40" />
   <path d="M50 50,L50 20 Z" />
   <path d="M50 50,L70 70 Z" />
