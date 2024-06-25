@@ -128,19 +128,21 @@ const main = () => {//add article
 };
 main();
 
-// function throttle(fn, wait) {
-//   let time = Date.now();
-//   return function() {
-//     if ((time + wait - Date.now()) < 0) {
-//       fn();
-//       time = Date.now();
-//     }
-//   }
-// }
+function throttle(fn, wait) {
+  let time = Date.now();
+  return function() {
+    if ((time + wait - Date.now()) < 0) {
+      fn();
+      time = Date.now();
+    }
+  }
+}
 const scroll_index=()=>{
   const body_scroll = window.scrollY / document.body.scrollHeight;
   const index_scrollTop_target = body_scroll * document.querySelector("#article-index").scrollHeight;
   const index_scrollTop_now = document.querySelector("#article-index").scrollTop;
-  document.querySelector("#article-index").scrollTop = (index_scrollTop_target - index_scrollTop_now) / 10;
+  document.querySelector("#article-index").scrollTop += (index_scrollTop_target - index_scrollTop_now) / 10;
 };
-window.addEventListenner("scroll",scroll_index);
+window.addEventListenner("scroll",e=>{
+  throttle(scroll_index,1000/30);  
+});
