@@ -86,8 +86,8 @@ const main = () => {//add article
       index_text.onclick = () => {
         article_content_child.scrollIntoView({
           behavior: 'smooth',
-          block: 'end',
-          inline: 'center'
+          block: 'start',
+          inline: 'nearest'
         });
       }
       article_index.append(index_text);
