@@ -42,6 +42,7 @@ const main = () => {//add article
   article_title.innerHTML = "<h1>" + title_elem.innerHTML + "</h1>";
   article_title.innerHTML += "<br />";
   article_title.innerHTML += `<svg
+  class="Infinity-clock"
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -51,24 +52,28 @@ const main = () => {//add article
   fill="none"
   stroke-width="5"
   stroke-linecap="round">
-  <circle cx="50" cy="50" r="40" />
-  <path d="M50 50,L50 20 Z" />
-  <path d="M50 50,L70 70 Z" />
-  <circle cx="50" cy="50" r="30" stroke-opacity="0.5" />
-  <ellipse
-    cx="37.5"
-    cy="50"
-    rx="12.5"
-    ry="10"
-    stroke-width="2"
-    stroke-opacity="0.5" />
-  <ellipse
-    cx="62.5"
-    cy="50"
-    rx="12.5"
-    ry="10"
-    stroke-width="2"
-    stroke-opacity="0.5" />
+  <g class="Infinity-clock_frame">
+    <circle cx="50" cy="50" r="40" />
+    <circle cx="50" cy="50" r="30" stroke-opacity="0.5" />
+    <ellipse
+      cx="37.5"
+      cy="50"
+      rx="12.5"
+      ry="10"
+      stroke-width="2"
+      stroke-opacity="0.5" />
+    <ellipse
+      cx="62.5"
+      cy="50"
+      rx="12.5"
+      ry="10"
+      stroke-width="2"
+      stroke-opacity="0.5" />
+  </g>
+  <g class="Infinity-clock_hands">
+    <path d="M50 50,L50 20 Z" />
+    <path d="M50 50,L60 60 Z" />
+  </g>
 </svg>
 `;  // Infinity-clock.svg
   const date_obj = document.querySelector("date");
@@ -169,3 +174,18 @@ const scroll_index = () => {
   requestAnimationFrame(scroll_index);
 };
 scroll_index();
+
+const renew_Infinity_clock = () => {
+  const now = new Date;
+  const clock_hand_svg = document.querySelector(".Infinity-clock_hands");
+  const now_hours = now.getHours();
+  const now_minutes = now.getMinutes();
+  const short_way = (now_hours / 12 * 360 - 180) * Math.PI / 180;
+  const long_way = now_minutes / 12 * 360 * Math.PI / 180;
+  console.log("now is, " + now.getHours().toString() + ":" + now.getMinutes().toString());
+  clock_hand_svg.innerHTML = `
+    <path d="M50 50,L`+ (50 + 30 * Math.cos(long_way)).toString() + " " + (50 + 30 * Math.sin(long_way)).toString() + `Z" />
+    <path d="M50 50,L`+ (50 + 20 * Math.cos(short_way)).toString() + " " + (50 + 20 * Math.sin(short_way)).toString() + `Z" />
+  `;
+};
+renew_Infinity_clock();
