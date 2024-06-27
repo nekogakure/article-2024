@@ -104,9 +104,9 @@ for article_dir in listfolders(root_dir):
         #~~を変換する機能がないので自分で実装する
         while "~~" in markdown_line:
           if convert_mode["~~"]:
-            markdown_line.replace("~~","</s>",1)
+            markdown_line = markdown_line.replace("~~","</s>",1)
           else:
-            markdown_line.replace("~~","<s>",1)
+            markdown_line = markdown_line.replace("~~","<s>",1)
           convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("#title: "):
           markdown_title=markdown_line[8:]
