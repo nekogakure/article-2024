@@ -87,7 +87,7 @@ for article_dir in listfolders(root_dir):
         'toc',
         'wikilinks',
         'meta',
-        'smarty',        
+        'smarty',
       ]
       configs = {
         'codehilite':{
@@ -97,11 +97,20 @@ for article_dir in listfolders(root_dir):
       }
       global markdown_title
       markdown_result=""
+      convert_mode={
+        "~~":False
+      }
       for markdown_line in markdown_text.split("\n"):
-          if markdown_line.startswith("#title: "):
-            markdown_title=markdown_line[8:]
+        #~~を変換する機能がないので自分で実装する
+        while "~~" in markdown_line:
+          if convert_mode["~~"]:
+            markdown_line.replace("~~","</s>",1)
           else:
-            markdown_result+=markdown_line+"\n"
+            markdown_line.replace("~~","<s>",1)
+        if markdown_line.startswith("#title: "):
+          markdown_title=markdown_line[8:]
+        else:
+          markdown_result+=markdown_line+"\n"
       return markdown.markdown(markdown_result,extensions=extensions,extension_configs=configs)
     html_text = convertmarkdown(markdown_text)
     html_result=""
