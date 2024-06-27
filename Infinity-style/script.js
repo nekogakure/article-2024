@@ -41,7 +41,8 @@ const main = () => {//add article
   article_title.id = "article-title";
   article_title.innerHTML = "<h1>" + title_elem.innerHTML + "</h1>";
   article_title.innerHTML += "<br />";
-  article_title.innerHTML += `<svg
+  article_title.innerHTML += `
+  <svg
   class="Infinity-clock"
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +70,12 @@ const main = () => {//add article
       ry="10"
       stroke-width="2"
       stroke-opacity="0.5" />
+  <animate
+  attributeName="stroke"
+  dur="5s"
+  repeatCount="indefinite"
+  values="#ff0000;#ffff00;#00ff00;#00ffff;#0000ff;#ff00ff;#ff0000"
+  >
   </g>
   <g class="Infinity-clock_hands">
     <path d="M50 50,L50 20 Z" />
@@ -178,14 +185,19 @@ scroll_index();
 const renew_Infinity_clock = () => {
   const now = new Date;
   const clock_hand_svg = document.querySelector(".Infinity-clock_hands");
+  clock_hand_svg.style="stroke:var(--article-text);";
   const now_hours = now.getHours();
   const now_minutes = now.getMinutes();
-  const short_way = (now_hours / 12 * 360 - 90) * Math.PI / 180;
-  const long_way = (now_minutes / 12 * 360 - 90) * Math.PI / 180;
+  const now_seconds = now.getSeconds() + now.getMilliseconds() / 1000;
+  const short_way = ((now_hours + now_minutes / 60) / 12 * 360 - 90) * Math.PI / 180;
+  const long_way = (now_minutes / 60 * 360 - 90) * Math.PI / 180;
+  const thin_way = (now_seconds / 60 * 360 - 90) * Math.PI / 180;
   console.log("now is, " + now.getHours().toString() + ":" + now.getMinutes().toString());
   clock_hand_svg.innerHTML = `
+    <path d="M50 50,L`+ (50 + 30 * Math.cos(thin_way)).toString() + " " + (50 + 30 * Math.sin(thin_way)).toString() + `Z" stroke-width="3" />
     <path d="M50 50,L`+ (50 + 30 * Math.cos(long_way)).toString() + " " + (50 + 30 * Math.sin(long_way)).toString() + `Z" />
     <path d="M50 50,L`+ (50 + 20 * Math.cos(short_way)).toString() + " " + (50 + 20 * Math.sin(short_way)).toString() + `Z" />
   `;
+  requestAnimationFrame(renew_Infinity_clock);
 };
 renew_Infinity_clock();
