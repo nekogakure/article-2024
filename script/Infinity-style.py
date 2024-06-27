@@ -107,6 +107,7 @@ for article_dir in listfolders(root_dir):
             markdown_line.replace("~~","</s>",1)
           else:
             markdown_line.replace("~~","<s>",1)
+          convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("#title: "):
           markdown_title=markdown_line[8:]
         else:
