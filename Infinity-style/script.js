@@ -180,8 +180,8 @@ const renew_Infinity_clock = () => {
   const clock_hand_svg = document.querySelector(".Infinity-clock_hands");
   const now_hours = now.getHours();
   const now_minutes = now.getMinutes();
-  const short_way = (now_hours / 12 * 360 - 180) * Math.PI / 180;
-  const long_way = now_minutes / 12 * 360 * Math.PI / 180;
+  const short_way = (now_hours / 12 * 360 - 90) * Math.PI / 180;
+  const long_way = (now_minutes / 12 * 360 - 90) * Math.PI / 180;
   console.log("now is, " + now.getHours().toString() + ":" + now.getMinutes().toString());
   clock_hand_svg.innerHTML = `
     <path d="M50 50,L`+ (50 + 30 * Math.cos(long_way)).toString() + " " + (50 + 30 * Math.sin(long_way)).toString() + `Z" />
