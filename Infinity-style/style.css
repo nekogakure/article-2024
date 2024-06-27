@@ -32,8 +32,12 @@ body {
   color: var(--article-text);
 }
 
-#article-title>date {
-  font-size: 1.2em;
+#article-title > h1{
+  font-size: 45px;
+}
+
+#article-title > date {
+  font-size: 1.5em;
   vertical-align:top;
   opacity: 0.8;
   font-family: sans-serif;
