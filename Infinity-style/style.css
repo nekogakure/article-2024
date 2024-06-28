@@ -21,6 +21,11 @@
 
 body {
   background-color: var(--article-back);
+  padding-top: 0;
+}
+
+header {
+  position: static;
 }
 
 #article-title {
