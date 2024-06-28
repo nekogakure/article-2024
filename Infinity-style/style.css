@@ -122,6 +122,12 @@ body {
   animation: article-h-borders 5s linear infinite;
 }
 
+#article-content>h5,
+#article-content>h6,
+#article-content>p {
+  font-weight: 500;
+}
+
 #article-content>h1::before,
 #article-content>h2::before,
 #article-content>h3::before,
