@@ -32,13 +32,13 @@ body {
   color: var(--article-text);
 }
 
-#article-title > h1{
+#article-title>h1 {
   font-size: 45px;
 }
 
-#article-title > date {
+#article-title>date {
   font-size: 1.5em;
-  vertical-align:top;
+  vertical-align: top;
   opacity: 0.8;
   font-family: sans-serif;
 }
@@ -290,4 +290,28 @@ body {
 
 #article-content>date {
   display: none;
+}
+
+/*広告*/
+.Infinity-ads {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-color: #888;
+  padding: 0;
+  margin: 0;
+}
+
+.Infinity-ads img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.Infinity-ads div {
+  margin-top: 0;
+  font-family: "noto-sans", Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 20%;
+  background-color: color-mix(in srgb, var(--article-back), #8881 50%);
+  color: var(--article-text);
 }
