@@ -21,11 +21,11 @@
 
 body {
   background-color: var(--article-back);
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 header {
-  position: static;
+  position: static !important;
 }
 
 #article-title {
