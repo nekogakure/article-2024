@@ -206,3 +206,24 @@ const renew_Infinity_clock = () => {
   requestAnimationFrame(renew_Infinity_clock);
 };
 renew_Infinity_clock();
+
+const add_ads=()=>{
+  // const article_content =
+  for (let i = 0; i < article_content.children.length; ++i) {
+    const article_content_child = article_content.children[i];
+    const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
+    if (article_content_child.tagName in tags) {
+      const index_text = document.createElement(article_content_child.tagName);
+      index_text.innerHTML = article_content_child.innerHTML;
+      index_text.onclick = () => {
+        article_content_child.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest'
+        });
+      }
+      article_index.append(index_text);
+    }
+  }
+};
+// add_ads();
