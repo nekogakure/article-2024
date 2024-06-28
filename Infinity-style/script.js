@@ -252,4 +252,3 @@ const add_ads = () => {
 if (new URL(window.location.href).hostname.endsWith("the-infinitys.f5.si")) {
   add_ads();
 }
-add_ads();
