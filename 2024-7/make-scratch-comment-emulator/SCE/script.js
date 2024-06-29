@@ -141,8 +141,7 @@ scratch_comment_emulator = {
    comment_ul.className = "replies";
    comment_li.append(comment_ul);
    if (is_reply) {
-    const target = document.querySelector("ul.comments").children[pos].children[0].children[1];
-    alert(target);
+    const target = document.querySelector("ul.comments").children[pos].children[1];
     target.insertBefore(comment_li, target.children[reply_pos]);
    } else {
     document.querySelector("ul.comments")
