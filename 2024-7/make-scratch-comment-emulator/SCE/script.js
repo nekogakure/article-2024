@@ -146,6 +146,7 @@ scratch_comment_emulator = {
           document.querySelector("ul.comments").children[pos].id +
           " .replies"
         );
+        alert(target);
         target.insertBefore(comment_li, target.children[reply_pos]);
       } else {
         document.querySelector("ul.comments")
