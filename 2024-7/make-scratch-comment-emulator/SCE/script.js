@@ -2,7 +2,6 @@ scratch_comment_emulator = {
   elem: {
     source: {
       html: `
-        <button id="sce-hide">x</button>
         <h1>Scratch Comment Emulator()</h1>
         <label for="usersname">username<input id="sce-username" type="text" /></label>
         <label for="messages">messages <textarea id="sce-messages"></textarea></label>
@@ -12,7 +11,7 @@ scratch_comment_emulator = {
     `,
       css: `
       .sce-box {
-        z-index:6666;
+        z-index:66666;
         font-family: Arial, Helvetica, sans-serif;
         position: fixed;
         width: 50vw;
@@ -24,7 +23,7 @@ scratch_comment_emulator = {
         padding: 0%;
       }
       #sce-hide {
-        z-index:66666;
+        z-index:6666666;
         position: fixed;
         width: 10vw;
         top:0;
@@ -73,6 +72,10 @@ scratch_comment_emulator = {
     sce_style.innerHTML = scratch_comment_emulator.elem.source.css;
     document.body.append(sce_div);
     document.body.append(sce_style);
+    const sce_hide=document.createElement("button");
+    sce_hide.innerHTML="x";
+    sce_hide.id="sce-hide";
+    document.body.append(sce_hide);
   },
   send_comment: (username, text) => {
     if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
@@ -182,13 +185,13 @@ document.querySelector("#sce-send").onclick = () => {
   const message = document.querySelector("#sce-messages").value;
   scratch_comment_emulator.send_comment(username, message);
 };
-document.querySelector("#sce-hide").onclick = () => {
+document.querySelector("#sce-hide").addEventListener("click", (e) => {
   const sce_hide = document.querySelector("#sce-hide");
   if (sce_hide.style.opacity==1){
-   document_querySelector(".sce-box").style.display="none";
+   document.querySelector(".sce-box").style.display="none";
     sce_hide.style.opacity=0;
   } else {
-    document_querySelector(".sce-box").style.display="";
+    document.querySelector(".sce-box").style.display="";
     sce_hide.style.opacity=1;
   }
-};
+});
