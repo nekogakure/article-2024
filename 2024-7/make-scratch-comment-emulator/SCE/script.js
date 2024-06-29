@@ -175,6 +175,6 @@ scratch_comment_emulator = {
 scratch_comment_emulator.init();
 document.querySelector("#sce-send").onclick = () => {
   const username = document.querySelector("#sce-username").value;
-  const message = document.querySelector("#sce-messages").innerHTML;
+  const message = document.querySelector("#sce-messages").value;
   scratch_comment_emulator.send_comment(username, message);
 };
