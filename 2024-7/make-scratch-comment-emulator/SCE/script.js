@@ -164,7 +164,8 @@ scratch_comment_emulator = {
           );
       }
     } else if (
-      window.location.href.startsWith("https://scratch.mit.edu/projects/")
+      window.location.href.startsWith("https://scratch.mit.edu/projects/")||
+      window.location.href.startsWith("https://scratch.mit.edu/studios/")
     ) {
       var comment_box = document.createElement("div");
       comment_box.id = Math.floor(Math.random() * 10 ** 10);
@@ -212,24 +213,22 @@ scratch_comment_emulator = {
       comment_container.className = "flex-row comment-container";
       comment_container.append(comment_box);
       if (is_reply) {
-        if (
-          document.querySelector(".comments-list").children[pos].children
-            .length == 1
-        ) {
-          const reply_container=document.createElement("div");
-          reply_container.className="flex-row replies column";
-          document.querySelector(".comments-list").children[pos].append(reply_container);
+        let root = null;
+        if (new URL(window.location.href).pathname.endsWith("comments")) {
+          root = document.querySelector(".studio-compose-container")
+            .children[1];
+        } else {
+          root = document.querySelector(".comments-list");
         }
-        const target =
-          document.querySelector(".comments-list").children[pos].children[1];
+        if (root.children[pos].children.length == 1) {
+          const reply_container = document.createElement("div");
+          reply_container.className = "flex-row replies column";
+          root.children[pos].append(reply_container);
+        }
+        const target = root.children[pos].children[1];
         target.insertBefore(comment_container, target.children[reply_pos]);
       } else {
-        document
-          .querySelector(".comments-list")
-          .insertBefore(
-            comment_container,
-            document.querySelector(".comments-list").children[pos]
-          );
+        root.insertBefore(comment_container, root.children[pos]);
       }
     } else {
       alert("対応していません");
