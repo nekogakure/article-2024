@@ -212,6 +212,14 @@ scratch_comment_emulator = {
       comment_container.className = "flex-row comment-container";
       comment_container.append(comment_box);
       if (is_reply) {
+        if (
+          document.querySelector(".comments-list").children[pos].children
+            .length == 1
+        ) {
+          const reply_container=document.createElement("div");
+          reply_container.className="flex-row replies column";
+          document.querySelector(".comments-list").children[pos].append(reply_container);
+        }
         const target =
           document.querySelector(".comments-list").children[pos].children[1];
         target.insertBefore(comment_container, target.children[reply_pos]);
