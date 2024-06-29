@@ -1,7 +1,7 @@
 scratch_comment_emulator = {
- elem: {
-  source: {
-   html: `
+  elem: {
+    source: {
+      html: `
     <h1>Scratch Comment Emulator()</h1>
     <label for="usersname">username<input id="sce-username" type="text" /></label>
     <label for="messages">messages <textarea id="sce-messages"></textarea></label>
@@ -11,7 +11,7 @@ scratch_comment_emulator = {
     <label for="reply-pos">reply pos <input type="text" id="sce-reply-pos" /></label>
     <button id="sce-send">send</button>
     `,
-   css: `
+      css: `
     .sce-box {
       z-index:66666;
       font-family: Arial, Helvetica, sans-serif;
@@ -63,59 +63,70 @@ scratch_comment_emulator = {
       background-color: #80f;
       border: 1px solid #ff0;
     }
-    `
-  }
- },
- init: () => {
-  const sce_div = document.createElement("div");
-  sce_div.className = "sce-box";
-  sce_div.innerHTML = scratch_comment_emulator.elem.source.html;
-  const sce_style = document.createElement("style");
-  sce_style.innerHTML = scratch_comment_emulator.elem.source.css;
-  document.body.append(sce_div);
-  document.body.append(sce_style);
-  const sce_hide = document.createElement("button");
-  sce_hide.innerHTML = "x";
-  sce_hide.id = "sce-hide";
-  document.body.append(sce_hide);
- },
- send_comment: (username, text, date, pos, is_reply, reply_pos) => {
-  if (pos == "") { pos = "0" }
-  if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
-   var comment_box = document.createElement("div");
-   comment_box.id = Math.floor(Math.random() * 10 ** 10);
-   comment_box.className = "comment";
-   var actions_warp = document.createElement("div");
-   actions_warp.className = "actions-wrap";
-   actions_warp.innerHTML = '<span data-control="delete" class="actions report">Delete</span>\n<span data-control="report" class="actions report"> 報告 </span>';
-   comment_box.append(actions_warp);
-   const comment_user_a = document.createElement("a");
-   const comment_username = username;
-   comment_user_a.href = "/users/" + comment_username;
-   const comment_image = document.createElement("img");
-   comment_image.className = "avatar";
-   fetch("https://api.scratch.mit.edu/users/" + comment_username)
-    .then(res => res.json())
-    .then(data => {
-     comment_image.src = data.profile.images["60x60"];
-     comment_image.alt = comment_username;
-    })
-    .catch(err => alert("error: " + err));
-   comment_image.width = 45;
-   comment_image.height = 45;
-   comment_user_a.append(comment_image);
-   comment_box.append(comment_user_a);
-   const comment_info = document.createElement("div");
-   comment_info.className = "info";
-   comment_info.innerHTML = '<div class="name">\n<a href="/users/' + comment_username + '">' + comment_username + '</a>\n</div>';
-   comment_content = document.createElement("div");
-   comment_content.className = "content";
-   comment_content.innerHTML = text;
-   comment_info.append(comment_content);
-   const comment_info_other = document.createElement("div");
-   comment_info_other.innerHTML = `
+    `,
+    },
+  },
+  init: () => {
+    const sce_div = document.createElement("div");
+    sce_div.className = "sce-box";
+    sce_div.innerHTML = scratch_comment_emulator.elem.source.html;
+    const sce_style = document.createElement("style");
+    sce_style.innerHTML = scratch_comment_emulator.elem.source.css;
+    document.body.append(sce_div);
+    document.body.append(sce_style);
+    const sce_hide = document.createElement("button");
+    sce_hide.innerHTML = "x";
+    sce_hide.id = "sce-hide";
+    document.body.append(sce_hide);
+  },
+  send_comment: (username, text, date, pos, is_reply, reply_pos) => {
+    if (pos == "") {
+      pos = "0";
+    }
+    if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
+      var comment_box = document.createElement("div");
+      comment_box.id = Math.floor(Math.random() * 10 ** 10);
+      comment_box.className = "comment";
+      var actions_warp = document.createElement("div");
+      actions_warp.className = "actions-wrap";
+      actions_warp.innerHTML =
+        '<span data-control="delete" class="actions report">Delete</span>\n<span data-control="report" class="actions report"> 報告 </span>';
+      comment_box.append(actions_warp);
+      const comment_user_a = document.createElement("a");
+      const comment_username = username;
+      comment_user_a.href = "/users/" + comment_username;
+      const comment_image = document.createElement("img");
+      comment_image.className = "avatar";
+      fetch("https://api.scratch.mit.edu/users/" + comment_username)
+        .then((res) => res.json())
+        .then((data) => {
+          comment_image.src = data.profile.images["60x60"];
+          comment_image.alt = comment_username;
+        })
+        .catch((err) => alert("error: " + err));
+      comment_image.width = 45;
+      comment_image.height = 45;
+      comment_user_a.append(comment_image);
+      comment_box.append(comment_user_a);
+      const comment_info = document.createElement("div");
+      comment_info.className = "info";
+      comment_info.innerHTML =
+        '<div class="name">\n<a href="/users/' +
+        comment_username +
+        '">' +
+        comment_username +
+        "</a>\n</div>";
+      comment_content = document.createElement("div");
+      comment_content.className = "content";
+      comment_content.innerHTML = text;
+      comment_info.append(comment_content);
+      const comment_info_other = document.createElement("div");
+      comment_info_other.innerHTML =
+        `
       <div>
-      <span class="time" title="made by The Infinity's">`+ date + `</span>
+      <span class="time" title="made by The Infinity's">` +
+        date +
+        `</span>
       <a
         class="reply"
         style="display: inline;"
@@ -128,90 +139,119 @@ scratch_comment_emulator = {
       </div>
       <div data-content="reply-form"></div>
       `;
-   comment_info.append(comment_info_other);
-   comment_box.append(comment_info);
-   const comment_li = document.createElement("li");
-   if (is_reply) {
-    comment_li.className = "reply";
-   } else {
-    comment_li.className = "top-level-reply";
-   }
-   comment_li.append(comment_box);
-   const comment_ul = document.createElement("ul");
-   comment_ul.className = "replies";
-   comment_li.append(comment_ul);
-   if (is_reply) {
-    const target = document.querySelector("ul.comments").children[pos].children[1];
-    target.insertBefore(comment_li, target.children[reply_pos]);
-   } else {
-    document.querySelector("ul.comments")
-     .insertBefore(
-      comment_li,
-      document.querySelector("ul.comments").children[pos]
-     );
-   }
-  } else if (
-   window.location.href.startsWith("https://scratch.mit.edu/projects/")
-  ) {
-   var comment_box = document.createElement("div");
-   comment_box.id = Math.floor(Math.random() * 10 ** 10);
-   comment_box.className = "flex-row comment";
-   const comment_user_a = document.createElement("a");
-   const comment_username = username;
-   comment_user_a.href = "/users/" + comment_username;
-   const comment_image = document.createElement("img");
-   comment_image.className = "avatar";
-   fetch("https://api.scratch.mit.edu/users/" + comment_username)
-    .then(res => res.json())
-    .then(data => {
-     comment_image.src = data.profile.images["60x60"];
-     comment_image.alt = comment_username;
-    })
-    .catch(err => alert("error: " + err));
-   comment_image.width = 45;
-   comment_image.height = 45;
-   comment_user_a.append(comment_image);
-   comment_box.append(comment_user_a);
-   const comment_bubble = document.createElement("div");
-   comment_bubble.className = "comment-bubble";
-   const comment_content = document.createElement("span");
-   comment_content.innerHTML = '<span class="emoji-text">' + text + '</span>';
-   const comment_bottom = document.createElement("div");
-   comment_bottom.className = "flex-row comment-bottom-row";
-   comment_bottom.innerHTML = '<span class="comment-time"><span>' + date + '</span></span><span class="comment-reply"><span>返信</span></span>';
-   comment_bubble.append(comment_content);
-   comment_bubble.append(comment_bottom);
-   const comment_body = document.createElement("div");
-   comment_body.className = "flex-row comment-body column";
-   comment_body.innerHTML = '<div class="flex-row comment-top-row"><a class="username" href="/users/' + comment_username + '">' + comment_username + '</a><div class="action-list"></div></div>';
-   comment_body.append(comment_bubble);
-   comment_box.append(comment_body);
-   const comment_container = document.createElement("div");
-   comment_container.className = "flex-row comment-container";
-   comment_container.append(comment_box);
-   document.querySelector(".comments-list").insertBefore(comment_container, document.querySelector(".comments-list").children[pos]);
-  } else {
-   alert("対応していません")
-  }
- }
+      comment_info.append(comment_info_other);
+      comment_box.append(comment_info);
+      const comment_li = document.createElement("li");
+      if (is_reply) {
+        comment_li.className = "reply";
+      } else {
+        comment_li.className = "top-level-reply";
+      }
+      comment_li.append(comment_box);
+      const comment_ul = document.createElement("ul");
+      comment_ul.className = "replies";
+      comment_li.append(comment_ul);
+      if (is_reply) {
+        const target =
+          document.querySelector("ul.comments").children[pos].children[1];
+        target.insertBefore(comment_li, target.children[reply_pos]);
+      } else {
+        document
+          .querySelector("ul.comments")
+          .insertBefore(
+            comment_li,
+            document.querySelector("ul.comments").children[pos]
+          );
+      }
+    } else if (
+      window.location.href.startsWith("https://scratch.mit.edu/projects/")
+    ) {
+      var comment_box = document.createElement("div");
+      comment_box.id = Math.floor(Math.random() * 10 ** 10);
+      comment_box.className = "flex-row comment";
+      const comment_user_a = document.createElement("a");
+      const comment_username = username;
+      comment_user_a.href = "/users/" + comment_username;
+      const comment_image = document.createElement("img");
+      comment_image.className = "avatar";
+      fetch("https://api.scratch.mit.edu/users/" + comment_username)
+        .then((res) => res.json())
+        .then((data) => {
+          comment_image.src = data.profile.images["60x60"];
+          comment_image.alt = comment_username;
+        })
+        .catch((err) => alert("error: " + err));
+      comment_image.width = 45;
+      comment_image.height = 45;
+      comment_user_a.append(comment_image);
+      comment_box.append(comment_user_a);
+      const comment_bubble = document.createElement("div");
+      comment_bubble.className = "comment-bubble";
+      const comment_content = document.createElement("span");
+      comment_content.innerHTML =
+        '<span class="emoji-text">' + text + "</span>";
+      const comment_bottom = document.createElement("div");
+      comment_bottom.className = "flex-row comment-bottom-row";
+      comment_bottom.innerHTML =
+        '<span class="comment-time"><span>' +
+        date +
+        '</span></span><span class="comment-reply"><span>返信</span></span>';
+      comment_bubble.append(comment_content);
+      comment_bubble.append(comment_bottom);
+      const comment_body = document.createElement("div");
+      comment_body.className = "flex-row comment-body column";
+      comment_body.innerHTML =
+        '<div class="flex-row comment-top-row"><a class="username" href="/users/' +
+        comment_username +
+        '">' +
+        comment_username +
+        '</a><div class="action-list"></div></div>';
+      comment_body.append(comment_bubble);
+      comment_box.append(comment_body);
+      const comment_container = document.createElement("div");
+      comment_container.className = "flex-row comment-container";
+      comment_container.append(comment_box);
+      if (is_reply) {
+        const target =
+          document.querySelector(".comments-list").children[pos].children[1];
+        target.insertBefore(comment_container, target.children[reply_pos]);
+      } else {
+        document
+          .querySelector(".comments-list")
+          .insertBefore(
+            comment_container,
+            document.querySelector(".comments-list").children[pos]
+          );
+      }
+    } else {
+      alert("対応していません");
+    }
+  },
 };
 scratch_comment_emulator.init();
 document.querySelector("#sce-send").onclick = () => {
- const username = document.querySelector("#sce-username").value;
- const message = document.querySelector("#sce-messages").value;
- const date = document.querySelector("#sce-date").value;
- const pos = document.querySelector("#sce-position").value;
- const is_reply = document.querySelector("#sce-is-reply").checked;
- const reply_pos = document.querySelector("#sce-reply-pos").value;
- scratch_comment_emulator.send_comment(username, message, date, pos, is_reply, reply_pos);
+  const username = document.querySelector("#sce-username").value;
+  const message = document.querySelector("#sce-messages").value;
+  const date = document.querySelector("#sce-date").value;
+  const pos = document.querySelector("#sce-position").value;
+  const is_reply = document.querySelector("#sce-is-reply").checked;
+  const reply_pos = document.querySelector("#sce-reply-pos").value;
+  scratch_comment_emulator.send_comment(
+    username,
+    message,
+    date,
+    pos,
+    is_reply,
+    reply_pos
+  );
 };
 document.querySelector("#sce-hide").addEventListener("click", () => {
- const sce_hide = document.querySelector("#sce-hide");
- if (sce_hide.style.opacity == 1) {
-  document.querySelector(".sce-box").style.display = "none";
-  sce_hide.style.opacity = 0;
- } else {
-  document.querySelector(".sce-box").style.display = "";
-  sce_hide.style.opacity = 1;
- }
+  const sce_hide = document.querySelector("#sce-hide");
+  if (sce_hide.style.opacity == 1) {
+    document.querySelector(".sce-box").style.display = "none";
+    sce_hide.style.opacity = 0;
+  } else {
+    document.querySelector(".sce-box").style.display = "";
+    sce_hide.style.opacity = 1;
+  }
 });
