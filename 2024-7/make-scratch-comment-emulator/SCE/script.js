@@ -12,6 +12,7 @@ scratch_comment_emulator = {
     `,
       css: `
       .sce-box {
+        z-index:6666;
         font-family: Arial, Helvetica, sans-serif;
         position: fixed;
         width: 50vw;
