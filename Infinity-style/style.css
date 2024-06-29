@@ -294,7 +294,17 @@ body {
 
 /*広告*/
 .Infinity-ads {
-  width: 100%;
+  box-sizing: border-box;
+  margin: 2%;
+  border: 1px solid var(--article-text);
+  border-radius: 2.5%;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff55;
+  @media (prefers-color-scheme: dark) {
+    background-color: #00000055;
+  }
+  width: 96%;
   aspect-ratio: 4/3;
   background-color: #888;
   padding: 0;
