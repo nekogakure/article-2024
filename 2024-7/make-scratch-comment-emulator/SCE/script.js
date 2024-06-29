@@ -79,6 +79,7 @@ scratch_comment_emulator = {
     document.body.append(sce_hide);
   },
   send_comment: (username, text, date, pos) => {
+    if (pos == "") { pos = "0" }
     if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
       var comment_box = document.createElement("div");
       comment_box.id = Math.floor(Math.random() * 10 ** 10);
@@ -174,7 +175,7 @@ scratch_comment_emulator = {
       const comment_container = document.createElement("div");
       comment_container.className = "flex-row comment-container";
       comment_container.append(comment_box);
-      document.querySelector(".comments-list").prepend(comment_container);
+      document.querySelector(".comments-list").insertBefore(comment_container, document.querySelector(".comments-list").children[pos]);
     } else {
       alert("対応していません")
     }
@@ -185,7 +186,7 @@ document.querySelector("#sce-send").onclick = () => {
   const username = document.querySelector("#sce-username").value;
   const message = document.querySelector("#sce-messages").value;
   const date = document.querySelector("#sce-date").value;
-  const pos=document.querySelector("#sce-position").value;
+  const pos = document.querySelector("#sce-position").value;
   scratch_comment_emulator.send_comment(username, message, date, pos);
 };
 document.querySelector("#sce-hide").addEventListener("click", () => {
