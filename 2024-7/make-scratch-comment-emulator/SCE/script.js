@@ -131,12 +131,29 @@ scratch_comment_emulator = {
       comment_info.append(comment_info_other);
       comment_box.append(comment_info);
       const comment_li = document.createElement("li");
-      comment_li.className = "top-level-reply";
+      if (is_reply) {
+        comment_li.className = "reply";
+      } else {
+        comment_li.className = "top-level-reply";
+      }
       comment_li.append(comment_box);
       const comment_ul = document.createElement("ul");
       comment_ul.className = "replies";
       comment_li.append(comment_ul);
-      document.querySelector("ul.comments").insertBefore(comment_li, document.querySelector("ul.comments").children[pos]);
+      if (is_reply) {
+        const target = document.querySelector(
+          "#" +
+          document.querySelector("ul.comments").children[pos].id +
+          " .replies"
+        );
+        target.insertBefore(comment_li, target.children[reply_pos]);
+      } else {
+        document.querySelector("ul.comments")
+          .insertBefore(
+            comment_li,
+            document.querySelector("ul.comments").children[pos]
+          );
+      }
     } else if (
       window.location.href.startsWith("https://scratch.mit.edu/projects/")
     ) {
