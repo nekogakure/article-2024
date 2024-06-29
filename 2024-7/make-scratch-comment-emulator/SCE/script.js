@@ -5,7 +5,8 @@ scratch_comment_emulator = {
         <h1>Scratch Comment Emulator()</h1>
         <label for="usersname">username<input id="sce-username" type="text" /></label>
         <label for="messages">messages <textarea id="sce-messages"></textarea></label>
-        <label for="position">position <input type="text"></label>
+        <label for="date">date <input id="sce-date" type="text" /></label>
+        <label for="position">position <input id="sce-position" type="text"></label>
         <label for="is-reply">reply <input type="checkbox"></label>
         <button id="sce-send">send</button>
     `,
@@ -51,7 +52,7 @@ scratch_comment_emulator = {
         border: 1px solid #ff0;
       }
       #sce-messages {
-        height: 60%;
+        height: 30vh;
       }
       #sce-send {
         font-size: 2vh;
@@ -72,12 +73,12 @@ scratch_comment_emulator = {
     sce_style.innerHTML = scratch_comment_emulator.elem.source.css;
     document.body.append(sce_div);
     document.body.append(sce_style);
-    const sce_hide=document.createElement("button");
-    sce_hide.innerHTML="x";
-    sce_hide.id="sce-hide";
+    const sce_hide = document.createElement("button");
+    sce_hide.innerHTML = "x";
+    sce_hide.id = "sce-hide";
     document.body.append(sce_hide);
   },
-  send_comment: (username, text) => {
+  send_comment: (username, text, date, pos) => {
     if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
       var comment_box = document.createElement("div");
       comment_box.id = Math.floor(Math.random() * 10 ** 10);
@@ -112,7 +113,7 @@ scratch_comment_emulator = {
       const comment_info_other = document.createElement("div");
       comment_info_other.innerHTML = `
       <div>
-      <span class="time" title="made by The Infinity's">1 minute ago</span>
+      <span class="time" title="made by The Infinity's">`+ date + `</span>
       <a
         class="reply"
         style="display: inline;"
@@ -133,7 +134,7 @@ scratch_comment_emulator = {
       const comment_ul = document.createElement("ul");
       comment_ul.className = "replies";
       comment_li.append(comment_ul);
-      document.querySelector("ul.comments").prepend(comment_li);
+      document.querySelector("ul.comments").insertBefore(comment_li, document.querySelector("ul.comments").children[pos]);
     } else if (
       window.location.href.startsWith("https://scratch.mit.edu/projects/")
     ) {
@@ -162,7 +163,7 @@ scratch_comment_emulator = {
       comment_content.innerHTML = '<span class="emoji-text">' + text + '</span>';
       const comment_bottom = document.createElement("div");
       comment_bottom.className = "flex-row comment-bottom-row";
-      comment_bottom.innerHTML = '<span class="comment-time"><span>' + prompt("date(examples 「4 時間前」、「1 分前」...): ") + '</span></span><span class="comment-reply"><span>返信</span></span>';
+      comment_bottom.innerHTML = '<span class="comment-time"><span>' + date + '</span></span><span class="comment-reply"><span>返信</span></span>';
       comment_bubble.append(comment_content);
       comment_bubble.append(comment_bottom);
       const comment_body = document.createElement("div");
@@ -183,15 +184,17 @@ scratch_comment_emulator.init();
 document.querySelector("#sce-send").onclick = () => {
   const username = document.querySelector("#sce-username").value;
   const message = document.querySelector("#sce-messages").value;
-  scratch_comment_emulator.send_comment(username, message);
+  const date = document.querySelector("#sce-date").value;
+  const pos=document.querySelector("#sce-position").value;
+  scratch_comment_emulator.send_comment(username, message, date);
 };
-document.querySelector("#sce-hide").addEventListener("click", (e) => {
+document.querySelector("#sce-hide").addEventListener("click", () => {
   const sce_hide = document.querySelector("#sce-hide");
-  if (sce_hide.style.opacity==1){
-   document.querySelector(".sce-box").style.display="none";
-    sce_hide.style.opacity=0;
+  if (sce_hide.style.opacity == 1) {
+    document.querySelector(".sce-box").style.display = "none";
+    sce_hide.style.opacity = 0;
   } else {
-    document.querySelector(".sce-box").style.display="";
-    sce_hide.style.opacity=1;
+    document.querySelector(".sce-box").style.display = "";
+    sce_hide.style.opacity = 1;
   }
 });
