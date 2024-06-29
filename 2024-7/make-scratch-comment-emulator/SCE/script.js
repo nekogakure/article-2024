@@ -7,7 +7,8 @@ scratch_comment_emulator = {
         <label for="messages">messages <textarea id="sce-messages"></textarea></label>
         <label for="date">date <input id="sce-date" type="text" /></label>
         <label for="position">position <input id="sce-position" type="text"></label>
-        <label for="is-reply">reply <input type="checkbox"></label>
+        <label for="is-reply">reply <input id="sce-is-reply" type="checkbox" /></label>
+        <label for="reply-pos">reply pos <input type="text" id="sce-reply-pos" /></label>
         <button id="sce-send">send</button>
     `,
       css: `
@@ -78,7 +79,7 @@ scratch_comment_emulator = {
     sce_hide.id = "sce-hide";
     document.body.append(sce_hide);
   },
-  send_comment: (username, text, date, pos) => {
+  send_comment: (username, text, date, pos, is_reply, reply_pos) => {
     if (pos == "") { pos = "0" }
     if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
       var comment_box = document.createElement("div");
@@ -187,7 +188,9 @@ document.querySelector("#sce-send").onclick = () => {
   const message = document.querySelector("#sce-messages").value;
   const date = document.querySelector("#sce-date").value;
   const pos = document.querySelector("#sce-position").value;
-  scratch_comment_emulator.send_comment(username, message, date, pos);
+  const is_reply = document.querySelector("#sce-is-reply").checked;
+  const reply_pos = document.querySelector("#sce-reply-pos").value;
+  scratch_comment_emulator.send_comment(username, message, date, pos, is_reply, reply_pos);
 };
 document.querySelector("#sce-hide").addEventListener("click", () => {
   const sce_hide = document.querySelector("#sce-hide");
