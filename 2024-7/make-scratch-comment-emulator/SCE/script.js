@@ -2,7 +2,7 @@ scratch_comment_emulator = {
   elem: {
     source: {
       html: `
-        <button class="hide">x</button>
+        <button id="sce-hide">x</button>
         <h1>Scratch Comment Emulator()</h1>
         <label for="usersname">username<input id="sce-username" type="text" /></label>
         <label for="messages">messages <textarea id="sce-messages"></textarea></label>
@@ -23,10 +23,12 @@ scratch_comment_emulator = {
         color: #ff0;
         padding: 0%;
       }
-      .sce-box .hide {
-        margin-bottom: 0;
-        margin-left: 40vw;
+      #sce-hide {
+        z-index:66666;
+        position: fixed;
         width: 10vw;
+        top:0;
+        right:0;
         border-radius: 0;
         color: #ff0;
         font-size: 3vw;
@@ -35,6 +37,7 @@ scratch_comment_emulator = {
       }
       .sce-box>h1 {
         margin: 0;
+        margin-top:10vh;
         border: 1px solid #ff0;
         width: 100%;
         font-size: 3vw;
@@ -178,4 +181,14 @@ document.querySelector("#sce-send").onclick = () => {
   const username = document.querySelector("#sce-username").value;
   const message = document.querySelector("#sce-messages").value;
   scratch_comment_emulator.send_comment(username, message);
+};
+document.querySelector("#sce-hide").onclick = () => {
+  const sce_hide = document.querySelector("#sce-hide");
+  if (sce_hide.style.opacity==1){
+   document_querySelector(".sce-box").style.display="none";
+    sce_hide.style.opacity=0;
+  } else {
+    document_querySelector(".sce-box").style.display="";
+    sce_hide.style.opacity=1;
+  }
 };
