@@ -12,13 +12,16 @@ scratch_comment_emulator = {
     <button id="sce-send">send</button>
     `,
       css: `
-.sce-hide {
+#sce-hide {
 z-index:1000000;
 position:fixed;
 top:0;
 right:0;
+width:20px;
+height:20px;
 font-family: Arial, sans-serif;
 background-color: #f9f9f9;
+color:#333;
 }
     .sce-box {
 z-index:100000;
