@@ -186,7 +186,7 @@ document.querySelector("#sce-send").onclick = () => {
   const message = document.querySelector("#sce-messages").value;
   const date = document.querySelector("#sce-date").value;
   const pos=document.querySelector("#sce-position").value;
-  scratch_comment_emulator.send_comment(username, message, date);
+  scratch_comment_emulator.send_comment(username, message, date, pos);
 };
 document.querySelector("#sce-hide").addEventListener("click", () => {
   const sce_hide = document.querySelector("#sce-hide");
