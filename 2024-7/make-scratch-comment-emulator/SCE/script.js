@@ -164,7 +164,7 @@ scratch_comment_emulator = {
           );
       }
     } else if (
-      window.location.href.startsWith("https://scratch.mit.edu/projects/")||
+      window.location.href.startsWith("https://scratch.mit.edu/projects/") ||
       window.location.href.startsWith("https://scratch.mit.edu/studios/")
     ) {
       var comment_box = document.createElement("div");
@@ -212,14 +212,13 @@ scratch_comment_emulator = {
       const comment_container = document.createElement("div");
       comment_container.className = "flex-row comment-container";
       comment_container.append(comment_box);
+      let root = null;
+      if (new URL(window.location.href).pathname.endsWith("comments")) {
+        root = document.querySelector(".studio-compose-container").children[1];
+      } else {
+        root = document.querySelector(".comments-list");
+      }
       if (is_reply) {
-        let root = null;
-        if (new URL(window.location.href).pathname.endsWith("comments")) {
-          root = document.querySelector(".studio-compose-container")
-            .children[1];
-        } else {
-          root = document.querySelector(".comments-list");
-        }
         if (root.children[pos].children.length == 1) {
           const reply_container = document.createElement("div");
           reply_container.className = "flex-row replies column";
