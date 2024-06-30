@@ -111,7 +111,7 @@ for article_dir in listfolders(root_dir):
           convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("#title: "):
           markdown_title=markdown_line[8:]
-        if markdown_line.startswith("#date: "):
+        elif markdown_line.startswith("#date: "):
           markdown_result+="<date>"+markdown_line[7:]+"</date>\n"
         else:
           markdown_result+=markdown_line+"\n"
