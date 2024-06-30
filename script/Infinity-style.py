@@ -75,7 +75,6 @@ for article_dir in listfolders(root_dir):
     with open(root_dir+"/"+article_dir+"/"+article_path,mode="r") as f:
       markdown_text = f.read()
       f.close()
-          
     def convertmarkdown(markdown_text):
       extensions = [
         "extra",
