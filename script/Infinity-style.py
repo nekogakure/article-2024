@@ -41,9 +41,10 @@ def listfiles(dir_path):
       f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f))
   ]
   return result
-custom_date_file=open("./setting/custom-date.json")
-custom_date_info=json.loads(custom_date_file.read())
-custom_date_file.close()
+setting_file=open("./setting/setting.json")
+setting_data=json.loads(setting_file.read())
+custom_date_info=setting_data["custom-date"]
+setting_file.close()
 class custom_date:
   def __init__(self,year,month):
     self.year=year
@@ -53,8 +54,8 @@ if custom_date_info["auto"]:
   now=datetime.datetime.now()
 else:
   now=custom_date(custom_date_info["year"],custom_date_info["month"])
-now=str(now.year)+"-"+str(now.month)
-root_dir="./"+now
+
+root_dir="./"+str(now.month).zfill(2)
 if not os.path.isdir(root_dir):
   print("No datas")
   exit()
