@@ -172,3 +172,5 @@ if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
   alert("対応していません")
 }
 ```
+
+#date: 2024/07/02
