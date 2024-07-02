@@ -170,6 +170,16 @@ const main = () => {
     };
     let mode_load_before = null;
     //check length of now month articles
+    alert(
+      "https://" +
+        blog_domain +
+        "/article-" +
+        repository_year +
+        "/index/" +
+        today.year.toString() +
+        "-" +
+        today.month.toString().padStart(2, "0") +
+        ".json");
     fetch(
       "https://" +
         blog_domain +
@@ -183,6 +193,7 @@ const main = () => {
     )
       .then((res) => res.json())
       .then((data) => {
+        alert(data.info.length);
         if (data.info.length < 3) {
           mode_load_before = 1;
         } else {
