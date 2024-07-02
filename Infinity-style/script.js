@@ -1,3 +1,4 @@
+const repository_year = "2024";
 const main = () => {
   //add article
   const go_top = document.createElement("button");
@@ -167,9 +168,34 @@ const main = () => {
         })
         .catch((err) => console.log(`データが取得できませんでした：${err}`));
     };
+    let mode_load_before = null;
+    //check length of now month articles
+    fetch(
+      "https://" +
+        blog_domain +
+        "/article-" +
+        repository_year +
+        "/index/" +
+        (
+          blog_start.year + ~~((blog_start.month + load_count - 1) / 12)
+        ).toString() +
+        "-" +
+        (((blog_start.month + load_count - 2) % 12) + 1)
+          .toString()
+          .padStart(2, "0") +
+        ".json"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.info.length < 3) {
+          mode_load_before = 1;
+        } else {
+          mode_load_before = 0;
+        }
+      });
     for (
-      let load_count = data_list_length;
-      load_count > data_list_length - 2;
+      let load_count = data_list_length - mode_load_before;
+      load_count > data_list_length - mode_load_before - 2;
       --load_count
     ) {
       const pathname =
