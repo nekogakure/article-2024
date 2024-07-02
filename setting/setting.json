@@ -1,8 +1,8 @@
 {
   "custom-date": {
-    "auto": true,
+    "auto": false,
     "year": 2024,
-    "month": 7
+    "month": 6
   },
   "repository-name": "article-2024"
 }
