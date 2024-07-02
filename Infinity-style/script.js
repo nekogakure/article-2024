@@ -150,7 +150,6 @@ const main = () => {
       insert_button();
     };
     const getData = (name) => {
-      alert("get: " + "https://" + blog_domain + name + ".json");
       fetch("https://" + blog_domain + name + ".json")
         .then((res) => res.json())
         .then((data) => {
