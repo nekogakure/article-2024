@@ -189,21 +189,21 @@ const main = () => {
           mode_load_before = 0;
         }
         for (
-      let load_count = data_list_length - mode_load_before;
-      load_count > data_list_length - mode_load_before - 2;
-      --load_count
-    ) {
-      const pathname =
-        "/article-2024/index/" +
-        (
-          blog_start.year + ~~((blog_start.month + load_count - 1) / 12)
-        ).toString() +
-        "-" +
-        (((blog_start.month + load_count - 2) % 12) + 1)
-          .toString()
-          .padStart(2, "0");
-      getData(pathname);
-    }
+          let load_count = data_list_length - mode_load_before;
+          load_count > data_list_length - mode_load_before - 2;
+          --load_count
+        ) {
+          const pathname =
+            "/article-2024/index/" +
+            (
+              blog_start.year + ~~((blog_start.month + load_count - 1) / 12)
+            ).toString() +
+            "-" +
+            (((blog_start.month + load_count - 2) % 12) + 1)
+              .toString()
+              .padStart(2, "0");
+          getData(pathname);
+        }
       });
   };
   get_all_article_info();
