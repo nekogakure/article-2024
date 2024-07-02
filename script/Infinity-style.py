@@ -113,7 +113,7 @@ for article_dir in listfolders(root_dir):
         elif markdown_line.startswith("#date: "):
           markdown_result+="<date>"+markdown_line[7:]+"</date>\n"
         else:
-          markdown_result+=markdown_line+"\n"
+          markdown_result+=markdown_line+"\n
       return markdown.markdown(markdown_result,extensions=extensions,extension_configs=configs)
     html_text = convertmarkdown(markdown_text)
     html_result=""
@@ -122,5 +122,7 @@ for article_dir in listfolders(root_dir):
     if index_path!=None:
       os.system("rm "+root_dir+"/"+article_dir+"/index.html")
     with open(root_dir+"/"+article_dir+"/index.html",mode="w") as f:
+      if markdown_title=="":
+        markdown_title=html_result[html_result.find("<h1>")+4:html_result.find("</h1>")]
       f.write(article_temp_head.replace("HERE TO THE TITLE",markdown_title)+html_result+article_temp_foot)
       f.close()
