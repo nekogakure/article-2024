@@ -188,8 +188,7 @@ const main = () => {
         } else {
           mode_load_before = 0;
         }
-      });
-    for (
+        for (
       let load_count = data_list_length - mode_load_before;
       load_count > data_list_length - mode_load_before - 2;
       --load_count
@@ -205,6 +204,7 @@ const main = () => {
           .padStart(2, "0");
       getData(pathname);
     }
+      });
   };
   get_all_article_info();
 };
