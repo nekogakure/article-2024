@@ -176,13 +176,9 @@ const main = () => {
         "/article-" +
         repository_year +
         "/index/" +
-        (
-          blog_start.year + ~~((blog_start.month + load_count - 1) / 12)
-        ).toString() +
+        today.year.toString() +
         "-" +
-        (((blog_start.month + load_count - 2) % 12) + 1)
-          .toString()
-          .padStart(2, "0") +
+        today.month.toString().padStart(2, "0") +
         ".json"
     )
       .then((res) => res.json())
