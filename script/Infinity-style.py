@@ -113,7 +113,7 @@ for article_dir in listfolders(root_dir):
         elif markdown_line.startswith("#date: "):
           markdown_result+="<date>"+markdown_line[7:]+"</date>\n"
         else:
-          markdown_result+=markdown_line+"\n
+          markdown_result+=markdown_line+"\n"
       return markdown.markdown(markdown_result,extensions=extensions,extension_configs=configs)
     html_text = convertmarkdown(markdown_text)
     html_result=""
