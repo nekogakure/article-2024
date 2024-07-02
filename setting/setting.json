@@ -1,6 +1,6 @@
 {
   "custom-date": {
-    "auto": auto,
+    "auto": true,
     "year": 2024,
     "month": 7
   },
