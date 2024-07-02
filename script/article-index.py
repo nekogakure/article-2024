@@ -26,7 +26,7 @@ if custom_date_info["auto"]:
 else:
   now=custom_date(custom_date_info["year"],custom_date_info["month"])
 repository_name=setting_data["repository-name"]
-json_files_name="./index/"+str(now.year)+"-"+str(now.month)+".json"
+json_files_name="./index/"+str(now.year)+"-"+str(now.month).zfill(2)+".json"
 result_obj={"info":[]}
 root_dir="./"+str(now.month).zfill(2)
 def end():

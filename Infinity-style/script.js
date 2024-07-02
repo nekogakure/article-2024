@@ -1,4 +1,5 @@
-const main = () => {//add article
+const main = () => {
+  //add article
   const go_top = document.createElement("button");
   go_top.id = "go-top";
   go_top.innerHTML = `
@@ -27,11 +28,11 @@ const main = () => {//add article
   `;
   go_top.onclick = () => {
     document.querySelector("#article-title").scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'center'
+      behavior: "smooth",
+      block: "end",
+      inline: "center",
     });
-  }
+  };
   document.body.append(go_top);
   const article_content = document.querySelector("#article-content");
   const article_body = document.querySelector("#article-body");
@@ -82,7 +83,7 @@ const main = () => {//add article
     <path d="M50 50,L60 60 Z" />
   </g>
 </svg>
-`;  // Infinity-clock.svg
+`; // Infinity-clock.svg
   const date_obj = document.querySelector("date");
   article_title.innerHTML += date_obj.outerHTML;
   article_body.prepend(article_title);
@@ -91,17 +92,17 @@ const main = () => {//add article
   article_index.id = "article-index";
   for (let i = 0; i < article_content.children.length; ++i) {
     const article_content_child = article_content.children[i];
-    const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
+    const tags = { H1: "H1", H2: "H2", H3: "H3", H4: "H4" };
     if (article_content_child.tagName in tags) {
       const index_text = document.createElement(article_content_child.tagName);
       index_text.innerHTML = article_content_child.innerHTML;
       index_text.onclick = () => {
         article_content_child.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'nearest'
+          behavior: "smooth",
+          block: "center",
+          inline: "nearest",
         });
-      }
+      };
       article_index.append(index_text);
     }
   }
@@ -113,28 +114,30 @@ const main = () => {//add article
   const get_all_article_info = () => {
     const blog_start = {
       year: 2024,
-      month: 4
-    }
+      month: 4,
+    };
     let today = new Date();
     today = {
       year: today.getFullYear(),
-      month: today.getMonth() + 1
-    }
-    const data_list_length = 1 + 12 * (today.year - blog_start.year) + today.month - blog_start.month;
+      month: today.getMonth() + 1,
+    };
+    const data_list_length =
+      1 + 12 * (today.year - blog_start.year) + today.month - blog_start.month;
     const domain = new URL(window.location.href);
     const blog_domain = domain.hostname;
-    const append_blog_button = info => {
+    const append_blog_button = (info) => {
       const box = document.createElement("button");
       box.classList.add("blog-button");
       box.onclick = () => {
         window.location.href = "https://" + blog_domain + info.index;
-      }
+      };
       const thumbnail = document.createElement("img");
       thumbnail.src = "https://" + blog_domain + info.thumbnail;
       thumbnail.alt = info.name;
       thumbnail.loading = "lazy";
       const loading = document.createElement("img");
-      loading.src = "data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=";
+      loading.src =
+        "data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=";
       loading.alt = "loading...";
       loading.className = "loading-infinity";
       const title = document.createElement("div");
@@ -142,30 +145,42 @@ const main = () => {//add article
       box.innerHTML = loading.outerHTML + thumbnail.outerHTML + title.outerHTML;
       const insert_button = () => {
         document.querySelector("#other-articles").append(box);
-      }
+      };
       insert_button();
     };
     const getData = (name) => {
       console.log("get: " + "https://" + blog_domain + name + ".json");
       fetch("https://" + blog_domain + name + ".json")
-        .then((res) => res.json()).then(
-          data => {
-            const infos = data.info;
-            let counter = 3;
-            for (let i = 0; i < infos.length; ++i) {
-              const info = infos[i];
-              if (Math.random() < 1 / (infos.length - i - counter)) {
-                if (counter > 0) {
-                  append_blog_button(info);
-                  counter--;
-                }
+        .then((res) => res.json())
+        .then((data) => {
+          const infos = data.info;
+          let counter = 3;
+          for (let i = 0; i < infos.length; ++i) {
+            const info = infos[i];
+            if (Math.random() < 1 / (infos.length - i - counter)) {
+              if (counter > 0) {
+                append_blog_button(info);
+                counter--;
               }
             }
           }
-        ).catch((err) => console.log(`データが取得できませんでした：${err}`));
+        })
+        .catch((err) => console.log(`データが取得できませんでした：${err}`));
     };
-    for (let load_count = data_list_length; load_count > data_list_length - 2; --load_count) {
-      const pathname = "/article-2024/index/" + (blog_start.year + ~~((blog_start.month + load_count - 1) / 12)).toString() + "-" + ((blog_start.month + load_count - 2) % 12 + 1).toString()
+    for (
+      let load_count = data_list_length;
+      load_count > data_list_length - 2;
+      --load_count
+    ) {
+      const pathname =
+        "/article-2024/index/" +
+        (
+          blog_start.year + ~~((blog_start.month + load_count - 1) / 12)
+        ).toString() +
+        "-" +
+        (((blog_start.month + load_count - 2) % 12) + 1)
+          .toString()
+          .padStart(2, "0");
       getData(pathname);
     }
   };
@@ -175,9 +190,12 @@ main();
 
 const scroll_index = () => {
   const body_scroll = window.scrollY / document.body.scrollHeight;
-  const index_scrollTop_target = body_scroll * document.querySelector("#article-index").scrollHeight;
-  const index_scrollTop_now = document.querySelector("#article-index").scrollTop;
-  document.querySelector("#article-index").scrollTop += (index_scrollTop_target - index_scrollTop_now) / 30;
+  const index_scrollTop_target =
+    body_scroll * document.querySelector("#article-index").scrollHeight;
+  const index_scrollTop_now =
+    document.querySelector("#article-index").scrollTop;
+  document.querySelector("#article-index").scrollTop +=
+    (index_scrollTop_target - index_scrollTop_now) / 30;
   requestAnimationFrame(scroll_index);
 };
 scroll_index();
@@ -187,19 +205,33 @@ let renew_Infinity_clock_count = 0;
 const renew_Infinity_clock = () => {
   renew_Infinity_clock_count = (renew_Infinity_clock_count + 1) % 5;
   if (renew_Infinity_clock_count == 0) {
-    const now = new Date;
+    const now = new Date();
     const clock_hand_svg = document.querySelector(".Infinity-clock_hands");
     clock_hand_svg.style = "stroke:var(--article-text);";
     const now_hours = now.getHours();
     const now_minutes = now.getMinutes();
     const now_seconds = now.getSeconds() + now.getMilliseconds() / 1000;
-    const short_way = ((now_hours + now_minutes / 60) / 12 * 360 - 90) * Math.PI / 180;
-    const long_way = (now_minutes / 60 * 360 - 90) * Math.PI / 180;
-    const thin_way = (now_seconds / 60 * 360 - 90) * Math.PI / 180;
-    clock_hand_svg.innerHTML = `
-    <path d="M50 50,l`+ (30 * Math.cos(thin_way)).toString() + " " + (30 * Math.sin(thin_way)).toString() + `Z" stroke-width="1" />
-    <path d="M50 50,l`+ (30 * Math.cos(long_way)).toString() + " " + (30 * Math.sin(long_way)).toString() + `Z" />
-    <path d="M50 50,l`+ (20 * Math.cos(short_way)).toString() + " " + (20 * Math.sin(short_way)).toString() + `Z" />
+    const short_way =
+      ((((now_hours + now_minutes / 60) / 12) * 360 - 90) * Math.PI) / 180;
+    const long_way = (((now_minutes / 60) * 360 - 90) * Math.PI) / 180;
+    const thin_way = (((now_seconds / 60) * 360 - 90) * Math.PI) / 180;
+    clock_hand_svg.innerHTML =
+      `
+    <path d="M50 50,l` +
+      (30 * Math.cos(thin_way)).toString() +
+      " " +
+      (30 * Math.sin(thin_way)).toString() +
+      `Z" stroke-width="1" />
+    <path d="M50 50,l` +
+      (30 * Math.cos(long_way)).toString() +
+      " " +
+      (30 * Math.sin(long_way)).toString() +
+      `Z" />
+    <path d="M50 50,l` +
+      (20 * Math.cos(short_way)).toString() +
+      " " +
+      (20 * Math.sin(short_way)).toString() +
+      `Z" />
   `;
   }
   requestAnimationFrame(renew_Infinity_clock);
@@ -208,13 +240,13 @@ renew_Infinity_clock();
 
 const add_ads = () => {
   const article_content = document.querySelector("#article-content");
-  const createInfinityAds = e => {
+  const createInfinityAds = (e) => {
     const ads = document.createElement("div");
     const image = document.createElement("img");
     const info = {
       image: null,
       text: null,
-      url: null
+      url: null,
     };
     if (info.image == null) {
       image.src = "../../Infinity-style/Infinity-ads.svg";
@@ -232,7 +264,10 @@ const add_ads = () => {
     ads.append(text);
     if (info.url == null) {
       ads.onclick = () => {
-        window.location.href = "https://" + new URL(window.location.href).hostname + "/Infinity-ads/";
+        window.location.href =
+          "https://" +
+          new URL(window.location.href).hostname +
+          "/Infinity-ads/";
       };
     } else {
       ads.onclick = () => {
@@ -241,7 +276,7 @@ const add_ads = () => {
     }
     article_content.insertBefore(ads, e.nextSibling);
   };
-  const tags = { "H1": "H1", "H2": "H2", "H3": "H3", "H4": "H4" };
+  const tags = { H1: "H1", H2: "H2", H3: "H3", H4: "H4" };
   for (let i = 0; i < article_content.children.length; ++i) {
     const article_content_child = article_content.children[i];
     if (article_content_child.tagName in tags) {
