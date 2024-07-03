@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Infinity-style")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+546809d7953652d1d8a7ddf9cebba5232799a82d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2473d32da4f6360c4bd57b2ff823ca47bb66e45d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Infinity-style")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Infinity-style")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
