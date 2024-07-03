@@ -11,6 +11,7 @@ public static class InfinityStyle
         private htmlTemp(string head, string foot)
         {
             head = "";
+            
             foot = "";
         }
     }
