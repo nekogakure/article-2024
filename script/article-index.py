@@ -21,7 +21,7 @@ class custom_date:
     self.year=year
     self.month=month
 now=None
-if custom_date_info["auto"]:
+if custom_date_info["isAuto"]:
   now=datetime.datetime.now()
 else:
   now=custom_date(custom_date_info["year"],custom_date_info["month"])
