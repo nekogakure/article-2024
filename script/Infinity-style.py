@@ -43,7 +43,7 @@ def listfiles(dir_path):
   return result
 setting_file=open("./setting/setting.json")
 setting_data=json.loads(setting_file.read())
-custom_date_info=setting_data["custom-date"]
+custom_date_info=setting_data["customDate"]
 setting_file.close()
 class custom_date:
   def __init__(self,year,month):

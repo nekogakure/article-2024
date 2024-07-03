@@ -14,7 +14,7 @@ def listfiles(dir_path):
   return result
 setting_file=open("./setting/setting.json")
 setting_data=json.loads(setting_file.read())
-custom_date_info=setting_data["custom-date"]
+custom_date_info=setting_data["customDate"]
 setting_file.close()
 class custom_date:
   def __init__(self,year,month):
@@ -25,7 +25,7 @@ if custom_date_info["auto"]:
   now=datetime.datetime.now()
 else:
   now=custom_date(custom_date_info["year"],custom_date_info["month"])
-repository_name=setting_data["repository-name"]
+repository_name=setting_data["repositoryName"]
 json_files_name="./index/"+str(now.year)+"-"+str(now.month).zfill(2)+".json"
 result_obj={"info":[]}
 root_dir="./"+str(now.month).zfill(2)
