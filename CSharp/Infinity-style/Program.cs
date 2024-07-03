@@ -16,12 +16,12 @@ public struct htmlTemp
 
 public class SettingData
 {
-    public Dictionary<string, CustomDate>? customDate { get; set; }
+    public Dictionary<string, customDate>? CustomDate { get; set; }
 
     public string? repositoryName { get; set; }
 }
 
-public class CustomDate
+public class customDate
 {
     public bool? isAuto { get; set; }
     public int? year { get; set; }
@@ -37,15 +37,9 @@ public static class InfinityStyle
         StreamReader settingJsonFile = new StreamReader("./test.json");
         string settingJsonText = settingJsonFile.ReadToEnd();
         Console.WriteLine("Read setting.json:\n\"\"\"\n" + settingJsonText + "\n\"\"\"");
-        var options = new JsonSerializerOptions
-        {
-            ReadCommentHandling = JsonCommentHandling.Skip,
-            AllowTrailingCommas = true,
-        };
         SettingData? settingData = JsonSerializer.Deserialize<SettingData>(
-            settingJsonText,
-            options
+            settingJsonText
         );
-        // Console.WriteLine(settingData?.repositoryName);
+        Console.WriteLine(settingData?.repositoryName);
     }
 }
