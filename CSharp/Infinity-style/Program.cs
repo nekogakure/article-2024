@@ -1,24 +1,24 @@
 ﻿// The Infinity's Infinity Style Static Site Generator
-Using System.Text.Json
+using System.Text.Json;
 Console.WriteLine("-------Infinity Style Static Site Generator-------");
 
 InfinityStyle.ReadSettingData();
 
 public static class InfinityStyle
 {
-    private struct htmlTemp
+  private struct htmlTemp
+  {
+    private htmlTemp(string head, string foot)
     {
-        private htmlTemp(string head, string foot)
-        {
-            head = "";
-            
-            foot = "";
-        }
+      head = "";
+      foot = "";
     }
+  }
 
-    public static void ReadSettingData()
-    {
-        StreamReader settingJsonFile = new StreamReader("./test.json");
-        //jsonファイルを読み込む機能を搭載せよ
-    }
+  public static void ReadSettingData()
+  {
+    StreamReader settingJsonFile = new StreamReader("./test.json");
+    string settingJsonText = settingJsonFile.ReadToEnd();
+    Console.WriteLine("Read setting.json:\n\"\"\""+settingJsonText+"\n\"\"\"");
+  }
 }
