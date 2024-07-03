@@ -46,6 +46,6 @@ public static class InfinityStyle
             settingJsonText,
             options
         );
-        Console.WriteLine(settingData?.repositoryName);
+        // Console.WriteLine(settingData?.repositoryName);
     }
 }
