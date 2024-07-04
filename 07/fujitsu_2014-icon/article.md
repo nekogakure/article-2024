@@ -9,4 +9,8 @@ fujitsuという言葉がまあ気になりますが、取り敢えず富士山�
 
 <img src="thumbnail.webp" style="width:100%;" />
 
+### 追記
+新しく作り直しました
+
+<img src="IMG_1771.webp" style="width:100%;" />
 #date: 2024/07/02
