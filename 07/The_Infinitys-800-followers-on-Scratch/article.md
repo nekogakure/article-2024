@@ -5,3 +5,4 @@
 [@TOFUsann826](http://scratch.mit.edu/users/TOFUsann826)
 にイラストを描いて貰いました！
 <img src="./thumbnail.png" style="width:100%;" />
+#date: 2024/07/03
