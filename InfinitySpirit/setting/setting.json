@@ -1,0 +1,10 @@
+{
+  "custom-date": "all",
+  "git-repository": {
+    "name": "InfinitySpirit",
+    "year": 2024
+  },
+  "converter": {
+    "indent-level": 10
+  }
+}

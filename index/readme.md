@@ -1,2 +1,0 @@
-# about this directory
-このディレクトリには書かれたmarkdownの記事の内容が自動的に記録されます。
