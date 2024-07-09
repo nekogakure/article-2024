@@ -117,9 +117,7 @@ def convert(date, now_year, indent) -> None:
                     )
                     export_html = export_html.replace(
                         replace_pos["title"],
-                        "<InfinitySpiritArticleTitle>"
-                        + article_title
-                        + "</InfinitySpiritArticleTitle>",
+                        article_title
                     )
                     base_html = (
                         indent_html(base_html, indent)
