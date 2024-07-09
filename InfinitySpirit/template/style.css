@@ -109,7 +109,7 @@ InfinitySpiritDate {
   width: 50%;
   margin-left: 5%;
   margin-top: -60vh;
-  margin-bottom:5vh;
+  margin-bottom: 5vh;
   padding: 5%;
   height: 80vh;
   overflow-x: hidden;
@@ -139,10 +139,12 @@ InfinitySpiritDate {
   left: 0;
   object-fit: cover;
 }
+
 .codehilite {
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
 .articles-recommended>button>div {
   position: absolute;
   width: 100%;
@@ -151,9 +153,11 @@ InfinitySpiritDate {
   left: 0;
   color: var(--infinityspirit-text);
 }
+
 .articles-recommended>button>div>h1 {
-  font-size:3vh;
-  text-overflow:clip;
+  font-size: 2vw;
+  display: inline-block;
+  text-overflow: clip;
 }
 
 
