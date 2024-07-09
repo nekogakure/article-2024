@@ -168,13 +168,15 @@ def convert(date, now_year, indent) -> None:
             pass
             legacy_index.append(
                 {
-                    "index": legacy_repository_name
+                    "index": "/"
+                    + legacy_repository_name
                     + "/"
                     + month_dir
                     + "/"
                     + article_index["id"],
                     "name": article_index["id"],
-                    "thumbnail": legacy_repository_name
+                    "thumbnail": "/"
+                    + legacy_repository_name
                     + "/"
                     + month_dir
                     + "/"
