@@ -173,7 +173,8 @@ def convert(date, now_year, indent) -> None:
                     + "/"
                     + month_dir
                     + "/"
-                    + article_index["id"],
+                    + article_index["id"]
+                    + "/",
                     "name": article_index["id"],
                     "thumbnail": "/"
                     + legacy_repository_name
