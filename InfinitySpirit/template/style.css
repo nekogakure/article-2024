@@ -78,7 +78,7 @@ InfinitySpiritDate {
   bottom: 10vh;
   left: 67.5vw;
   width: 30vw;
-  height: 80vh;
+  height: 70vh;
   margin-left: 1px;
   background-color: color-mix(in srgb, var(--infinityspirit-back), #888 30%);
 }
@@ -108,7 +108,7 @@ InfinitySpiritDate {
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
   width: 50%;
   margin-left: 5%;
-  margin-top: -75vh;
+  margin-top: -50vh;
   padding: 5%;
   min-height: 80vh;
   background: color-mix(in srgb, var(--infinityspirit-back), #888 30%);
