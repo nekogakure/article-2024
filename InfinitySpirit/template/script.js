@@ -38,7 +38,7 @@ const recommendArticles = async () => {
     const article_button = document.createElement("button");
     const article_root_path =
       "../../" +
-      (1 + article_info.month).toString().padStart(2, "0") +
+      (article_info.month + 1).toString().padStart(2, "0") +
       "/" +
       article_info.id +
       "/";
@@ -59,9 +59,10 @@ const recommendArticles = async () => {
     article_list.append(article_button);
   };
   for (let month_count = 0; month_count < 12; month_count++) {
+    const this_month=new Date().getMonth();
     const list_path =
       "../../" +
-      (1 + month_count).toString().padStart(2, "0") +
+      (1 + (month_count + this_month) % 12).toString().padStart(2, "0") +
       "/articles.json";
     await fetch(list_path)
       .then((res) => res.json())
