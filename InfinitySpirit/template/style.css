@@ -110,7 +110,9 @@ InfinitySpiritDate {
   margin-left: 5%;
   margin-top: -50vh;
   padding: 5%;
-  min-height: 80vh;
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background: color-mix(in srgb, var(--infinityspirit-back), #888 30%);
   color: var(--infinityspirit-text);
 }
