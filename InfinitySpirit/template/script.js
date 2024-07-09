@@ -69,7 +69,7 @@ const recommendArticles = async () => {
       .then((article_data) => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
-          article_info.month = month_count;
+          article_info.month = (month_count + this_month) % 12;
           article_info_datas.push(article_info);
         });
       });
