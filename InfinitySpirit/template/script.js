@@ -38,7 +38,7 @@ const recommendArticles = async () => {
     const article_button = document.createElement("button");
     const article_root_path =
       "../../" +
-      (1 + month_count).toString().padStart(2, "0") +
+      (1 + article_info.month).toString().padStart(2, "0") +
       "/" +
       article_info.id +
       "/";
@@ -68,6 +68,7 @@ const recommendArticles = async () => {
       .then((article_data) => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
+          article_info.month = month_count;
           article_info_datas.push(article_info);
         });
       });
@@ -79,6 +80,16 @@ const recommendArticles = async () => {
 recommendArticles();
 
 let renew_clock_watch_count = 0;
+try {
+  document.querySelector("InfinitySpiritDate").innerHTML =
+    document.querySelector("date").innerHTML;
+} catch (SyntaxError) {
+  console.log("not found date object");
+}
+if ((document.querySelector("InfinitySpiritArticleTitle").innerHTML == "")) {
+  document.querySelector("InfinitySpiritArticleTitle").innerHTML =
+    document.querySelector("InfinitySpiritContent h1").innerHTML;
+}
 const renew_Infinity_clock = () => {
   renew_clock_watch_count = (renew_clock_watch_count + 1) % 5;
   if (renew_clock_watch_count == 0) {

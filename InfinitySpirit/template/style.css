@@ -137,7 +137,10 @@ InfinitySpiritDate {
   left: 0;
   object-fit: cover;
 }
-
+.codehilite {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
 .articles-recommended>button>div {
   position: absolute;
   width: 100%;
