@@ -1,4 +1,4 @@
-#title: Scratchでフォロワー700人とったどー！
+# title: Scratchでフォロワー700人とったどー！
 
 どうも！The Infinity's です！つい先日、私のScratchのフォロワーが700人を突破しました！
 ヤッター！

@@ -1,4 +1,4 @@
-#title: Scratch Comment emulatorを作ってみた！
+# title: Scratch Comment emulatorを作ってみた！
 
 Scratchでコメントをした際にどのように表示されるのかをエミュレートするプログラムを作りました。ご自由にお使いください。
 
@@ -173,4 +173,4 @@ if (window.location.href.startsWith("https://scratch.mit.edu/users/")) {
 }
 ```
 
-#date: 2024/07/02
+# date: 2024/07/02

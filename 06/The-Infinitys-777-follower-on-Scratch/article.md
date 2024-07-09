@@ -1,4 +1,4 @@
-#title: Scratchで777フォロワー!!!!!!
+# title: Scratchで777フォロワー!!!!!!
 
 # 悲願の目標
 どうも! The Infinity'sです!

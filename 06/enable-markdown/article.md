@@ -1,4 +1,4 @@
-#title: markdownでブログを書けるようにした
+# title: markdownでブログを書けるようにした
 
 ## 余りにも面倒だったhtml
 どうもどうも! The Infinitysです!
@@ -83,7 +83,7 @@ for article_dir in listfolders(root_dir):
       f.close()
     markdown_result = ""
     for markdown_line in markdown_text.split("\n"):
-      if markdown_line.startswith("#title: "):
+      if markdown_line.startswith("# title: "):
         markdown_title=markdown_line[8:]
       else:
         markdown_result+=markdown_line+"\n"
