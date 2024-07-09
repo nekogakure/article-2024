@@ -118,12 +118,9 @@ const recommendArticles = async () => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
           article_info.month = (month_count + this_month) % 12;
-          article_info_datas.push(article_info);
+          add_article_button(article_info)
         });
       });
   }
-  article_info_datas.forEach((article_info) =>
-    add_article_button(article_info)
-  );
 };
 recommendArticles();
