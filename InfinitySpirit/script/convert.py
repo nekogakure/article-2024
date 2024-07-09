@@ -171,12 +171,14 @@ def convert(date, now_year, indent) -> None:
                     "index": legacy_repository_name
                     + "/"
                     + month_dir
+                    + "/"
                     + article_index["id"],
                     "name": article_index["id"],
                     "thumbnail": legacy_repository_name
                     + "/"
                     + month_dir
                     + article_index["id"]
+                    + "/"
                     + article_index["thumbnail"],
                     "title": article_index["title"],
                     "date": article_index["date"],
@@ -185,12 +187,7 @@ def convert(date, now_year, indent) -> None:
         legacy_index.sort(key=get_date, reverse=True)
         legacy_index = {"info": legacy_index}
         with open(
-            "./"
-            + "/index/"
-            + str(target["year"])
-            + "-"
-            + month_dir
-            + ".json",
+            "./" + "/index/" + str(target["year"]) + "-" + month_dir + ".json",
             mode="w",
         ) as f:
             f.write(

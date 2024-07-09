@@ -74,10 +74,10 @@ const main = () => {//add article
       const box = document.createElement("button");
       box.classList.add("blog-button");
       box.onclick = () => {
-        window.location.href = "https://" + blog_domain + info.index;
+        window.location.href = info.index;
       }
       const thumbnail = document.createElement("img");
-      thumbnail.src = "https://" + blog_domain + info.thumbnail;
+      thumbnail.src = info.thumbnail;
       thumbnail.alt = info.name;
       thumbnail.loading = "lazy";
       const loading = document.createElement("img");
@@ -93,8 +93,8 @@ const main = () => {//add article
       insert_button();
     };
     const getData = (name) => {
-      console.log("get: " + "https://" + blog_domain + name + ".json");
-      fetch("https://" + blog_domain + name + ".json")
+      console.log("get: " + name + ".json");
+      fetch(name + ".json")
         .then((res) => res.json()).then(
           data => {
             const infos = data.info;
