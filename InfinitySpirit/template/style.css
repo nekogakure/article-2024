@@ -151,6 +151,11 @@ InfinitySpiritDate {
   left: 0;
   color: var(--infinityspirit-text);
 }
+.articles-recommended>button>div>h1 {
+  font-size:3vh;
+  text-overflow:clip;
+}
+
 
 @media (max-aspect-ratio:1/1) {
   .article-index {
