@@ -6,6 +6,7 @@ from script import search, loadsetting
 
 template_html = ""
 replace_pos = {}
+legacy_repository_name = "article-2024"
 
 
 def find_elem(tag, key) -> None:
@@ -138,9 +139,7 @@ def convert(date, now_year, indent) -> None:
                     ) as index_html:
                         index_html.write(export_html)
                     article_thumbnail = ""
-                    for file_name in search.files(
-                        "./" + month_dir + "/" + article_dir
-                    ):
+                    for file_name in search.files("./" + month_dir + "/" + article_dir):
                         if file_name.startswith("thumbnail"):
                             article_thumbnail = file_name
                     article_index_list.append(
@@ -151,15 +150,52 @@ def convert(date, now_year, indent) -> None:
                             "thumbnail": article_thumbnail,
                         }
                     )
+
+        def get_date(obj) -> str:
+            return obj["date"]
+
         with open("./" + month_dir + "/articles.json", mode="w") as f:
-
-            def get_date(obj) -> str:
-                return obj["date"]
-
             article_index_list.sort(key=get_date, reverse=True)
             f.write(
                 json.dumps(
                     {"articles": article_index_list},
+                    indent=2,
+                )
+            )
+        # legacy mode
+        legacy_index = []
+        for article_index in article_index_list:
+            pass
+            legacy_index.append(
+                {
+                    "index": legacy_repository_name
+                    + "/"
+                    + month_dir
+                    + article_index["id"],
+                    "name": article_index["id"],
+                    "thumbnail": legacy_repository_name
+                    + "/"
+                    + month_dir
+                    + article_index["id"]
+                    + article_index["thumbnail"],
+                    "title": article_index["title"],
+                    "date": article_index["date"],
+                }
+            )
+        legacy_index.sort(key=get_date, reverse=True)
+        legacy_index = {"info": legacy_index}
+        with open(
+            "./"
+            + "/index/"
+            + str(target["year"])
+            + "-"
+            + month_dir
+            + ".json",
+            mode="w",
+        ) as f:
+            f.write(
+                json.dumps(
+                    legacy_index,
                     indent=2,
                 )
             )

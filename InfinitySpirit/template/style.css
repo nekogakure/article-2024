@@ -18,7 +18,6 @@
 .article-body {
   width: 100%;
   padding-top: 5vh;
-  background-color: var(--infinityspirit-back);
   color: var(--infinityspirit-text);
 }
 
