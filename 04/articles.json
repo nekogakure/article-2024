@@ -1,16 +1,16 @@
 {
   "articles": [
     {
-      "id": "SEO_1",
-      "title": "",
-      "date": "",
-      "thumbnail": "thumbnail.png"
-    },
-    {
       "id": "js_taiso_Infinity",
       "title": "",
       "date": "",
       "thumbnail": "thumbnail.jpeg"
+    },
+    {
+      "id": "SEO_1",
+      "title": "",
+      "date": "",
+      "thumbnail": "thumbnail.png"
     },
     {
       "id": "i_think_about_scratch",
