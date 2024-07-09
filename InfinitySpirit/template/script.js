@@ -39,7 +39,7 @@ try {
 } catch (SyntaxError) {
   console.log("not found date object");
 }
-if ((document.querySelector("InfinitySpiritArticleTitle").innerHTML == "")) {
+if ((document.querySelector(".article-title").innerHTML == "")) {
   document.querySelector("InfinitySpiritArticleTitle").innerHTML =
     document.querySelector("InfinitySpiritContent h1").innerHTML;
 }
