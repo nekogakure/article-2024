@@ -38,174 +38,174 @@
         <InfinitySpiritContent>
           <p>Scratchでコメントをした際にどのように表示されるのかをエミュレートするプログラムを作りました。ご自由にお使いください。</p>
           <h3 id="for-users">for users</h3>
-          <pre class="codehilite"><code class="language-javascript">alert(&quot;Scratch comment emulator&quot;);
-          if (window.location.href.startsWith(&quot;https://scratch.mit.edu/users/&quot;)) {
-            var comment_box = document.createElement(&quot;div&quot;);
-            comment_box.id = Math.floor(Math.random() * 10 ** 10);
-            comment_box.className = &quot;comment&quot;;
-            var actions_warp = document.createElement(&quot;div&quot;);
-            actions_warp.className = &quot;actions-wrap&quot;;
-            actions_warp.innerHTML = '&lt;span data-control=&quot;delete&quot; class=&quot;actions report&quot;&gt;Delete&lt;/span&gt;\n&lt;span data-control=&quot;report&quot; class=&quot;actions report&quot;&gt; 報告 &lt;/span&gt;';
-            comment_box.append(actions_warp);
-            const comment_user_a = document.createElement(&quot;a&quot;);
-            const comment_username = prompt(&quot;user: &quot;);
-            comment_user_a.href = &quot;/users/&quot; + comment_username;
-            const comment_image = document.createElement(&quot;img&quot;);
-            comment_image.className = &quot;avatar&quot;;
-            fetch(&quot;https://api.scratch.mit.edu/users/&quot; + comment_username)
-              .then(res =&gt; res.json())
-              .then(data =&gt; {
-                comment_image.src = data.profile.images[&quot;60x60&quot;];
-                comment_image.alt = comment_username;
-              })
-              .catch(err =&gt; alert(&quot;error: &quot; + err));
-            comment_image.width = 45;
-            comment_image.height = 45;
-            comment_user_a.append(comment_image);
-            comment_box.append(comment_user_a);
-            const comment_info = document.createElement(&quot;div&quot;);
-            comment_info.className = &quot;info&quot;;
-            comment_info.innerHTML = '&lt;div class=&quot;name&quot;&gt;\n&lt;a href=&quot;/users/' + comment_username + '&quot;&gt;' + comment_username + '&lt;/a&gt;\n&lt;/div&gt;';
-            comment_content = document.createElement(&quot;div&quot;);
-            comment_content.className = &quot;content&quot;;
-            comment_content.innerHTML = prompt(&quot;text: &quot;);
-            comment_info.append(comment_content);
-            const comment_info_other = document.createElement(&quot;div&quot;);
-            comment_info_other.innerHTML = `
-          &lt;div&gt;
-          &lt;span class=&quot;time&quot; title=&quot;made by The Infinity's&quot;&gt;1 minute ago&lt;/span&gt;
-          &lt;a
-            class=&quot;reply&quot;
-            style=&quot;display: inline;&quot;
-            data-comment-id=&quot;1234567890&quot;
-            data-parent-thread=&quot;1234567890&quot;
-            data-commentee-id=&quot;1234567890&quot;
-            data-control=&quot;reply-to&quot;&gt;
-            &lt;span&gt;Reply&lt;/span&gt;
-          &lt;/a&gt;
-          &lt;/div&gt;
-          &lt;div data-content=&quot;reply-form&quot;&gt;&lt;/div&gt;
-          `;
-            comment_info.append(comment_info_other);
-            comment_box.append(comment_info);
-            const comment_li = document.createElement(&quot;li&quot;);
-            comment_li.className = &quot;top-level-reply&quot;;
-            comment_li.append(comment_box);
-            const comment_ul = document.createElement(&quot;ul&quot;);
-            comment_ul.className = &quot;replies&quot;;
-            comment_li.append(comment_ul);
-            document.querySelector(&quot;ul.comments&quot;).prepend(comment_li);
-            /*
-            &lt;div id=&quot;comments-1234567890&quot; class=&quot;comment&quot; data-comment-id=&quot;335898053&quot;&gt;
-              &lt;div class=&quot;actions-wrap&quot;&gt;
-                &lt;span data-control=&quot;delete&quot; class=&quot;actions report&quot;&gt;Delete&lt;/span&gt;
-                &lt;span data-control=&quot;report&quot; class=&quot;actions report&quot;&gt; 報告 &lt;/span&gt;
-              &lt;/div&gt;
-              &lt;a href=&quot;/users/michinsk&quot; id=&quot;comment-user&quot; data-comment-user=&quot;michinsk&quot;
-                &gt;&lt;img
-                  class=&quot;avatar&quot;
-                  src=&quot;//cdn2.scratch.mit.edu/get_image/user/89663687_60x60.png&quot;
-                  width=&quot;45&quot;
-                  height=&quot;45&quot;
-              /&gt;&lt;/a&gt;
-              &lt;div class=&quot;info&quot;&gt;
-                &lt;div class=&quot;name&quot;&gt;
-                  &lt;a href=&quot;/users/michinsk&quot;&gt;michinsk&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;content&quot;&gt;icon変わりましたね。このアイコン不思議です&lt;/div&gt;
-                &lt;div&gt;
-                  &lt;span class=&quot;time&quot; title=&quot;June 23, 2024&quot;&gt;about 5 hours ago&lt;/span&gt;
+          <div class="codehilite" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Scratch comment emulator&quot;</span><span style="color: #f8f8f2">);</span>
+          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(window.</span><span style="color: #a6e22e">location</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">startsWith</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;https://scratch.mit.edu/users/&quot;</span><span style="color: #f8f8f2">))</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">comment_box</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">**</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;comment&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">actions_warp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">actions_warp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;actions-wrap&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">actions_warp</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;&lt;span data-control=&quot;delete&quot; class=&quot;actions report&quot;&gt;Delete&lt;/span&gt;\n&lt;span data-control=&quot;report&quot; class=&quot;actions report&quot;&gt; 報告 &lt;/span&gt;&#39;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">actions_warp</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_user_a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_username</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">prompt</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;user: &quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_user_a</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;/users/&quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_image</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;img&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;avatar&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">fetch</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;https://api.scratch.mit.edu/users/&quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span><span style="color: #f8f8f2">)</span>
+              <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">res</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">json</span><span style="color: #f8f8f2">())</span>
+              <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">data</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">data</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">profile</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">images</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;60x60&quot;</span><span style="color: #f8f8f2">];</span>
+                <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">alt</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">comment_username</span><span style="color: #f8f8f2">;</span>
+              <span style="color: #f8f8f2">})</span>
+              <span style="color: #f8f8f2">.</span><span style="color: #66d9ef">catch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;error: &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">err</span><span style="color: #f8f8f2">));</span>
+            <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">45</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">height</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">45</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_user_a</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_user_a</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_info</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;info&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;&lt;div class=&quot;name&quot;&gt;\n&lt;a href=&quot;/users/&#39;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;&quot;&gt;&#39;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;&lt;/a&gt;\n&lt;/div&gt;&#39;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_content</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;content&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">prompt</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;text: &quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_content</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_info_other</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_info_other</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">`</span>
+          <span style="color: #e6db74">&lt;div&gt;</span>
+          <span style="color: #e6db74">&lt;span class=&quot;time&quot; title=&quot;made by The Infinity&#39;s&quot;&gt;1 minute ago&lt;/span&gt;</span>
+          <span style="color: #e6db74">&lt;a</span>
+          <span style="color: #e6db74">  class=&quot;reply&quot;</span>
+          <span style="color: #e6db74">  style=&quot;display: inline;&quot;</span>
+          <span style="color: #e6db74">  data-comment-id=&quot;1234567890&quot;</span>
+          <span style="color: #e6db74">  data-parent-thread=&quot;1234567890&quot;</span>
+          <span style="color: #e6db74">  data-commentee-id=&quot;1234567890&quot;</span>
+          <span style="color: #e6db74">  data-control=&quot;reply-to&quot;&gt;</span>
+          <span style="color: #e6db74">  &lt;span&gt;Reply&lt;/span&gt;</span>
+          <span style="color: #e6db74">&lt;/a&gt;</span>
+          <span style="color: #e6db74">&lt;/div&gt;</span>
+          <span style="color: #e6db74">&lt;div data-content=&quot;reply-form&quot;&gt;&lt;/div&gt;</span>
+          <span style="color: #e6db74">`</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_info_other</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_info</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_li</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;li&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_li</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;top-level-reply&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_li</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_ul</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;ul&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_ul</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;replies&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_li</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_ul</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;ul.comments&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">prepend</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_li</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #75715e">/*</span>
+          <span style="color: #75715e">  &lt;div id=&quot;comments-1234567890&quot; class=&quot;comment&quot; data-comment-id=&quot;335898053&quot;&gt;</span>
+          <span style="color: #75715e">    &lt;div class=&quot;actions-wrap&quot;&gt;</span>
+          <span style="color: #75715e">      &lt;span data-control=&quot;delete&quot; class=&quot;actions report&quot;&gt;Delete&lt;/span&gt;</span>
+          <span style="color: #75715e">      &lt;span data-control=&quot;report&quot; class=&quot;actions report&quot;&gt; 報告 &lt;/span&gt;</span>
+          <span style="color: #75715e">    &lt;/div&gt;</span>
+          <span style="color: #75715e">    &lt;a href=&quot;/users/michinsk&quot; id=&quot;comment-user&quot; data-comment-user=&quot;michinsk&quot;</span>
+          <span style="color: #75715e">      &gt;&lt;img</span>
+          <span style="color: #75715e">        class=&quot;avatar&quot;</span>
+          <span style="color: #75715e">        src=&quot;//cdn2.scratch.mit.edu/get_image/user/89663687_60x60.png&quot;</span>
+          <span style="color: #75715e">        width=&quot;45&quot;</span>
+          <span style="color: #75715e">        height=&quot;45&quot;</span>
+          <span style="color: #75715e">    /&gt;&lt;/a&gt;</span>
+          <span style="color: #75715e">    &lt;div class=&quot;info&quot;&gt;</span>
+          <span style="color: #75715e">      &lt;div class=&quot;name&quot;&gt;</span>
+          <span style="color: #75715e">        &lt;a href=&quot;/users/michinsk&quot;&gt;michinsk&lt;/a&gt;</span>
+          <span style="color: #75715e">      &lt;/div&gt;</span>
+          <span style="color: #75715e">      &lt;div class=&quot;content&quot;&gt;icon変わりましたね。このアイコン不思議です&lt;/div&gt;</span>
+          <span style="color: #75715e">      &lt;div&gt;</span>
+          <span style="color: #75715e">        &lt;span class=&quot;time&quot; title=&quot;June 23, 2024&quot;&gt;about 5 hours ago&lt;/span&gt;</span>
           
-                  &lt;a
-                    class=&quot;reply&quot;
-                    style=&quot;display: inline;&quot;
-                    data-comment-id=&quot;335898053&quot;
-                    data-parent-thread=&quot;335898053&quot;
-                    data-commentee-id=&quot;89663687&quot;
-                    data-control=&quot;reply-to&quot;&gt;
-                    &lt;span&gt;Reply&lt;/span&gt;
-                  &lt;/a&gt;
-                &lt;/div&gt;
-                &lt;div data-content=&quot;reply-form&quot;&gt;&lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            */
-          } else if (
-            window.location.href.startsWith(&quot;https://scratch.mit.edu/projects/&quot;)
-          ) {
-            var comment_box = document.createElement(&quot;div&quot;);
-            comment_box.id = Math.floor(Math.random() * 10 ** 10);
-            comment_box.className = &quot;flex-row comment&quot;;
-            const comment_user_a = document.createElement(&quot;a&quot;);
-            const comment_username = prompt(&quot;user: &quot;);
-            comment_user_a.href = &quot;/users/&quot; + comment_username;
-            const comment_image = document.createElement(&quot;img&quot;);
-            comment_image.className = &quot;avatar&quot;;
-            fetch(&quot;https://api.scratch.mit.edu/users/&quot; + comment_username)
-              .then(res =&gt; res.json())
-              .then(data =&gt; {
-                comment_image.src = data.profile.images[&quot;60x60&quot;];
-                comment_image.alt = comment_username;
-              })
-              .catch(err =&gt; alert(&quot;error: &quot; + err));
-            comment_image.width = 45;
-            comment_image.height = 45;
-            comment_user_a.append(comment_image);
-            comment_box.append(comment_user_a);
-            const comment_bubble = document.createElement(&quot;div&quot;);
-            comment_bubble.className = &quot;comment-bubble&quot;;
-            const comment_content = document.createElement(&quot;span&quot;);
-            comment_content.innerHTML = '&lt;span class=&quot;emoji-text&quot;&gt;' + prompt(&quot;text&quot;) + '&lt;/span&gt;';
-            const comment_bottom = document.createElement(&quot;div&quot;);
-            comment_bottom.className=&quot;flex-row comment-bottom-row&quot;;
-            comment_bottom.innerHTML = '&lt;span class=&quot;comment-time&quot;&gt;&lt;span&gt;' + prompt(&quot;date(examples 「4 時間前」、「1 分前」...): &quot;) + '&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;comment-reply&quot;&gt;&lt;span&gt;返信&lt;/span&gt;&lt;/span&gt;';
-            comment_bubble.append(comment_content);
-            comment_bubble.append(comment_bottom);
-            const comment_body = document.createElement(&quot;div&quot;);
-            comment_body.className = &quot;flex-row comment-body column&quot;;
-            comment_body.innerHTML = '&lt;div class=&quot;flex-row comment-top-row&quot;&gt;&lt;a class=&quot;username&quot; href=&quot;/users/' + comment_username + '&quot;&gt;' + comment_username + '&lt;/a&gt;&lt;div class=&quot;action-list&quot;&gt;&lt;/div&gt;&lt;/div&gt;';
-            comment_body.append(comment_bubble);
-            comment_box.append(comment_body);
-            const comment_container = document.createElement(&quot;div&quot;);
-            comment_container.className = &quot;flex-row comment-container&quot;;
-            comment_container.append(comment_box);
-            document.querySelector(&quot;.comments-list&quot;).prepend(comment_container);
+          <span style="color: #75715e">        &lt;a</span>
+          <span style="color: #75715e">          class=&quot;reply&quot;</span>
+          <span style="color: #75715e">          style=&quot;display: inline;&quot;</span>
+          <span style="color: #75715e">          data-comment-id=&quot;335898053&quot;</span>
+          <span style="color: #75715e">          data-parent-thread=&quot;335898053&quot;</span>
+          <span style="color: #75715e">          data-commentee-id=&quot;89663687&quot;</span>
+          <span style="color: #75715e">          data-control=&quot;reply-to&quot;&gt;</span>
+          <span style="color: #75715e">          &lt;span&gt;Reply&lt;/span&gt;</span>
+          <span style="color: #75715e">        &lt;/a&gt;</span>
+          <span style="color: #75715e">      &lt;/div&gt;</span>
+          <span style="color: #75715e">      &lt;div data-content=&quot;reply-form&quot;&gt;&lt;/div&gt;</span>
+          <span style="color: #75715e">    &lt;/div&gt;</span>
+          <span style="color: #75715e">  &lt;/div&gt;</span>
+          <span style="color: #75715e">  */</span>
+          <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span>
+            <span style="color: #f8f8f2">window.</span><span style="color: #a6e22e">location</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">startsWith</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;https://scratch.mit.edu/projects/&quot;</span><span style="color: #f8f8f2">)</span>
+          <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">comment_box</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">**</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;flex-row comment&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_user_a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_username</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">prompt</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;user: &quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_user_a</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;/users/&quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_image</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;img&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;avatar&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">fetch</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;https://api.scratch.mit.edu/users/&quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span><span style="color: #f8f8f2">)</span>
+              <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">res</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">json</span><span style="color: #f8f8f2">())</span>
+              <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">data</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">data</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">profile</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">images</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;60x60&quot;</span><span style="color: #f8f8f2">];</span>
+                <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">alt</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">comment_username</span><span style="color: #f8f8f2">;</span>
+              <span style="color: #f8f8f2">})</span>
+              <span style="color: #f8f8f2">.</span><span style="color: #66d9ef">catch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;error: &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">err</span><span style="color: #f8f8f2">));</span>
+            <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">45</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">height</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">45</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_user_a</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_image</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_user_a</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_bubble</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_bubble</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;comment-bubble&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_content</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;span&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;&lt;span class=&quot;emoji-text&quot;&gt;&#39;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">prompt</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;text&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;&lt;/span&gt;&#39;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_bottom</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_bottom</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;flex-row comment-bottom-row&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_bottom</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;&lt;span class=&quot;comment-time&quot;&gt;&lt;span&gt;&#39;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">prompt</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;date(examples 「4 時間前」、「1 分前」...): &quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;comment-reply&quot;&gt;&lt;span&gt;返信&lt;/span&gt;&lt;/span&gt;&#39;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_bubble</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_content</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_bubble</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_bottom</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_body</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;flex-row comment-body column&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;&lt;div class=&quot;flex-row comment-top-row&quot;&gt;&lt;a class=&quot;username&quot; href=&quot;/users/&#39;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;&quot;&gt;&#39;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">comment_username</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;&lt;/a&gt;&lt;div class=&quot;action-list&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_bubble</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_body</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">comment_container</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">comment_container</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;flex-row comment-container&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">comment_container</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_box</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.comments-list&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">prepend</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">comment_container</span><span style="color: #f8f8f2">);</span>
           
-            /*
-            &lt;div class=&quot;flex-row comment-container&quot;&gt;
-              &lt;div class=&quot;flex-row comment&quot; id=&quot;comments-411231997&quot;&gt;
-                &lt;a href=&quot;/users/Nhienzcute&quot;
-                  &gt;&lt;img
-                    class=&quot;avatar&quot;
-                    src=&quot;https://cdn2.scratch.mit.edu/get_image/user/133904533_60x60.png&quot;
-                /&gt;&lt;/a&gt;
-                &lt;div class=&quot;flex-row comment-body column&quot;&gt;
-                  &lt;div class=&quot;flex-row comment-top-row&quot;&gt;
-                    &lt;a class=&quot;username&quot; href=&quot;/users/Nhienzcute&quot;
-                      &gt;Nhienzcute&lt;/a
-                    &gt;
-                    &lt;div class=&quot;action-list&quot;&gt;&lt;/div&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;comment-bubble&quot;&gt;
-                    &lt;span class=&quot;comment-content&quot;
-                      &gt;&lt;span class=&quot;emoji-text&quot;
-                        &gt;dare you search &quot;nhienzcute&quot; on google&lt;/span
-                      &gt;&lt;/span
-                    &gt;
-                    &lt;div class=&quot;flex-row comment-bottom-row&quot;&gt;
-                      &lt;span class=&quot;comment-time&quot;
-                        &gt;&lt;span&gt;4 時間前&lt;/span&gt;&lt;/span
-                      &gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-            */
-          } else {
-            alert(&quot;対応していません&quot;)
-          }
-          </code></pre>
+            <span style="color: #75715e">/*</span>
+          <span style="color: #75715e">  &lt;div class=&quot;flex-row comment-container&quot;&gt;</span>
+          <span style="color: #75715e">    &lt;div class=&quot;flex-row comment&quot; id=&quot;comments-411231997&quot;&gt;</span>
+          <span style="color: #75715e">      &lt;a href=&quot;/users/Nhienzcute&quot;</span>
+          <span style="color: #75715e">        &gt;&lt;img</span>
+          <span style="color: #75715e">          class=&quot;avatar&quot;</span>
+          <span style="color: #75715e">          src=&quot;https://cdn2.scratch.mit.edu/get_image/user/133904533_60x60.png&quot;</span>
+          <span style="color: #75715e">      /&gt;&lt;/a&gt;</span>
+          <span style="color: #75715e">      &lt;div class=&quot;flex-row comment-body column&quot;&gt;</span>
+          <span style="color: #75715e">        &lt;div class=&quot;flex-row comment-top-row&quot;&gt;</span>
+          <span style="color: #75715e">          &lt;a class=&quot;username&quot; href=&quot;/users/Nhienzcute&quot;</span>
+          <span style="color: #75715e">            &gt;Nhienzcute&lt;/a</span>
+          <span style="color: #75715e">          &gt;</span>
+          <span style="color: #75715e">          &lt;div class=&quot;action-list&quot;&gt;&lt;/div&gt;</span>
+          <span style="color: #75715e">        &lt;/div&gt;</span>
+          <span style="color: #75715e">        &lt;div class=&quot;comment-bubble&quot;&gt;</span>
+          <span style="color: #75715e">          &lt;span class=&quot;comment-content&quot;</span>
+          <span style="color: #75715e">            &gt;&lt;span class=&quot;emoji-text&quot;</span>
+          <span style="color: #75715e">              &gt;dare you search &quot;nhienzcute&quot; on google&lt;/span</span>
+          <span style="color: #75715e">            &gt;&lt;/span</span>
+          <span style="color: #75715e">          &gt;</span>
+          <span style="color: #75715e">          &lt;div class=&quot;flex-row comment-bottom-row&quot;&gt;</span>
+          <span style="color: #75715e">            &lt;span class=&quot;comment-time&quot;</span>
+          <span style="color: #75715e">              &gt;&lt;span&gt;4 時間前&lt;/span&gt;&lt;/span</span>
+          <span style="color: #75715e">            &gt;</span>
+          <span style="color: #75715e">          &lt;/div&gt;</span>
+          <span style="color: #75715e">        &lt;/div&gt;</span>
+          <span style="color: #75715e">      &lt;/div&gt;</span>
+          <span style="color: #75715e">    &lt;/div&gt;</span>
+          <span style="color: #75715e">  &lt;/div&gt;</span>
+          <span style="color: #75715e">  */</span>
+          <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;対応していません&quot;</span><span style="color: #f8f8f2">)</span>
+          <span style="color: #f8f8f2">}</span>
+          </code></pre></div>
 
           </InfinitySpiritContent>
       </div>
