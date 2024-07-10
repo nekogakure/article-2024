@@ -70,8 +70,10 @@ def mdc(markdown_text):
             convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("# title: "):
             markdown_title = markdown_line[9:]
-        if markdown_line.startswith("# ") and markdown_title == "":
+        elif markdown_line.startswith("# ") and markdown_title == "":
             markdown_title = markdown_line[2:]
+        elif markdown_line.startswith("<h1>") and markdown_title == "":
+            markdown_title = markdown_line.replace("<h1>", "").replace("</h1>", "")
         elif markdown_line.startswith("# date: "):
             markdown_date = markdown_line[8:]
         elif markdown_line.startswith("<date>"):

@@ -74,7 +74,7 @@
     },
     {
       "id": "update-blog-to-article",
-      "title": "",
+      "title": "Blog\u3092\u66f4\u65b0\u3057\u307e\u3057\u305f",
       "date": "2024/06/07",
       "thumbnail": "thumbnail.png"
     },
@@ -86,25 +86,25 @@
     },
     {
       "id": "AI_technology_with_The-Infinitys",
-      "title": "",
+      "title": "\u5b9f\u5199\u3058\u3083\u306a\u3044\u305e\u3001\u30ed\u30b4\u3060\u305e",
       "date": "2024/06/04",
       "thumbnail": "thumbnail.jpg"
     },
     {
       "id": "new-about-server",
-      "title": "",
+      "title": "\u30b5\u30fc\u30d0\u30fc\u306b\u3064\u3044\u3066\u306e\u8a71",
       "date": "2024/06/03",
       "thumbnail": "thumbnail.png"
     },
     {
       "id": "To_all_AI_artists_who_call_themselves_AI_engineers",
-      "title": "",
+      "title": "\u3053\u306e\u4fbf\u5229\u306a\u5834\u3092\u501f\u308a\u3066\u3042\u306a\u305f\u305f\u3061\u81ea\u79f0AI\u6280\u5e2b\u306b\u8a00\u308f\u305b\u3066\u9802\u304d\u307e\u3059\u3002",
       "date": "2024/06/01",
       "thumbnail": "thumbnail.png"
     },
     {
       "id": "Scratch-messages-count-tool",
-      "title": "",
+      "title": "Scratch messages counter",
       "date": "2024/06/01",
       "thumbnail": "thumbnail.png"
     }
