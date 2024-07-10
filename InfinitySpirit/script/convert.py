@@ -70,8 +70,16 @@ def mdc(markdown_text):
             convert_mode["~~"] = not convert_mode["~~"]
         if markdown_line.startswith("# title: "):
             markdown_title = markdown_line[9:]
+        if markdown_line.startswith("# ") and markdown_title == "":
+            markdown_title = markdown_line[2:]
         elif markdown_line.startswith("# date: "):
             markdown_date = markdown_line[8:]
+        elif markdown_line.startswith("<date>"):
+            markdown_date = (
+                markdown_line.replace("<date>", "")
+                .replace("</date>", "")
+                .replace(" ", "")
+            )
         else:
             markdown_result += markdown_line + "\n"
     return {
@@ -116,8 +124,7 @@ def convert(date, now_year, indent) -> None:
                         + "</InfinitySpiritMetaTitle>",
                     )
                     export_html = export_html.replace(
-                        replace_pos["title"],
-                        article_title
+                        replace_pos["title"], article_title
                     )
                     base_html = (
                         indent_html(base_html, indent)

@@ -32,10 +32,11 @@
             <path d="M50 50,L70 70 Z" />
           </g>
         </svg>
-        <InfinitySpiritDate></InfinitySpiritDate>
+        <InfinitySpiritDate>2024/06/15</InfinitySpiritDate>
       </div>
       <div class="article-content">
         <InfinitySpiritContent>
+          <h1 id="title">title: ブログをさらに進化させる</h1>
           <h2 id="_1">前までなかったもの</h2>
           <h3 id="_2">私のブログに足りないもの</h3>
           <p>他の人のブログを見ていて気になったことがあります。<br />
@@ -53,266 +54,265 @@
           <h3 id="_5">記事が多過ぎた</h3>
           <p>記事そのものを書き換えようにも既に20以上の記事を書いており、全てに変更を適用するのは余りにも面倒なので、共通スクリプトの<a href="../../Infinity-style/">Infinity-style</a>に書き足すことで記事リストの追加を図ろうと思います。<a href="../../../blog/script.js">blogのscript</a>からブログの検索、リンクボタンの追加などのプログラムを取り出し、<a href="../../Infinity-style/script.js">Infinity-style/script.js</a>に取り入れます。その際に、プログラムの改造を施して、過去2ヶ月の記事の中から月毎にそれぞれ3記事ずつ(合計6つ)の記事を取り出すようにします。そして完成したのがこちら。</p>
           <h3 id="javascript">JavaScriptのソース</h3>
-          <div class="codehilite" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">const</span> <span style="color: #a6e22e">main</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span><span style="color: #75715e">//add article</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">article_text</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">article_content</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">article_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;article-content&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #a6e22e">article_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">article_text</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">article_body</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">article_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">article_content</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">article_body</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #75715e">//add title</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">title_elem</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;title&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">article_title</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">article_title</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;article-title&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #a6e22e">article_title</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&lt;h1&gt;&quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">title_elem</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;&lt;/h1&gt;&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #a6e22e">article_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">prepend</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">article_title</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #75715e">//add index</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">article_index</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">article_index</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;article-index&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #a6e22e">article_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">article_index</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">let</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #a6e22e">article_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">children</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">article_content_child</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">article_content</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">children</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">];</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">tags</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #e6db74">&quot;H1&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;H1&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;H2&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;H2&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;H3&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;H3&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;H4&quot;</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;H4&quot;</span> <span style="color: #f8f8f2">};</span>
-              <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">article_content_child</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">tagName</span> <span style="color: #f92672">in</span> <span style="color: #a6e22e">tags</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">index_text</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">article_content_child</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">tagName</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">index_text</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">article_content_child</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #a6e22e">index_text</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">onclick</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-                  <span style="color: #a6e22e">article_content_child</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">scrollIntoView</span><span style="color: #f8f8f2">({</span>
-                    <span style="color: #a6e22e">behavior</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;smooth&#39;</span><span style="color: #f8f8f2">,</span>
-                    <span style="color: #a6e22e">block</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;end&#39;</span><span style="color: #f8f8f2">,</span>
-                    <span style="color: #a6e22e">inline</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;center&#39;</span>
-                  <span style="color: #f8f8f2">});</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #a6e22e">article_index</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">index_text</span><span style="color: #f8f8f2">);</span>
-              <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">other_articles</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">other_articles</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;other-articles&quot;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #a6e22e">article_body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">other_articles</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">get_all_article_info</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">blog_start</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #a6e22e">year</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2024</span><span style="color: #f8f8f2">,</span>
-                <span style="color: #a6e22e">month</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4</span>
-              <span style="color: #f8f8f2">}</span>
-              <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">today</span> <span style="color: #f92672">=</span> <span style="color: #f92672">new</span> <span style="color: #f8f8f2">Date();</span>
-              <span style="color: #a6e22e">today</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #a6e22e">year</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">today</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getFullYear</span><span style="color: #f8f8f2">(),</span>
-                <span style="color: #a6e22e">month</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">today</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getMonth</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span>
-              <span style="color: #f8f8f2">}</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">data_list_length</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">12</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">today</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">year</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">blog_start</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">year</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">today</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">month</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">blog_start</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">month</span><span style="color: #f8f8f2">;</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">domain</span> <span style="color: #f92672">=</span> <span style="color: #f92672">new</span> <span style="color: #a6e22e">URL</span><span style="color: #f8f8f2">(window.</span><span style="color: #a6e22e">location</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span><span style="color: #f8f8f2">);</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">blog_domain</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">domain</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">hostname</span><span style="color: #f8f8f2">;</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">append_blog_button</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">info</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">box</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;button&quot;</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">classList</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;blog-button&quot;</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">onclick</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-                  <span style="color: #f8f8f2">window.</span><span style="color: #a6e22e">location</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">thumbnail</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;img&quot;</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">thumbnail</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">thumbnail</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #a6e22e">thumbnail</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">alt</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #a6e22e">thumbnail</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loading</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;lazy&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">loading</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;img&quot;</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">loading</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #a6e22e">loading</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">alt</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;loading...&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #a6e22e">loading</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">className</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;loading-infinity&quot;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">title</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;div&quot;</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">title</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">info</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">title</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #a6e22e">box</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">loading</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">outerHTML</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">thumbnail</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">outerHTML</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">title</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">outerHTML</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">insert_button</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-                  <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">querySelector</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#other-articles&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">box</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #a6e22e">insert_button</span><span style="color: #f8f8f2">();</span>
-              <span style="color: #f8f8f2">};</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">getData</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;get: &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">name</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;.json&quot;</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #a6e22e">fetch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">name</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;.json&quot;</span><span style="color: #f8f8f2">)</span>
-                  <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">json</span><span style="color: #f8f8f2">()).</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span>
-                    <span style="color: #a6e22e">data</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-                      <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">infos</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">data</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">info</span><span style="color: #f8f8f2">;</span>
-                      <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">counter</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">;</span>
-                      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">let</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #a6e22e">infos</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                        <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">info</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">infos</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">];</span>
-                        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">infos</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">counter</span><span style="color: #f8f8f2">))</span> <span style="color: #f8f8f2">{</span>
-                          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">counter</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                            <span style="color: #a6e22e">append_blog_button</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">info</span><span style="color: #f8f8f2">);</span>
-                            <span style="color: #a6e22e">counter</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-                          <span style="color: #f8f8f2">}</span>
-                        <span style="color: #f8f8f2">}</span>
-                      <span style="color: #f8f8f2">}</span>
-                    <span style="color: #f8f8f2">}</span>
-                  <span style="color: #f8f8f2">).</span><span style="color: #66d9ef">catch</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">`データが取得できませんでした：${</span><span style="color: #a6e22e">err</span><span style="color: #e6db74">}`</span><span style="color: #f8f8f2">));</span>
-              <span style="color: #f8f8f2">};</span>
-              <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">let</span> <span style="color: #a6e22e">load_count</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">data_list_length</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">load_count</span> <span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">data_list_length</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #a6e22e">load_count</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">pathname</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;/api/blog/&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">blog_start</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">year</span> <span style="color: #f92672">+</span> <span style="color: #f92672">&lt;</span><span style="color: #a6e22e">s</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">blog_start</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">month</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">load_count</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">12</span><span style="color: #f8f8f2">)).</span><span style="color: #a6e22e">toString</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;-&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">((</span><span style="color: #a6e22e">blog_start</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">month</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">load_count</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">12</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">toString</span><span style="color: #f8f8f2">()</span>
-                <span style="color: #a6e22e">getData</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">pathname</span><span style="color: #f8f8f2">);</span>
-              <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">};</span>
-            <span style="color: #a6e22e">get_all_article_info</span><span style="color: #f8f8f2">();</span>
-            <span style="color: #75715e">//add style</span>
-            <span style="color: #a6e22e">fetch</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;https://&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f92672">new</span> <span style="color: #a6e22e">URL</span><span style="color: #f8f8f2">(window.</span><span style="color: #a6e22e">location</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">hostname</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;/The-Infinitys-Infinity/style.css&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">res</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">text</span><span style="color: #f8f8f2">()).</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">style</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">The_Infinitys_css</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;style&quot;</span><span style="color: #f8f8f2">);</span>
-              <span style="color: #a6e22e">The_Infinitys_css</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">style</span><span style="color: #f8f8f2">;</span>
-              <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">The_Infinitys_css</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">}).</span><span style="color: #66d9ef">catch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">));</span>
-            <span style="color: #a6e22e">fetch</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;https://&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f92672">new</span> <span style="color: #a6e22e">URL</span><span style="color: #f8f8f2">(window.</span><span style="color: #a6e22e">location</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">href</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">hostname</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;/The-Infinitys-Infinity/script.js&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">res</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">text</span><span style="color: #f8f8f2">()).</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">style</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">{</span>
-              <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">The_Infinitys_js</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;script&quot;</span><span style="color: #f8f8f2">);</span>
-              <span style="color: #a6e22e">The_Infinitys_js</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">innerHTML</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">style</span><span style="color: #f8f8f2">;</span>
-              <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">The_Infinitys_js</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">}).</span><span style="color: #66d9ef">catch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">));</span>
-          <span style="color: #f8f8f2">};</span>
-          <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">();</span>
-          </code></pre></div>
+          <pre class="codehilite"><code class="language-javascript">const main = () =&gt; {//add article
+            const article_text = document.body.innerHTML;
+            document.body.innerHTML = &quot;&quot;;
+            const article_content = document.createElement(&quot;div&quot;);
+            article_content.id = &quot;article-content&quot;;
+            article_content.innerHTML = article_text;
+            const article_body = document.createElement(&quot;div&quot;);
+            article_body.append(article_content);
+            document.body.append(article_body);
+            //add title
+            const title_elem = document.querySelector(&quot;title&quot;);
+            const article_title = document.createElement(&quot;div&quot;);
+            article_title.id = &quot;article-title&quot;;
+            article_title.innerHTML = &quot;&lt;h1&gt;&quot; + title_elem.innerHTML + &quot;&lt;/h1&gt;&quot;;
+            article_body.prepend(article_title);
+            //add index
+            const article_index = document.createElement(&quot;div&quot;);
+            article_index.id = &quot;article-index&quot;;
+            article_body.append(article_index);
+            for (let i = 0; i &lt; article_content.children.length; ++i) {
+              const article_content_child = article_content.children[i];
+              const tags = { &quot;H1&quot;: &quot;H1&quot;, &quot;H2&quot;: &quot;H2&quot;, &quot;H3&quot;: &quot;H3&quot;, &quot;H4&quot;: &quot;H4&quot; };
+              if (article_content_child.tagName in tags) {
+                const index_text = document.createElement(article_content_child.tagName);
+                index_text.innerHTML = article_content_child.innerHTML;
+                index_text.onclick = () =&gt; {
+                  article_content_child.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end',
+                    inline: 'center'
+                  });
+                }
+                article_index.append(index_text);
+              }
+            }
+            const other_articles = document.createElement(&quot;div&quot;);
+            other_articles.id = &quot;other-articles&quot;;
+            article_body.append(other_articles);
+            const get_all_article_info = () =&gt; {
+              const blog_start = {
+                year: 2024,
+                month: 4
+              }
+              let today = new Date();
+              today = {
+                year: today.getFullYear(),
+                month: today.getMonth() + 1
+              }
+              const data_list_length = 1 + 12 * (today.year - blog_start.year) + today.month - blog_start.month;
+              const domain = new URL(window.location.href);
+              const blog_domain = domain.hostname;
+              const append_blog_button = info =&gt; {
+                const box = document.createElement(&quot;button&quot;);
+                box.classList.add(&quot;blog-button&quot;);
+                box.onclick = () =&gt; {
+                  window.location.href = info.index;
+                }
+                const thumbnail = document.createElement(&quot;img&quot;);
+                thumbnail.src = info.thumbnail;
+                thumbnail.alt = info.name;
+                thumbnail.loading = &quot;lazy&quot;;
+                const loading = document.createElement(&quot;img&quot;);
+                loading.src = &quot;data:image/svg+xml;base64,PHN2ZyAgIHZlcnNpb249IjEuMSIgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICAgdmlld0JveD0iLTYwIC02MCAxMjAgMTIwIiAgIGZpbGw9Im5vbmUiICAgc3Ryb2tlPSIjNzc3Ij4gICA8Zz4gICA8YW5pbWF0ZVRyYW5zZm9ybSAgICBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iICAgICBhdHRyaWJ1dGVUeXBlPSJYTUwiICAgICB0eXBlPSJyb3RhdGUiICAgICBmcm9tPSIwIDAgMCIgICAgIHRvPSIzNjAgMCAwIiAgICAga2V5VGltZXM9IjA7IDEiICAgICBrZXlTcGxpbmVzPSIwLjUsIDAuMjMsIDAuNSwgMC43NyIgICAgIGNhbGNNb2RlPSJzcGxpbmUiICAgICBkdXI9IjJzIiAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4gICA8YW5pbWF0ZSAgICAgICBhdHRyaWJ1dGVOYW1lPSJzdHJva2UiICAgICAgIHZhbHVlcz0iI2YwMDsjZmYwOyMwZjA7IzBmZjsjMDBmOyNmMGY7I2YwMCIgICAgICAgZHVyPSI1cyIgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+ICAgPGVsbGlwc2UgY3g9Ii0yNSIgY3k9IjAiIHJ4PSIyNSIgcnk9IjIwIiBzdHJva2Utd2lkdGg9IjIiIC8+ICAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMCIgcng9IjI1IiByeT0iMjAiIHN0cm9rZS13aWR0aD0iMiIgLz4gICA8Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iNCIgLz4gICA8L2c+IDwvc3ZnPiA=&quot;;
+                loading.alt = &quot;loading...&quot;;
+                loading.className = &quot;loading-infinity&quot;;
+                const title = document.createElement(&quot;div&quot;);
+                title.innerHTML = info.title;
+                box.innerHTML = loading.outerHTML + thumbnail.outerHTML + title.outerHTML;
+                const insert_button = () =&gt; {
+                  document.querySelector(&quot;#other-articles&quot;).append(box);
+                }
+                insert_button();
+              };
+              const getData = (name) =&gt; {
+                console.log(&quot;get: &quot; + name + &quot;.json&quot;);
+                fetch(name + &quot;.json&quot;)
+                  .then((res) =&gt; res.json()).then(
+                    data =&gt; {
+                      const infos = data.info;
+                      let counter = 3;
+                      for (let i = 0; i &lt; infos.length; ++i) {
+                        const info = infos[i];
+                        if (Math.random() &lt; 1 / (infos.length - i - counter)) {
+                          if (counter &gt; 0) {
+                            append_blog_button(info);
+                            counter--;
+                          }
+                        }
+                      }
+                    }
+                  ).catch((err) =&gt; console.log(`データが取得できませんでした：${err}`));
+              };
+              for (let load_count = data_list_length; load_count &gt; data_list_length - 2; --load_count) {
+                const pathname = &quot;/api/blog/&quot; + (blog_start.year + &lt;s&gt;((blog_start.month + load_count - 1) / 12)).toString() + &quot;-&quot; + ((blog_start.month + load_count - 2) % 12 + 1).toString()
+                getData(pathname);
+              }
+            };
+            get_all_article_info();
+            //add style
+            fetch(&quot;https://&quot; + new URL(window.location.href).hostname + &quot;/The-Infinitys-Infinity/style.css&quot;).then(res =&gt; res.text()).then(style =&gt; {
+              const The_Infinitys_css = document.createElement(&quot;style&quot;);
+              The_Infinitys_css.innerHTML = style;
+              document.body.append(The_Infinitys_css);
+            }).catch(err =&gt; alert(err));
+            fetch(&quot;https://&quot; + new URL(window.location.href).hostname + &quot;/The-Infinitys-Infinity/script.js&quot;).then(res =&gt; res.text()).then(style =&gt; {
+              const The_Infinitys_js = document.createElement(&quot;script&quot;);
+              The_Infinitys_js.innerHTML = style;
+              document.body.append(The_Infinitys_js);
+            }).catch(err =&gt; alert(err));
+          };
+          main();
+          </code></pre>
           
           <h3 id="css">CSSのソース</h3>
           <p>あとcssも</p>
-          <div class="codehilite" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672">*</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">padding</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
+          <pre class="codehilite"><code class="language-css">* {
+            margin: 0;
+            padding: 0;
+          }
           
-          <span style="color: #f8f8f2">:</span><span style="color: #a6e22e">root</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  --article-back: </span><span style="color: #ae81ff">#eee</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  --article-text: </span><span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
+          :root {
+            --article-back: #eee;
+            --article-text: #000;
+          }
           
-          <span style="color: #f8f8f2">@</span><span style="color: #66d9ef">media</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">(prefers-color-scheme:</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">dark)</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  :</span><span style="color: #a6e22e">root</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">    --article-back: </span><span style="color: #ae81ff">#111</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">    --article-text: </span><span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
+          @media (prefers-color-scheme: dark) {
+            :root {
+              --article-back: #111;
+              --article-text: #fff;
+            }
           
-          <span style="color: #f8f8f2">  </span><span style="color: #f92672">a</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">aqua</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
-          <span style="color: #f8f8f2">}</span>
+            a {
+              color: aqua;
+            }
+          }
           
-          <span style="color: #f92672">body</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">background-color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-back);</span>
-          <span style="color: #f8f8f2">}</span>
+          body {
+            background-color: var(--article-back);
+          }
           
-          <span style="color: #f8f8f2">#article-title {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">10</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">50</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">height</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">text-wrap</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">wrap</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-text);</span>
-          <span style="color: #f8f8f2">}</span>
+          #article-title {
+            margin-left: 10vw;
+            width: 50%;
+            height: auto;
+            text-wrap: wrap;
+            color: var(--article-text);
+          }
           
-          <span style="color: #f8f8f2">#article-content {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-top</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">5</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">10</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-bottom</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">5</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">padding</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">2</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">50</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">height</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">max</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">, </span><span style="color: #ae81ff">80</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-text);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">background-color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">color-mix</span><span style="color: #f8f8f2">(in srgb, </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-back), </span><span style="color: #ae81ff">#888</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">20</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">overflow</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">overflow-wrap</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">break-word</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
+          #article-content {
+            margin-top: 5vh;
+            margin-left: 10vw;
+            margin-bottom: 5vh;
+            padding: 2%;
+            width: 50%;
+            height: max(auto, 80vh);
+            color: var(--article-text);
+            background-color: color-mix(in srgb, var(--article-back), #888 20%);
+            overflow: hidden;
+            overflow-wrap: break-word;
+          }
           
-          <span style="color: #f8f8f2">#article-index {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">position</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">sticky</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">30</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">height</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">70</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">bottom</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">15</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">65</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">overflow</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">scroll</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-text);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">background-color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">color-mix</span><span style="color: #f8f8f2">(in srgb, </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">-mix</span><span style="color: #960050; background-color: #1e0010">(</span><span style="color: #f8f8f2">in srgb, </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-back), </span><span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">50</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">), </span><span style="color: #ae81ff">#888</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">10</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">}</span>
+          #article-index {
+            position: sticky;
+            width: 30%;
+            height: 70vh;
+            bottom: 15vh;
+            left: 65%;
+            overflow: scroll;
+            color: var(--article-text);
+            background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 10%);
+          }
           
-          <span style="color: #f8f8f2">#other-articles {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-top</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">-70</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">10</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">margin-bottom</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">10</span><span style="color: #66d9ef">vh</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: calc(</span><span style="color: #ae81ff">50</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">+</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">*</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">2</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">  aspect-ratio: </span><span style="color: #ae81ff">8</span><span style="color: #f92672">/</span><span style="color: #ae81ff">9</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">background-color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">color-mix</span><span style="color: #f8f8f2">(in srgb, </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-back), </span><span style="color: #ae81ff">#888</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">20</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">}</span>
+          #other-articles {
+            margin-top: -70vh;
+            margin-left: 10vw;
+            margin-bottom: 10vh;
+            width: calc(50vw + 2 * 2vw);
+            aspect-ratio: 8/9;
+            background-color: color-mix(in srgb, var(--article-back), #888 20%);
+          }
           
-          <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">blog-button</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">overflow</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">position</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">background-color</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">#ffffff55</span><span style="color: #f8f8f2">;</span>
+          .blog-button {
+            overflow: hidden;
+            position: relative;
+            background-color: #ffffff55;
           
-          <span style="color: #f8f8f2">  </span><span style="color: #960050; background-color: #1e0010">@media</span><span style="color: #f8f8f2"> </span><span style="color: #960050; background-color: #1e0010">(</span><span style="color: #f8f8f2">prefers-color-scheme: dark) </span><span style="color: #960050; background-color: #1e0010">{</span><span style="color: #f8f8f2"></span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">#00000055</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
+            @media (prefers-color-scheme: dark) {
+              background-color: #00000055;
+            }
           
-          <span style="color: #f8f8f2">  </span><span style="color: #f92672">width</span><span style="color: #f8f8f2">:</span><span style="color: #a6e22e">50</span><span style="color: #f92672">%;</span><span style="color: #f8f8f2"></span>
-          <span style="color: #f8f8f2">  </span><span style="color: #f92672">aspect-ratio:</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">4/3;</span><span style="color: #f8f8f2"></span>
-          <span style="color: #960050; background-color: #1e0010">}</span><span style="color: #f8f8f2"></span>
+            width:50%;
+            aspect-ratio: 4/3;
+          }
           
-          <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">blog-button</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">img</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">position</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">100</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">height</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">85</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">object-fit</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">cover</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
+          .blog-button img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+          }
           
-          <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loading-infinity</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">position</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">100</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">height</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">85</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">object-fit</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">contain</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
+          .loading-infinity {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 85%;
+            object-fit: contain;
+          }
           
-          <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">blog-button</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">div</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">position</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">100</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">height</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">15</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">bottom</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--text);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">font-size</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">max</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">, </span><span style="color: #ae81ff">12</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">}</span>
+          .blog-button div {
+            position: absolute;
+            width: 100%;
+            height: 15%;
+            bottom: 0;
+            color: var(--text);
+            font-size: max(auto, 12px);
+          }
           
-          <span style="color: #f8f8f2">@</span><span style="color: #66d9ef">media</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">(max-aspect-ratio:</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">1)</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  #article-index {</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">visibility</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
+          @media (max-aspect-ratio: 1) {
+            #article-index {
+              visibility: hidden;
+            }
           
-          <span style="color: #f8f8f2">  #article-title {</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">margin-left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">2.5</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">90</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
+            #article-title {
+              margin-left: 2.5vw;
+              width: 90%;
+            }
           
-          <span style="color: #f8f8f2">  #article-content {</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">margin-left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">2.5</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">90</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
+            #article-content {
+              margin-left: 2.5vw;
+              width: 90%;
+            }
           
-          <span style="color: #f8f8f2">  #other-articles {</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">margin-left</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">2.5</span><span style="color: #66d9ef">vw</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">    </span><span style="color: #66d9ef">width</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">94</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  }</span>
-          <span style="color: #f8f8f2">}</span>
+            #other-articles {
+              margin-left: 2.5vw;
+              width: 94%;
+            }
+          }
           
-          <span style="color: #f92672">pre</span><span style="color: #f8f8f2"> {</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">position</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">white-space</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">pre-wrap</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">word-wrap</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">break-word</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">overflow</span><span style="color: #f8f8f2">: </span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">background-color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">color-mix</span><span style="color: #f8f8f2">(in srgb, </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">-mix</span><span style="color: #960050; background-color: #1e0010">(</span><span style="color: #f8f8f2">in srgb, </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-back), </span><span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">50</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">), </span><span style="color: #ae81ff">#888</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">30</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">color</span><span style="color: #f8f8f2">: </span><span style="color: #a6e22e">var</span><span style="color: #f8f8f2">(--article-text);</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">padding</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">10</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">border-radius</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">4</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">  </span><span style="color: #66d9ef">font-size</span><span style="color: #f8f8f2">: </span><span style="color: #ae81ff">15</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
-          </code></pre></div>
+          pre {
+            position: relative;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow: auto;
+            background-color: color-mix(in srgb, color-mix(in srgb, var(--article-back), transparent 50%), #888 30%);
+            color: var(--article-text);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 15px;
+          }
+          </code></pre>
           
           <p>我ながらかなり難しかった&hellip;</p>
           <h2 id="_6">感想</h2>
           <p>個人的には大満足の出来でした。ですがやはり今まで貯めてきたプログラムが無ければ作業は難航していたでしょう&hellip;<br />
-          あ、<a href="https://scratch.mit.edu/projects/1037788134/">scratch</a>にもあるのでよろしく。<br />
-          <date>2024/06/15</date></p>
+          あ、<a href="https://scratch.mit.edu/projects/1037788134/">scratch</a>にもあるのでよろしく。</p>
 
           </InfinitySpiritContent>
       </div>

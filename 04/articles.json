@@ -1,21 +1,21 @@
 {
   "articles": [
     {
-      "id": "i_think_about_scratch",
+      "id": "SEO_1",
       "title": "",
-      "date": "",
+      "date": "2024/04/30",
       "thumbnail": "thumbnail.png"
     },
     {
       "id": "js_taiso_Infinity",
       "title": "",
-      "date": "",
+      "date": "2024/04/26",
       "thumbnail": "thumbnail.jpeg"
     },
     {
-      "id": "SEO_1",
+      "id": "i_think_about_scratch",
       "title": "",
-      "date": "",
+      "date": "2024/04/23",
       "thumbnail": "thumbnail.png"
     }
   ]
