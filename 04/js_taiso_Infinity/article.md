@@ -26,8 +26,7 @@
   ``` ## 提出方法<br />
   以下ページ内の提出フォームに必要事項を入力し送信してください♪<br />
   <a href="https://hubspot.kayac.com/js-taiso-001#apply" target="_parent"
-    >https://hubspot.kayac.com/js-taiso-001#apply</a
-  >
+    >https://hubspot.kayac.com/js-taiso-001#apply</a>
   ## 備考 -<br />
   `index.html`をローカルファイルとして開くと実行されません。ローカルHTTPサーバなどを介して実行してください♪<br />
   - 文字数は開発者コンソールに表示されます♪ -<br />
@@ -50,14 +49,12 @@
       <code>export default x=>{return (~~(x*5+1)-(1-(5*x%1)**2)**0.5)/5}</code>
     </pre>
 <p>こう！</p>
-<a href="./js-taiso-001/public/index.html" target="_parent">ここ</a
->から見ることができます！
+<a href="./js-taiso-001/public/index.html" target="_parent">ここ</a>から見ることができます！
 <p>それでそれで正解は...</p>
 <a
   href="https://techblog.kayac.com/js-taiso-001-commentary-vol1"
   target="_parent"
-  >ここ！</a
->
+  >ここ！</a>
 <code style="color: #00ff00">export default x=>x-(x%=.2)+.2-(.04-x*x)**.5</code>
 <p>うん...全然届かん。</p>
 <p>やっぱりみんな頭良いんだな...</p>
