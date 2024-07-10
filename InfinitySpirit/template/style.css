@@ -105,11 +105,9 @@ body {
 .article-title {
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
   text-wrap: wrap;
-  text-overflow: clip;
-  width: 50%;
+  width: 60vw;
   margin-left: 5%;
   margin-bottom: 5vh;
-  padding: 5%;
   height: auto;
   text-wrap: wrap;
   font-size: 40px;
