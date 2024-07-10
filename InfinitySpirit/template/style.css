@@ -207,6 +207,7 @@ InfinitySpiritDate {
 
 .articles-recommended>button>div {
   position: absolute;
+  text-align: left;
   width: 100%;
   height: 20%;
   top: 80%;
@@ -215,7 +216,6 @@ InfinitySpiritDate {
 }
 
 .articles-recommended>button>div h1 {
-  text-align: left;
   font-size: 1vw;
   text-wrap: nowrap;
 }
