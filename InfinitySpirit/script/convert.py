@@ -29,8 +29,7 @@ def find_elem(tag, key) -> None:
 
 with open("./InfinitySpirit/template/index.html") as f:
     template_html = f.read()
-    find_elem("InfinitySpiritMetaTitle", "meta-title")
-    find_elem("InfinitySpiritArticleTitle", "title")
+    find_elem("InfinitySpiritTitle", "title")
     find_elem("InfinitySpiritContent", "content")
     find_elem("InfinitySpiritDate", "date")
 
@@ -119,12 +118,6 @@ def convert(date, now_year, indent) -> None:
                     print("article title:", article_title)
                     print("article date:", article_date)
                     export_html = template_html
-                    export_html = export_html.replace(
-                        replace_pos["meta-title"],
-                        "<InfinitySpiritMetaTitle>"
-                        + article_title
-                        + "</InfinitySpiritMetaTitle>",
-                    )
                     export_html = export_html.replace(
                         replace_pos["title"], article_title
                     )
