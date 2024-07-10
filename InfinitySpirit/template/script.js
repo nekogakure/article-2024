@@ -46,9 +46,10 @@ const makeIndex = () => {
     tag.onclick = () => {
       element.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "top",
         inline: "center",
       });
+      window.scrollBy(window.innerHeight / 10);
     };
     article_index.append(tag);
   };
