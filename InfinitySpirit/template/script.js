@@ -163,14 +163,14 @@ const recommendArticles = async () => {
     const this_month = new Date().getMonth();
     const list_path =
       "../../" +
-      (1 + ((month_count + this_month) % 12)).toString().padStart(2, "0") +
+      (1 + ((this_month - month_count) % 12)).toString().padStart(2, "0") +
       "/articles.json";
     await fetch(list_path)
       .then((res) => res.json())
       .then((article_data) => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
-          article_info.month = (month_count + this_month) % 12;
+          article_info.month = (this_month - month_count) % 12;
           add_article_button(article_info);
         });
       });
