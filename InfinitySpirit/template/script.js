@@ -1,3 +1,42 @@
+const create_gotop_button = () => {
+  const go_top = document.createElement("button");
+  go_top.id = "go-top";
+  go_top.innerHTML = `
+  <svg
+    viewBox="0 0 100 100"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    fill="none"
+    stroke="#888"
+    stroke-width="2">
+    <g>
+      <animate
+        attributeName="stroke"
+        dur="5s"
+        repeatCount="indefinite"
+        values="#ff0000;#ffff00;#00ff00;#00ffff;#0000ff;#ff00ff;#ff0000"
+        >
+      </animate>
+      <circle cx="50" cy="50" r="40" />
+      <path d="M 80 45 L50 25 L 20 45" />
+      <path d="M 80 55 L50 35 L 20 55" />
+      <circle cx="50" cy="65" r="20"/>
+      <ellipse cx="40" cy="65" rx="10" ry="8" stroke-width="1" />
+      <ellipse cx="60" cy="65" rx="10" ry="8" stroke-width="1" />
+    </g>
+  </svg>
+  `;
+  go_top.onclick = () => {
+    document.querySelector("body").scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "center",
+    });
+  };
+  document.body.append(go_top);
+};
+create_gotop_button();
 const makeIndex = () => {
   const article_index = document.querySelector(".article-index");
   const article_content = document.querySelector("InfinitySpiritContent");
@@ -28,9 +67,20 @@ const makeIndex = () => {
       addIndex(element);
     }
   }
+  const scroll_index = () => {
+    const body_scroll = window.scrollY / document.body.scrollHeight;
+    const index_scrollTop_target =
+      body_scroll * document.querySelector(".article-index").scrollHeight -
+      document.querySelector(".article-index").scrollTop;
+    const index_scrollTop_now =
+      document.querySelector(".article-index").scrollTop;
+    document.querySelector(".article-index").scrollTop +=
+      (index_scrollTop_target - index_scrollTop_now) / 30;
+    requestAnimationFrame(scroll_index);
+  };
+  scroll_index();
 };
 makeIndex();
-
 
 let renew_clock_watch_count = 0;
 try {
@@ -39,7 +89,7 @@ try {
 } catch (SyntaxError) {
   console.log("not found date object");
 }
-if ((document.querySelector(".article-title").innerHTML == "")) {
+if (document.querySelector(".article-title").innerHTML == "") {
   document.querySelector("InfinitySpiritArticleTitle").innerHTML =
     document.querySelector("InfinitySpiritContent h1").innerHTML;
 }
@@ -99,18 +149,21 @@ const recommendArticles = async () => {
     } else {
       thumbnail.src = article_root_path + article_info.thumbnail;
     }
+    const loading = new Image();
+    loading.src = "../../InfinitySpirit/template/image/loading.svg";
     const title = document.createElement("div");
     title.innerHTML =
       "<h1>" + article_info.title + "</h1><p>date: " + article_info.date;
+    article_button.append(loading);
     article_button.append(thumbnail);
     article_button.append(title);
     article_list.append(article_button);
   };
   for (let month_count = 0; month_count < 12; month_count++) {
-    const this_month=new Date().getMonth();
+    const this_month = new Date().getMonth();
     const list_path =
       "../../" +
-      (1 + (month_count + this_month) % 12).toString().padStart(2, "0") +
+      (1 + ((month_count + this_month) % 12)).toString().padStart(2, "0") +
       "/articles.json";
     await fetch(list_path)
       .then((res) => res.json())
@@ -118,7 +171,7 @@ const recommendArticles = async () => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
           article_info.month = (month_count + this_month) % 12;
-          add_article_button(article_info)
+          add_article_button(article_info);
         });
       });
   }

@@ -29,6 +29,16 @@ body {
   color: var(--infinityspirit-text);
 }
 
+#go-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 10vh;
+  height: 10vh;
+  background: none;
+  border: none;
+}
+
 .article-content {
   line-height: 2;
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
@@ -101,6 +111,7 @@ body {
   margin-bottom: 5vh;
   padding: 5%;
   height: auto;
+  text-wrap: wrap;
   font-size: 40px;
   box-sizing: border-box;
 }
@@ -123,6 +134,8 @@ InfinitySpiritDate {
   height: 70vh;
   margin-left: 1px;
   font-family: sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background-color: color-mix(in srgb, #888, transparent 80%);
 }
 
