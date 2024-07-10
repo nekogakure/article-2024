@@ -166,11 +166,9 @@ InfinitySpiritDate {
   flex-wrap: wrap;
   align-items: flex-start;
   font-family: "Noto-Sans", Arial, Helvetica, sans-serif;
-  width: 50%;
+  width: 60%;
   margin-left: 5%;
-  margin-top: -70vh;
-  margin-bottom: 5vh;
-  padding: 5%;
+  margin-top: -65vh;
   height: 80vh;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -225,7 +223,7 @@ InfinitySpiritDate {
 }
 
 
-@media (max-aspect-ratio:1/1) {
+@media (max-aspect-ratio:2/3) {
   .article-index {
     display: none;
   }
