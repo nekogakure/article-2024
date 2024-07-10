@@ -32,6 +32,7 @@ with open("./InfinitySpirit/template/index.html") as f:
     find_elem("InfinitySpiritTitle", "title")
     find_elem("InfinitySpiritContent", "content")
     find_elem("InfinitySpiritDate", "date")
+    find_elem("InfinitySpiritThumbnail", "thumbnail")
 
 
 def mdc(markdown_text):
@@ -142,6 +143,9 @@ def convert(date, now_year, indent) -> None:
                     for file_name in search.files("./" + month_dir + "/" + article_dir):
                         if file_name.startswith("thumbnail"):
                             article_thumbnail = file_name
+                    export_html = export_html.replace(
+                        replace_pos["thumbnail"], article_thumbnail
+                    )
                     article_index_list.append(
                         {
                             "id": article_dir,
