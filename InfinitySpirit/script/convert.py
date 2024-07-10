@@ -135,10 +135,6 @@ def convert(date, now_year, indent) -> None:
                         replace_pos["date"],
                         "<InfinitySpiritDate>" + article_date + "</InfinitySpiritDate>",
                     )
-                    with open(
-                        "./" + month_dir + "/" + article_dir + "/index.html", mode="w"
-                    ) as index_html:
-                        index_html.write(export_html)
                     article_thumbnail = ""
                     for file_name in search.files("./" + month_dir + "/" + article_dir):
                         if file_name.startswith("thumbnail"):
@@ -146,6 +142,10 @@ def convert(date, now_year, indent) -> None:
                     export_html = export_html.replace(
                         replace_pos["thumbnail"], article_thumbnail
                     )
+                    with open(
+                        "./" + month_dir + "/" + article_dir + "/index.html", mode="w"
+                    ) as index_html:
+                        index_html.write(export_html)
                     article_index_list.append(
                         {
                             "id": article_dir,
