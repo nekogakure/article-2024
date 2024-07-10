@@ -40,8 +40,8 @@ body {
     color-mix(in srgb,
       color-mix(in srgb,
         var(--infinityspirit-back),
-        #888 20%),
-      transparent 50%);
+        #888 10%),
+      transparent 10%);
   color: var(--infinityspirit-text);
 }
 
@@ -204,8 +204,7 @@ InfinitySpiritDate {
 .articles-recommended>button>div h1 {
   text-align: left;
   font-size: 1vw;
-  display: inline-block;
-  text-overflow: clip;
+  text-wrap: nowrap;
 }
 
 .articles-recommended>button>div p {
