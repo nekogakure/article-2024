@@ -96,6 +96,7 @@ body {
 .article-content table {
   border-collapse: collapse;
   border: solid 2px var(--infinityspirit-text);
+  width: 100%;
 }
 
 .article-content th,
