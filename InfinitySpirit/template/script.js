@@ -28,10 +28,10 @@ const create_gotop_button = () => {
   </svg>
   `;
   go_top.onclick = () => {
-    document.querySelector("body").scrollIntoView({
+    window.scrollTo({
+      top: 0,
+      left: 0,
       behavior: "smooth",
-      block: "start",
-      inline: "center",
     });
   };
   document.body.append(go_top);
@@ -43,12 +43,14 @@ const makeIndex = () => {
   const addIndex = (element) => {
     const tag = document.createElement(element.tagName);
     tag.innerHTML = element.innerHTML;
+    const element_pos = element.getBoundingClientRect();
+    const element_x = element_pos.x;
+    const element_y = element_pos.y;
     tag.onclick = () => {
-      alert(123);
-      element.scrollIntoView({
+      window.scrollTo({
         behavior: "smooth",
-        block: "center",
-        inline: "center",
+        top: element_y - window.innerHeight / 9,
+        left: element_x,
       });
     };
     article_index.append(tag);
