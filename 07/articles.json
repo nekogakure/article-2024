@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "id": "start-using-devcontainer",
+      "title": "DevContainer\u4f7f\u3063\u3066\u307f\u305f\uff01",
+      "date": "2024/07/11",
+      "thumbnail": "thumbnail.png"
+    },
+    {
       "id": "complete-making-InfinitySpirit",
       "title": "Infinity Spirit Blog \u5b8c\u6210\uff01",
       "date": "2024/07/10",
