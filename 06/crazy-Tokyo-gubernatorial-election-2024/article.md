@@ -11,8 +11,6 @@
 取り敢えず候補者をここに書き並べますね..
 ## 過去最多 56名の候補者たち
 引用: [東京都知事選挙立候補者一覧](https://r6tochijisen.metro.tokyo.lg.jp/governor/index.html)
-<details>
-<summary>アホみたいに多い東京都知事選挙の立候補者達</summary>
   <table class="tb-style03 scroll">
     <tbody>
       <tr>
@@ -563,7 +561,6 @@
       </tr>
     </tbody>
 </table>
-</details>
 
 ## 混沌だらけの候補者達
 
