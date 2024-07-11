@@ -44,6 +44,7 @@ const makeIndex = () => {
     const tag = document.createElement(element.tagName);
     tag.innerHTML = element.innerHTML;
     tag.onclick = () => {
+      alert(123);
       element.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -163,7 +164,7 @@ const recommendArticles = async () => {
     const this_month = new Date().getMonth();
     const list_path =
       "../../" +
-      (1 + ((this_month - month_count) % 12)).toString().padStart(2, "0") +
+      (1 + ((12 + this_month - month_count) % 12)).toString().padStart(2, "0") +
       "/articles.json";
     await fetch(list_path)
       .then((res) => res.json())

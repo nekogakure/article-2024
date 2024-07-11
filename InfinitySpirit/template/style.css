@@ -37,6 +37,7 @@ body {
   height: 10vh;
   background: none;
   border: none;
+  z-index: 800;
 }
 
 .article-content {
