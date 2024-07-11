@@ -140,7 +140,7 @@ def convert(date, now_year, indent) -> None:
                         if file_name.startswith("thumbnail"):
                             article_thumbnail = file_name
                     export_html = export_html.replace(
-                        replace_pos["thumbnail"], "https://github.com/The-Infinitys/InfinitySpirit/InfinitySpirit.jpeg"
+                        replace_pos["thumbnail"], "https://develop.the-infinitys.f5.si/InfinitySpirit/InfinitySpirit.jpeg"
                     )
                     with open(
                         "./" + month_dir + "/" + article_dir + "/index.html", mode="w"
