@@ -249,6 +249,11 @@ InfinitySpiritDate {
   .articles-recommended>button {
     --this-width: 25%;
   }
+
+  .articles-recommended>button>div h1,
+  .articles-recommended>button>div p {
+    font-size: 0.6vw;
+  }
 }
 
 .article-content h5,
