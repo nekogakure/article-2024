@@ -180,3 +180,16 @@ const recommendArticles = async () => {
   }
 };
 recommendArticles();
+const copyURL = () => {
+  const copyToClipBoard = (text) => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        alert("copied!");
+      },
+      () => {
+        alert("failed to copy...");
+      }
+    );
+  };
+  copyToClipBoard(window.location.href);
+};

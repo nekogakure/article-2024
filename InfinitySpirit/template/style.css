@@ -116,6 +116,23 @@ body {
   box-sizing: border-box;
 }
 
+.article-share {
+  width: 50vh;
+  height: 5vh;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  font-size: 5vh;
+  background: var(--infinityspirit-back);
+  padding: 10px;
+  border: 2px solid var(--infinityspirit-text);
+  border-radius: 5vh;
+}
+
+.article-share>img {
+  height: 5vh;
+}
+
 .clock-watch {
   width: 30px;
 }
