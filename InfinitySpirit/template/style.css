@@ -159,6 +159,11 @@ InfinitySpiritDate {
   font-weight: 400;
 }
 
+.codehilite {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 
 .articles-recommended {
   line-height: 2;
@@ -199,10 +204,6 @@ InfinitySpiritDate {
   object-fit: cover;
 }
 
-.codehilite {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
 
 .articles-recommended>button>div {
   position: absolute;
