@@ -97,8 +97,16 @@ def mdc(markdown_text):
 
 def indent_html(html, indent_level) -> str:
     result = ""
+    mode_code = False
     for line in html.split("\n"):
-        result += " " * indent_level + line + "\n"
+        if line.startswith('<div class="codehilite"') && mode_code:
+            mode_code=True
+        elif line.startswith("</code></pre></div>") && !mode_code:
+            mode_code=False
+        if mode_code:
+            result += line + "\n"
+        else:
+            result += " " * indent_level + line + "\n"
     return result
 
 
