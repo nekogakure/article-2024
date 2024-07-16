@@ -44,7 +44,7 @@ const recommendArticles = async () => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
           article_info.month = (12 - month_count) % 12;
-          article_info.year = year_count;
+          article_info.year = 2024;
           add_article_button(article_info);
         });
       });
