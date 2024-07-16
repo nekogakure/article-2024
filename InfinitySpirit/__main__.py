@@ -33,6 +33,7 @@ def main() -> int:
             setting["git-repository"]["year"],
             setting["converter"]["indent-level"],
         )
+    github.renew()
     return 0
 
 
