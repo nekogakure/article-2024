@@ -5,9 +5,7 @@ const recommendArticles = async () => {
   const add_article_button = (article_info) => {
     const article_button = document.createElement("button");
     const article_root_path =
-      "../article-" +
-      article_info.year.toString() +
-      "/" +
+      "./" +
       (article_info.month + 1).toString().padStart(2, "0") +
       "/" +
       article_info.id +
@@ -44,7 +42,6 @@ const recommendArticles = async () => {
         const datas = article_data.articles;
         datas.forEach((article_info) => {
           article_info.month = (12 - month_count) % 12;
-          article_info.year = 2024;
           add_article_button(article_info);
         });
       });
