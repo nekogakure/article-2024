@@ -35,7 +35,7 @@ jobs:
       - run: pip install pygments
       - run: pip install markdown
       - run: python InfinitySpirit
-      - run: cp -r ./ ./_site
+      - run: rsync -a ./ --exclude './_site'
       - uses: actions/upload-pages-artifact@v3
 
 
