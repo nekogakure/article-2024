@@ -99,9 +99,9 @@ def indent_html(html, indent_level) -> str:
     result = ""
     mode_code = False
     for line in html.split("\n"):
-        if line.startswith('<div class="codehilite"') && mode_code:
+        if line.startswith('<div class="codehilite"') and mode_code:
             mode_code=True
-        elif line.startswith("</code></pre></div>") && !mode_code:
+        elif line.startswith("</code></pre></div>") and !mode_code:
             mode_code=False
         if mode_code:
             result += line + "\n"
