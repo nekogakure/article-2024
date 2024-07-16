@@ -35,7 +35,7 @@ jobs:
       - run: pip install pygments
       - run: pip install markdown
       - run: python InfinitySpirit
-      - run: cp ./ ./_site
+      - run: cp -r ./ ./_site
       - uses: actions/upload-pages-artifact@v3
 
 
