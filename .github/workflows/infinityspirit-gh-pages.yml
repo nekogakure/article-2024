@@ -30,10 +30,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
       - run: git pull
       - run: pip install pygments
       - run: pip install markdown
       - run: python InfinitySpirit
+      - uses: actions/upload-pages-artifact@v3
+
 
   # Deployment job
   deploy:
